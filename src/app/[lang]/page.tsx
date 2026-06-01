@@ -4,8 +4,7 @@ import { Phone, Shield, Star, CheckCircle, ArrowRight, Droplets, Home, Building2
 import { getDictionary, type Lang } from "@/lib/getDictionary";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
-  const { lang: rawLang } = await params;
-  const lang = (rawLang === "es" ? "es" : "en") as Lang;
+  const { lang } = await params;
   const d = await getDictionary(lang);
   return {
     title: d.meta.home.title,
@@ -34,30 +33,22 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
     url: "https://altitudess.net",
     telephone: "+16787395229",
     email: "info@altitudeservicesolutions.com",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Lawrenceville",
-      addressRegion: "GA",
-      addressCountry: "US",
-    },
+    address: { "@type": "PostalAddress", addressLocality: "Lawrenceville", addressRegion: "GA", addressCountry: "US" },
     geo: { "@type": "GeoCoordinates", latitude: 33.9526, longitude: -83.9877 },
     areaServed: [
-      { "@type": "City", name: "Atlanta" },
-      { "@type": "City", name: "Lawrenceville" },
-      { "@type": "City", name: "Duluth" },
-      { "@type": "City", name: "Norcross" },
+      { "@type": "City", name: "Atlanta" }, { "@type": "City", name: "Lawrenceville" },
+      { "@type": "City", name: "Duluth" }, { "@type": "City", name: "Norcross" },
     ],
     priceRange: "$$",
     openingHours: "Mo-Sa 08:00-18:00",
     aggregateRating: { "@type": "AggregateRating", ratingValue: "5", reviewCount: "47" },
-    sameAs: ["https://www.facebook.com/altitudeservicesolutions", "https://www.instagram.com/altitudeservicesolutions"],
   };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      {/* HERO */}
+      {/* HERO — fondo azul oscuro se mantiene */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0A1628]">
         <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628] via-[#0F1F3D] to-[#0A1628]" />
         <div className="absolute inset-0">
@@ -71,9 +62,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           </div>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-tight mb-6">
             {d.hero.title}{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-sky-300 bg-clip-text text-transparent">
-              {d.hero.titleHighlight}
-            </span>
+            <span className="bg-gradient-to-r from-blue-400 to-sky-300 bg-clip-text text-transparent">{d.hero.titleHighlight}</span>
           </h1>
           <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed">{d.hero.subtitle}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
@@ -97,42 +86,42 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         </div>
       </section>
 
-      {/* WHY US */}
-      <section className="py-20 bg-[#0F1F3D]/50">
+      {/* WHY US — fondo blanco */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-blue-400 font-semibold text-sm tracking-widest uppercase mb-3">{d.whyUs.badge}</p>
-              <h2 className="text-4xl sm:text-5xl font-black text-white mb-6 leading-tight">
+              <p className="text-blue-600 font-semibold text-sm tracking-widest uppercase mb-3">{d.whyUs.badge}</p>
+              <h2 className="text-4xl sm:text-5xl font-black text-gray-900 mb-6 leading-tight">
                 {d.whyUs.title}{" "}
-                <span className="bg-gradient-to-r from-blue-400 to-sky-300 bg-clip-text text-transparent">{d.whyUs.titleHighlight}</span>
+                <span className="bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent">{d.whyUs.titleHighlight}</span>
               </h2>
-              <p className="text-gray-400 text-lg leading-relaxed mb-8">{d.whyUs.desc}</p>
+              <p className="text-gray-600 text-lg leading-relaxed mb-8">{d.whyUs.desc}</p>
               <ul className="space-y-4 mb-10">
                 {d.whyUs.bullets.map((item) => (
-                  <li key={item} className="flex items-center gap-3 text-gray-300">
-                    <CheckCircle size={20} className="text-blue-400 shrink-0" />{item}
+                  <li key={item} className="flex items-center gap-3 text-gray-700">
+                    <CheckCircle size={20} className="text-blue-500 shrink-0" />{item}
                   </li>
                 ))}
               </ul>
               <Link href={`/${lang}/contact`}
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold hover:from-blue-700 hover:to-blue-600 transition-all hover:-translate-y-1">
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold hover:from-blue-700 hover:to-blue-600 transition-all hover:-translate-y-1 shadow-lg shadow-blue-500/20">
                 {d.whyUs.cta} <ArrowRight size={18} />
               </Link>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { icon: Shield, color: "text-blue-400", bg: "bg-blue-900/40" },
-                { icon: Star, color: "text-yellow-400", bg: "bg-yellow-900/20" },
-                { icon: Droplets, color: "text-sky-400", bg: "bg-sky-900/20" },
-                { icon: CheckCircle, color: "text-green-400", bg: "bg-green-900/20" },
+                { icon: Shield, color: "text-blue-600", bg: "bg-blue-100" },
+                { icon: Star, color: "text-yellow-500", bg: "bg-yellow-50" },
+                { icon: Droplets, color: "text-sky-500", bg: "bg-sky-50" },
+                { icon: CheckCircle, color: "text-green-500", bg: "bg-green-50" },
               ].map((card, i) => (
-                <div key={i} className={`bg-[#0A1628] border border-blue-900/30 rounded-2xl p-6 text-center card-hover ${i % 2 !== 0 ? "mt-8" : ""}`}>
+                <div key={i} className={`bg-white border border-gray-100 rounded-2xl p-6 text-center card-hover shadow-sm ${i % 2 !== 0 ? "mt-8" : ""}`}>
                   <div className={`w-14 h-14 ${card.bg} rounded-xl flex items-center justify-center mx-auto mb-3`}>
                     <card.icon size={28} className={card.color} />
                   </div>
-                  <h3 className="text-white font-bold mb-2">{d.whyUs.cards[i].title}</h3>
-                  <p className="text-gray-400 text-sm">{d.whyUs.cards[i].desc}</p>
+                  <h3 className="text-gray-900 font-bold mb-2">{d.whyUs.cards[i].title}</h3>
+                  <p className="text-gray-500 text-sm">{d.whyUs.cards[i].desc}</p>
                 </div>
               ))}
             </div>
@@ -140,85 +129,85 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         </div>
       </section>
 
-      {/* RESIDENTIAL SERVICES */}
-      <section className="py-20">
+      {/* RESIDENTIAL SERVICES — fondo blanco */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
-            <p className="text-blue-400 font-semibold text-sm tracking-widest uppercase mb-3">{d.residentialSection.badge}</p>
-            <h2 className="text-4xl sm:text-5xl font-black text-white mb-4">{d.residentialSection.title}</h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">{d.residentialSection.desc}</p>
+            <p className="text-blue-600 font-semibold text-sm tracking-widest uppercase mb-3">{d.residentialSection.badge}</p>
+            <h2 className="text-4xl sm:text-5xl font-black text-gray-900 mb-4">{d.residentialSection.title}</h2>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto">{d.residentialSection.desc}</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {d.residential.services.map((s, i) => {
               const Icon = resIcons[i] ?? CheckCircle;
               return (
-                <div key={s.id} className="group bg-[#0F1F3D]/60 border border-blue-900/30 rounded-2xl p-7 card-hover hover:border-blue-600/50">
-                  <div className="w-12 h-12 rounded-xl bg-blue-900/40 flex items-center justify-center mb-5 group-hover:bg-blue-600 transition-colors">
-                    <Icon size={24} className="text-blue-400 group-hover:text-white transition-colors" />
+                <div key={s.id} className="group bg-white border border-gray-100 rounded-2xl p-7 card-hover hover:border-blue-200 shadow-sm">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-5 group-hover:bg-blue-600 transition-colors">
+                    <Icon size={24} className="text-blue-600 group-hover:text-white transition-colors" />
                   </div>
-                  <h3 className="text-white font-bold text-lg mb-2">{s.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{s.desc}</p>
+                  <h3 className="text-gray-900 font-bold text-lg mb-2">{s.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
                 </div>
               );
             })}
           </div>
           <div className="text-center mt-10">
             <Link href={`/${lang}/residential`}
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border border-blue-600/50 text-blue-400 font-semibold hover:bg-blue-600 hover:text-white transition-all">
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-600 hover:text-white transition-all">
               {d.residentialSection.viewAll} <ArrowRight size={18} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* COMMERCIAL */}
-      <section className="py-20 bg-[#060E1E]">
+      {/* COMMERCIAL — fondo gris claro */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
-            <p className="text-blue-400 font-semibold text-sm tracking-widest uppercase mb-3">{d.commercialSection.badge}</p>
-            <h2 className="text-4xl sm:text-5xl font-black text-white mb-4">{d.commercialSection.title}</h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">{d.commercialSection.desc}</p>
+            <p className="text-blue-600 font-semibold text-sm tracking-widest uppercase mb-3">{d.commercialSection.badge}</p>
+            <h2 className="text-4xl sm:text-5xl font-black text-gray-900 mb-4">{d.commercialSection.title}</h2>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto">{d.commercialSection.desc}</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {d.commercial.services.slice(0, 4).map((s, i) => {
-              const Icon = comIcons[i];
+              const Icon = comIcons[i] ?? Building2;
               return (
-                <div key={s.id} className="group bg-[#0F1F3D]/60 border border-blue-900/30 rounded-2xl p-7 card-hover hover:border-blue-600/50">
-                  <div className="w-12 h-12 rounded-xl bg-blue-900/40 flex items-center justify-center mb-5 group-hover:bg-blue-600 transition-colors">
-                    <Icon size={24} className="text-blue-400 group-hover:text-white transition-colors" />
+                <div key={s.id} className="group bg-white border border-gray-100 rounded-2xl p-7 card-hover hover:border-blue-200 shadow-sm">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-5 group-hover:bg-blue-600 transition-colors">
+                    <Icon size={24} className="text-blue-600 group-hover:text-white transition-colors" />
                   </div>
-                  <h3 className="text-white font-bold text-lg mb-2">{s.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{s.desc}</p>
+                  <h3 className="text-gray-900 font-bold text-lg mb-2">{s.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
                 </div>
               );
             })}
           </div>
           <div className="text-center mt-10">
             <Link href={`/${lang}/commercial`}
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border border-blue-600/50 text-blue-400 font-semibold hover:bg-blue-600 hover:text-white transition-all">
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-600 hover:text-white transition-all">
               {d.commercialSection.viewAll} <ArrowRight size={18} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="py-20">
+      {/* TESTIMONIALS — fondo blanco */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
-            <p className="text-blue-400 font-semibold text-sm tracking-widest uppercase mb-3">{d.testimonials.badge}</p>
-            <h2 className="text-4xl sm:text-5xl font-black text-white mb-4">{d.testimonials.title}</h2>
+            <p className="text-blue-600 font-semibold text-sm tracking-widest uppercase mb-3">{d.testimonials.badge}</p>
+            <h2 className="text-4xl sm:text-5xl font-black text-gray-900 mb-4">{d.testimonials.title}</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {d.testimonials.items.map((t) => (
-              <div key={t.name} className="bg-[#0F1F3D]/60 border border-blue-900/30 rounded-2xl p-7 card-hover">
+              <div key={t.name} className="bg-white border border-gray-100 rounded-2xl p-7 card-hover shadow-sm">
                 <div className="flex gap-1 mb-4">
                   {[1,2,3,4,5].map((i) => <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />)}
                 </div>
-                <p className="text-gray-300 text-sm leading-relaxed mb-6">&ldquo;{t.text}&rdquo;</p>
+                <p className="text-gray-600 text-sm leading-relaxed mb-6">&ldquo;{t.text}&rdquo;</p>
                 <div>
-                  <div className="text-white font-semibold">{t.name}</div>
-                  <div className="text-gray-500 text-sm">{t.location}</div>
+                  <div className="text-gray-900 font-semibold">{t.name}</div>
+                  <div className="text-gray-400 text-sm">{t.location}</div>
                 </div>
               </div>
             ))}
@@ -226,18 +215,18 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-blue-900/40 to-[#0F1F3D]">
+      {/* CTA — se mantiene azul */}
+      <section className="py-20 bg-gradient-to-r from-blue-700 to-blue-500">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-4xl sm:text-5xl font-black text-white mb-5">{d.cta.title}</h2>
-          <p className="text-gray-300 text-lg mb-10">{d.cta.desc}</p>
+          <p className="text-blue-100 text-lg mb-10">{d.cta.desc}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href={`/${lang}/contact`}
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-bold text-lg hover:from-blue-700 hover:to-blue-600 transition-all hover:shadow-2xl hover:shadow-blue-500/30 hover:-translate-y-1">
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white text-blue-700 font-bold text-lg hover:bg-blue-50 transition-all hover:shadow-2xl hover:-translate-y-1">
               {d.cta.primary} <ArrowRight size={20} />
             </Link>
             <a href="tel:+16787395229"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border-2 border-white/20 text-white font-bold text-lg hover:bg-white/10 transition-all">
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border-2 border-white/60 text-white font-bold text-lg hover:bg-white/10 transition-all">
               <Phone size={20} /> {d.cta.secondary}
             </a>
           </div>

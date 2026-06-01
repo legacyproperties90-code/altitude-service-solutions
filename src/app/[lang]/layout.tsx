@@ -82,7 +82,7 @@ export default async function LangLayout({
 
   return (
     <html lang={lang} className="scroll-smooth">
-      <body className={`${inter.className} bg-[#0A1628] text-white min-h-screen flex flex-col`}>
+      <body className={`${inter.className} bg-white text-gray-900 min-h-screen flex flex-col`}>
         <Header lang={lang} d={d} />
         <main className="flex-1">{children}</main>
         <Footer lang={lang} d={d} />

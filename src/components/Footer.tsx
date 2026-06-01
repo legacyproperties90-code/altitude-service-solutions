@@ -4,7 +4,7 @@ import type { Dictionary, Lang } from "@/lib/getDictionary";
 
 export default function Footer({ lang, d }: { lang: Lang; d: Dictionary }) {
   return (
-    <footer className="bg-[#060E1E] border-t border-blue-900/20">
+    <footer className="bg-gray-900 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
@@ -19,11 +19,11 @@ export default function Footer({ lang, d }: { lang: Lang; d: Dictionary }) {
             <p className="text-gray-400 text-sm leading-relaxed mb-6">{d.footer.desc}</p>
             <div className="flex gap-3">
               <a href="https://www.facebook.com/altitudeservicesolutions" target="_blank" rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-blue-900/30 flex items-center justify-center text-blue-400 hover:bg-blue-600 hover:text-white transition-all" aria-label="Facebook">
+                className="w-9 h-9 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition-all" aria-label="Facebook">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
               </a>
               <a href="https://www.instagram.com/altitudeservicesolutions" target="_blank" rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-blue-900/30 flex items-center justify-center text-blue-400 hover:bg-pink-600 hover:text-white transition-all" aria-label="Instagram">
+                className="w-9 h-9 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-pink-600 hover:text-white transition-all" aria-label="Instagram">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>
               </a>
             </div>
@@ -78,7 +78,7 @@ export default function Footer({ lang, d }: { lang: Lang; d: Dictionary }) {
         </div>
       </div>
 
-      <div className="border-t border-blue-900/20 py-6">
+      <div className="border-t border-gray-800 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-3">
           <p className="text-gray-500 text-sm">© {new Date().getFullYear()} Altitude Service Solutions, LLC. {d.footer.rights}</p>
           <p className="text-gray-600 text-xs">{d.footer.serving}</p>

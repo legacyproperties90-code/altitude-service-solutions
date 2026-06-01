@@ -2,7 +2,6 @@
 import { useState, use } from "react";
 import { Phone, Mail, MapPin, Send, CheckCircle, Clock, Shield } from "lucide-react";
 import { supabase } from "@/lib/supabase";
-import type { Lang } from "@/lib/getDictionary";
 
 const serviceKeys = {
   en: {
@@ -15,7 +14,7 @@ const serviceKeys = {
   },
 };
 
-const contactInfo = {
+const t = {
   en: {
     badge: "Contact Us", title: "Get a Free Quote",
     desc: "Fill out the form below and we'll get back to you within 24 hours with a free, no-obligation estimate.",
@@ -31,7 +30,7 @@ const contactInfo = {
     message: "Additional Details", messagePlaceholder: "Tell us about your project...",
     submit: "Request Free Quote", sending: "Sending...",
     successTitle: "Quote Request Sent!",
-    successDesc: "Thank you! We'll get back to you within 24 hours with your free estimate. For urgent requests, call us at",
+    successDesc: "Thank you! We'll get back to you within 24 hours. For urgent requests, call us at",
     errorMsg: "Something went wrong. Please call us directly at (678) 739-5229.",
     residential: "Residential", commercialLabel: "Commercial",
   },
@@ -56,10 +55,10 @@ const contactInfo = {
   },
 };
 
-export default function ContactPage({ params }: { params: Promise<{ lang: Lang }> }) {
+export default function ContactPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = use(params);
-  const t = contactInfo[lang] ?? contactInfo.en;
-  const svcs = serviceKeys[lang] ?? serviceKeys.en;
+  const copy = lang === "es" ? t.es : t.en;
+  const svcs = lang === "es" ? serviceKeys.es : serviceKeys.en;
 
   const [form, setForm] = useState({ name: "", email: "", phone: "", service: "", address: "", message: "" });
   const [loading, setLoading] = useState(false);
@@ -77,123 +76,124 @@ export default function ContactPage({ params }: { params: Promise<{ lang: Lang }
       address: form.address, message: form.message,
     }]);
     setLoading(false);
-    if (err) setError(t.errorMsg);
+    if (err) setError(copy.errorMsg);
     else setSent(true);
   };
 
   return (
     <>
-      <section className="pt-32 pb-16 bg-gradient-to-b from-[#0F1F3D] to-[#0A1628]">
+      <section className="pt-32 pb-16 bg-gradient-to-b from-blue-600 to-blue-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-blue-400 font-semibold text-sm tracking-widest uppercase mb-3">{t.badge}</p>
-          <h1 className="text-5xl sm:text-6xl font-black text-white mb-5">{t.title}</h1>
-          <p className="text-gray-400 text-xl max-w-2xl mx-auto">{t.desc}</p>
+          <p className="text-blue-100 font-semibold text-sm tracking-widest uppercase mb-3">{copy.badge}</p>
+          <h1 className="text-5xl sm:text-6xl font-black text-white mb-5">{copy.title}</h1>
+          <p className="text-blue-100 text-xl max-w-2xl mx-auto">{copy.desc}</p>
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-3 gap-12">
+
+            {/* Sidebar */}
             <div className="space-y-6">
-              <div>
-                <h2 className="text-2xl font-black text-white mb-6">{t.whyChoose}</h2>
-                <div className="space-y-5">
-                  {[
-                    { icon: Phone, label: t.callUs, val: "(678) 739-5229", href: "tel:+16787395229" },
-                    { icon: Mail, label: t.emailUs, val: "info@altitudeservicesolutions.com", href: "mailto:info@altitudeservicesolutions.com" },
-                  ].map((item) => (
-                    <a key={item.label} href={item.href} className="flex items-start gap-4 group">
-                      <div className="w-12 h-12 rounded-xl bg-blue-900/40 flex items-center justify-center shrink-0 group-hover:bg-blue-600 transition-colors">
-                        <item.icon size={20} className="text-blue-400 group-hover:text-white" />
-                      </div>
-                      <div>
-                        <div className="text-gray-400 text-sm mb-1">{item.label}</div>
-                        <div className="text-white font-semibold text-sm">{item.val}</div>
-                      </div>
-                    </a>
-                  ))}
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-blue-900/40 flex items-center justify-center shrink-0">
-                      <MapPin size={20} className="text-blue-400" />
+              <div className="space-y-5">
+                {[
+                  { icon: Phone, label: copy.callUs, val: "(678) 739-5229", href: "tel:+16787395229" },
+                  { icon: Mail, label: copy.emailUs, val: "info@altitudeservicesolutions.com", href: "mailto:info@altitudeservicesolutions.com" },
+                ].map((item) => (
+                  <a key={item.label} href={item.href} className="flex items-start gap-4 group">
+                    <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-blue-600 transition-colors">
+                      <item.icon size={20} className="text-blue-600 group-hover:text-white" />
                     </div>
                     <div>
-                      <div className="text-gray-400 text-sm mb-1">{t.serviceArea}</div>
-                      <div className="text-white font-semibold text-sm">{t.serviceAreaVal}</div>
+                      <div className="text-gray-500 text-sm mb-1">{item.label}</div>
+                      <div className="text-gray-900 font-semibold text-sm">{item.val}</div>
                     </div>
+                  </a>
+                ))}
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center shrink-0">
+                    <MapPin size={20} className="text-blue-600" />
+                  </div>
+                  <div>
+                    <div className="text-gray-500 text-sm mb-1">{copy.serviceArea}</div>
+                    <div className="text-gray-900 font-semibold text-sm">{copy.serviceAreaVal}</div>
                   </div>
                 </div>
               </div>
-              <div className="bg-[#0F1F3D]/60 border border-blue-900/30 rounded-2xl p-6 space-y-4">
-                <h3 className="text-white font-bold">{t.whyChoose}</h3>
+
+              <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6 space-y-4">
+                <h3 className="text-gray-900 font-bold">{copy.whyChoose}</h3>
                 {[Clock, Shield, CheckCircle].map((Icon, i) => (
                   <div key={i} className="flex items-center gap-3">
-                    <Icon size={18} className="text-blue-400 shrink-0" />
-                    <span className="text-gray-300 text-sm">{t.bullets[i]}</span>
+                    <Icon size={18} className="text-blue-500 shrink-0" />
+                    <span className="text-gray-600 text-sm">{copy.bullets[i]}</span>
                   </div>
                 ))}
               </div>
             </div>
 
+            {/* Form */}
             <div className="lg:col-span-2">
               {sent ? (
-                <div className="bg-[#0F1F3D]/60 border border-green-500/30 rounded-2xl p-12 text-center">
-                  <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <CheckCircle size={40} className="text-green-400" />
+                <div className="bg-green-50 border border-green-200 rounded-2xl p-12 text-center">
+                  <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <CheckCircle size={40} className="text-green-500" />
                   </div>
-                  <h3 className="text-2xl font-black text-white mb-3">{t.successTitle}</h3>
-                  <p className="text-gray-400 text-lg">{t.successDesc}{" "}
-                    <a href="tel:+16787395229" className="text-blue-400 font-semibold">(678) 739-5229</a>.
+                  <h3 className="text-2xl font-black text-gray-900 mb-3">{copy.successTitle}</h3>
+                  <p className="text-gray-600 text-lg">{copy.successDesc}{" "}
+                    <a href="tel:+16787395229" className="text-blue-600 font-semibold">(678) 739-5229</a>.
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="bg-[#0F1F3D]/60 border border-blue-900/30 rounded-2xl p-8 space-y-6">
+                <form onSubmit={handleSubmit} className="bg-white border border-gray-100 rounded-2xl p-8 space-y-6 shadow-sm">
                   <div className="grid sm:grid-cols-2 gap-6">
                     {[
-                      { label: t.name, key: "name", placeholder: t.namePlaceholder, type: "text", required: true },
-                      { label: t.email, key: "email", placeholder: t.emailPlaceholder, type: "email", required: true },
+                      { label: copy.name, key: "name", placeholder: copy.namePlaceholder, type: "text", required: true },
+                      { label: copy.email, key: "email", placeholder: copy.emailPlaceholder, type: "email", required: true },
                     ].map((f) => (
                       <div key={f.key}>
-                        <label className="block text-gray-300 text-sm font-medium mb-2">{f.label} {f.required && "*"}</label>
+                        <label className="block text-gray-700 text-sm font-medium mb-2">{f.label}{f.required && " *"}</label>
                         <input required={f.required} type={f.type} value={form[f.key as keyof typeof form]}
                           onChange={(e) => setForm({ ...form, [f.key]: e.target.value })}
-                          className="w-full bg-[#0A1628] border border-blue-900/40 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors"
+                          className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:bg-white transition-colors"
                           placeholder={f.placeholder} />
                       </div>
                     ))}
                   </div>
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-gray-300 text-sm font-medium mb-2">{t.phone}</label>
+                      <label className="block text-gray-700 text-sm font-medium mb-2">{copy.phone}</label>
                       <input value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                        className="w-full bg-[#0A1628] border border-blue-900/40 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors"
-                        placeholder={t.phonePlaceholder} />
+                        className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:bg-white transition-colors"
+                        placeholder={copy.phonePlaceholder} />
                     </div>
                     <div>
-                      <label className="block text-gray-300 text-sm font-medium mb-2">{t.service} *</label>
+                      <label className="block text-gray-700 text-sm font-medium mb-2">{copy.service} *</label>
                       <select required value={form.service} onChange={(e) => setForm({ ...form, service: e.target.value })}
-                        className="w-full bg-[#0A1628] border border-blue-900/40 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors">
-                        <option value="">{t.servicePlaceholder}</option>
-                        <optgroup label={t.residential}>{svcs.residential.map((s) => <option key={s} value={s}>{s}</option>)}</optgroup>
-                        <optgroup label={t.commercialLabel}>{svcs.commercial.map((s) => <option key={s} value={s}>{s}</option>)}</optgroup>
+                        className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-blue-500 focus:bg-white transition-colors">
+                        <option value="">{copy.servicePlaceholder}</option>
+                        <optgroup label={copy.residential}>{svcs.residential.map((s) => <option key={s} value={s}>{s}</option>)}</optgroup>
+                        <optgroup label={copy.commercialLabel}>{svcs.commercial.map((s) => <option key={s} value={s}>{s}</option>)}</optgroup>
                       </select>
                     </div>
                   </div>
                   <div>
-                    <label className="block text-gray-300 text-sm font-medium mb-2">{t.address}</label>
+                    <label className="block text-gray-700 text-sm font-medium mb-2">{copy.address}</label>
                     <input value={form.address} onChange={(e) => setForm({ ...form, address: e.target.value })}
-                      className="w-full bg-[#0A1628] border border-blue-900/40 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors"
-                      placeholder={t.addressPlaceholder} />
+                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:bg-white transition-colors"
+                      placeholder={copy.addressPlaceholder} />
                   </div>
                   <div>
-                    <label className="block text-gray-300 text-sm font-medium mb-2">{t.message}</label>
+                    <label className="block text-gray-700 text-sm font-medium mb-2">{copy.message}</label>
                     <textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      rows={4} className="w-full bg-[#0A1628] border border-blue-900/40 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition-colors resize-none"
-                      placeholder={t.messagePlaceholder} />
+                      rows={4} className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:bg-white transition-colors resize-none"
+                      placeholder={copy.messagePlaceholder} />
                   </div>
-                  {error && <p className="text-red-400 text-sm">{error}</p>}
+                  {error && <p className="text-red-500 text-sm">{error}</p>}
                   <button type="submit" disabled={loading}
                     className="w-full py-4 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-bold text-lg hover:from-blue-700 hover:to-blue-600 transition-all hover:shadow-xl hover:shadow-blue-500/25 disabled:opacity-60 flex items-center justify-center gap-2">
-                    {loading ? t.sending : <><Send size={20} /> {t.submit}</>}
+                    {loading ? copy.sending : <><Send size={20} /> {copy.submit}</>}
                   </button>
                 </form>
               )}

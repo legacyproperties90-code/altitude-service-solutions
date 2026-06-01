@@ -24,42 +24,42 @@ export default async function ResidentialPage({ params }: { params: Promise<{ la
 
   return (
     <>
-      <section className="pt-32 pb-16 bg-gradient-to-b from-[#0F1F3D] to-[#0A1628]">
+      <section className="pt-32 pb-16 bg-gradient-to-b from-blue-600 to-blue-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-blue-400 font-semibold text-sm tracking-widest uppercase mb-3">{d.residential.badge}</p>
+          <p className="text-blue-100 font-semibold text-sm tracking-widest uppercase mb-3">{d.residential.badge}</p>
           <h1 className="text-5xl sm:text-6xl font-black text-white mb-5">{d.residential.title}</h1>
-          <p className="text-gray-400 text-xl max-w-2xl mx-auto">{d.residential.desc}</p>
+          <p className="text-blue-100 text-xl max-w-2xl mx-auto">{d.residential.desc}</p>
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-20">
           {d.residential.services.map((s, i) => {
             const Icon = icons[i] ?? CheckCircle;
             return (
               <div key={s.id} id={s.id} className="grid lg:grid-cols-2 gap-12 items-center">
                 <div className={i % 2 !== 0 ? "lg:order-2" : ""}>
-                  <div className="w-14 h-14 rounded-2xl bg-blue-900/40 flex items-center justify-center mb-6">
-                    <Icon size={28} className="text-blue-400" />
+                  <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center mb-6">
+                    <Icon size={28} className="text-blue-600" />
                   </div>
-                  <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">{s.title}</h2>
-                  <p className="text-gray-400 text-lg leading-relaxed mb-6">{s.desc}</p>
+                  <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4">{s.title}</h2>
+                  <p className="text-gray-600 text-lg leading-relaxed mb-6">{s.desc}</p>
                   <ul className="space-y-3 mb-8">
                     {s.benefits.map((b) => (
-                      <li key={b} className="flex items-center gap-3 text-gray-300">
-                        <CheckCircle size={18} className="text-blue-400 shrink-0" />{b}
+                      <li key={b} className="flex items-center gap-3 text-gray-700">
+                        <CheckCircle size={18} className="text-blue-500 shrink-0" />{b}
                       </li>
                     ))}
                   </ul>
-                  <Link href={`/${lang}/contact`}
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold hover:from-blue-700 hover:to-blue-600 transition-all hover:-translate-y-1">
+                  <Link href={`/${(lang as Lang)}/contact`}
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold hover:from-blue-700 hover:to-blue-600 transition-all hover:-translate-y-1 shadow-lg shadow-blue-500/20">
                     {d.residential.getQuote} <ArrowRight size={18} />
                   </Link>
                 </div>
-                <div className={`${i % 2 !== 0 ? "lg:order-1" : ""} rounded-2xl border border-blue-900/30 aspect-video bg-[#0F1F3D] flex items-center justify-center`}>
+                <div className={`${i % 2 !== 0 ? "lg:order-1" : ""} rounded-2xl border border-gray-100 aspect-video bg-gray-50 flex items-center justify-center shadow-sm`}>
                   <div className="text-center p-8">
-                    <Icon size={64} className="text-blue-900/60 mx-auto mb-4" />
-                    <p className="text-gray-600 text-sm">Photo coming soon</p>
+                    <Icon size={64} className="text-blue-100 mx-auto mb-4" />
+                    <p className="text-gray-400 text-sm">Photo coming soon</p>
                   </div>
                 </div>
               </div>
@@ -68,12 +68,12 @@ export default async function ResidentialPage({ params }: { params: Promise<{ la
         </div>
       </section>
 
-      <section className="py-16 bg-gradient-to-r from-blue-900/40 to-[#0F1F3D]">
+      <section className="py-16 bg-gradient-to-r from-blue-700 to-blue-500">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-4xl font-black text-white mb-5">{d.residential.bookCta}</h2>
-          <p className="text-gray-300 text-lg mb-8">{d.residential.bookDesc}</p>
-          <Link href={`/${lang}/contact`}
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-bold text-lg hover:from-blue-700 hover:to-blue-600 transition-all">
+          <p className="text-blue-100 text-lg mb-8">{d.residential.bookDesc}</p>
+          <Link href={`/${(lang as Lang)}/contact`}
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-blue-700 font-bold text-lg hover:bg-blue-50 transition-all">
             {d.residential.getQuote} <ArrowRight size={20} />
           </Link>
         </div>
