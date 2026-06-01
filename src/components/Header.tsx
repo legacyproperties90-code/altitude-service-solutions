@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Phone, Menu, X, ChevronDown, Globe } from "lucide-react";
 import type { Dictionary, Lang } from "@/lib/getDictionary";
@@ -23,12 +24,15 @@ export default function Header({ lang, d }: { lang: Lang; d: Dictionary }) {
         <div className="flex items-center justify-between h-20">
 
           {/* Logo */}
-          <Link href={`/${lang}`} className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-sky-400 flex items-center justify-center font-black text-white text-lg">A</div>
-            <div className="hidden sm:block">
-              <div className="font-bold text-gray-900 text-sm leading-tight">ALTITUDE SERVICE</div>
-              <div className="font-bold text-blue-600 text-xs tracking-widest">SOLUTIONS</div>
-            </div>
+          <Link href={`/${lang}`} className="flex items-center">
+            <Image
+              src="/logo.png"
+              alt="Altitude Service Solutions"
+              width={160}
+              height={64}
+              className="h-14 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop Nav */}
