@@ -81,7 +81,15 @@ export default function Footer({ lang, d }: { lang: Lang; d: Dictionary }) {
       <div className="border-t border-gray-800 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-3">
           <p className="text-gray-500 text-sm">© {new Date().getFullYear()} Altitude Service Solutions, LLC. {d.footer.rights}</p>
-          <p className="text-gray-600 text-xs">{d.footer.serving}</p>
+          <div className="flex items-center gap-4">
+            <Link href={`/${lang}/privacy`} className="text-gray-500 hover:text-blue-400 text-xs transition-colors">
+              {lang === "en" ? "Privacy Policy" : "Política de Privacidad"}
+            </Link>
+            <span className="text-gray-700 text-xs">•</span>
+            <Link href={`/${lang}/terms`} className="text-gray-500 hover:text-blue-400 text-xs transition-colors">
+              {lang === "en" ? "Terms & Conditions" : "Términos y Condiciones"}
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

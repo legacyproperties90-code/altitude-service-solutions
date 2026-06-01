@@ -48,7 +48,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      {/* HERO — fondo azul oscuro se mantiene */}
+      {/* HERO */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0A1628]">
         <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628] via-[#0F1F3D] to-[#0A1628]" />
         <div className="absolute inset-0">
@@ -86,7 +86,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         </div>
       </section>
 
-      {/* WHY US — fondo blanco */}
+      {/* WHY US */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -109,19 +109,20 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                 {d.whyUs.cta} <ArrowRight size={18} />
               </Link>
             </div>
+            {/* Why Us cards — AZUL PODEROSO */}
             <div className="grid grid-cols-2 gap-4">
               {[
-                { icon: Shield, color: "text-blue-600", bg: "bg-blue-100" },
-                { icon: Star, color: "text-yellow-500", bg: "bg-yellow-50" },
-                { icon: Droplets, color: "text-sky-500", bg: "bg-sky-50" },
-                { icon: CheckCircle, color: "text-green-500", bg: "bg-green-50" },
+                { icon: Shield, label: d.whyUs.cards[0] },
+                { icon: Star, label: d.whyUs.cards[1] },
+                { icon: Droplets, label: d.whyUs.cards[2] },
+                { icon: CheckCircle, label: d.whyUs.cards[3] },
               ].map((card, i) => (
-                <div key={i} className={`bg-white border border-gray-100 rounded-2xl p-6 text-center card-hover shadow-sm ${i % 2 !== 0 ? "mt-8" : ""}`}>
-                  <div className={`w-14 h-14 ${card.bg} rounded-xl flex items-center justify-center mx-auto mb-3`}>
-                    <card.icon size={28} className={card.color} />
+                <div key={i} className={`rounded-2xl p-6 text-center card-hover ${i % 2 !== 0 ? "mt-8" : ""} bg-gradient-to-br from-blue-600 to-blue-700 shadow-xl shadow-blue-500/30`}>
+                  <div className="w-14 h-14 bg-white/15 rounded-xl flex items-center justify-center mx-auto mb-3">
+                    <card.icon size={28} className="text-white" />
                   </div>
-                  <h3 className="text-gray-900 font-bold mb-2">{d.whyUs.cards[i].title}</h3>
-                  <p className="text-gray-500 text-sm">{d.whyUs.cards[i].desc}</p>
+                  <h3 className="text-white font-bold mb-2">{card.label.title}</h3>
+                  <p className="text-blue-100 text-sm">{card.label.desc}</p>
                 </div>
               ))}
             </div>
@@ -129,7 +130,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         </div>
       </section>
 
-      {/* RESIDENTIAL SERVICES — fondo blanco */}
+      {/* RESIDENTIAL SERVICES — cards azul */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
@@ -141,12 +142,13 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             {d.residential.services.map((s, i) => {
               const Icon = resIcons[i] ?? CheckCircle;
               return (
-                <div key={s.id} className="group bg-white border border-gray-100 rounded-2xl p-7 card-hover hover:border-blue-200 shadow-sm">
-                  <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-5 group-hover:bg-blue-600 transition-colors">
-                    <Icon size={24} className="text-blue-600 group-hover:text-white transition-colors" />
+                <div key={s.id}
+                  className="group bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-7 card-hover shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-1">
+                  <div className="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center mb-5">
+                    <Icon size={24} className="text-white" />
                   </div>
-                  <h3 className="text-gray-900 font-bold text-lg mb-2">{s.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
+                  <h3 className="text-white font-bold text-lg mb-2">{s.title}</h3>
+                  <p className="text-blue-100 text-sm leading-relaxed">{s.desc}</p>
                 </div>
               );
             })}
@@ -160,7 +162,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         </div>
       </section>
 
-      {/* COMMERCIAL — fondo gris claro */}
+      {/* COMMERCIAL — cards azul */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
@@ -172,12 +174,13 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             {d.commercial.services.slice(0, 4).map((s, i) => {
               const Icon = comIcons[i] ?? Building2;
               return (
-                <div key={s.id} className="group bg-white border border-gray-100 rounded-2xl p-7 card-hover hover:border-blue-200 shadow-sm">
-                  <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-5 group-hover:bg-blue-600 transition-colors">
-                    <Icon size={24} className="text-blue-600 group-hover:text-white transition-colors" />
+                <div key={s.id}
+                  className="group bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-7 card-hover shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-1">
+                  <div className="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center mb-5">
+                    <Icon size={24} className="text-white" />
                   </div>
-                  <h3 className="text-gray-900 font-bold text-lg mb-2">{s.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
+                  <h3 className="text-white font-bold text-lg mb-2">{s.title}</h3>
+                  <p className="text-blue-100 text-sm leading-relaxed">{s.desc}</p>
                 </div>
               );
             })}
@@ -191,7 +194,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         </div>
       </section>
 
-      {/* TESTIMONIALS — fondo blanco */}
+      {/* TESTIMONIALS — cards azul */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
@@ -200,14 +203,14 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {d.testimonials.items.map((t) => (
-              <div key={t.name} className="bg-white border border-gray-100 rounded-2xl p-7 card-hover shadow-sm">
+              <div key={t.name} className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-7 card-hover shadow-lg shadow-blue-500/20">
                 <div className="flex gap-1 mb-4">
-                  {[1,2,3,4,5].map((i) => <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />)}
+                  {[1,2,3,4,5].map((i) => <Star key={i} size={16} className="fill-yellow-300 text-yellow-300" />)}
                 </div>
-                <p className="text-gray-600 text-sm leading-relaxed mb-6">&ldquo;{t.text}&rdquo;</p>
+                <p className="text-blue-100 text-sm leading-relaxed mb-6">&ldquo;{t.text}&rdquo;</p>
                 <div>
-                  <div className="text-gray-900 font-semibold">{t.name}</div>
-                  <div className="text-gray-400 text-sm">{t.location}</div>
+                  <div className="text-white font-semibold">{t.name}</div>
+                  <div className="text-blue-200 text-sm">{t.location}</div>
                 </div>
               </div>
             ))}
@@ -215,7 +218,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         </div>
       </section>
 
-      {/* CTA — se mantiene azul */}
+      {/* CTA */}
       <section className="py-20 bg-gradient-to-r from-blue-700 to-blue-500">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-4xl sm:text-5xl font-black text-white mb-5">{d.cta.title}</h2>

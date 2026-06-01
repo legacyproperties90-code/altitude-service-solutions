@@ -24,7 +24,7 @@ export default async function CommercialPage({ params }: { params: Promise<{ lan
 
   return (
     <>
-      <section className="pt-32 pb-16 bg-gradient-to-b from-blue-600 to-blue-500">
+      <section className="pt-32 pb-16 bg-gradient-to-b from-blue-700 to-blue-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-blue-100 font-semibold text-sm tracking-widest uppercase mb-3">{d.commercial.badge}</p>
           <h1 className="text-5xl sm:text-6xl font-black text-white mb-5">{d.commercial.title}</h1>
@@ -47,11 +47,12 @@ export default async function CommercialPage({ params }: { params: Promise<{ lan
         <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-16">
           {d.commercial.services.map((s, i) => {
             const Icon = icons[i] ?? Building2;
+            const isEven = i % 2 === 0;
             return (
               <div key={s.id} id={s.id} className="grid lg:grid-cols-2 gap-12 items-center">
-                <div className={i % 2 !== 0 ? "lg:order-2" : ""}>
-                  <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center mb-6">
-                    <Icon size={28} className="text-blue-600" />
+                <div className={!isEven ? "lg:order-2" : ""}>
+                  <div className="w-14 h-14 rounded-2xl bg-blue-600 flex items-center justify-center mb-6 shadow-lg shadow-blue-500/30">
+                    <Icon size={28} className="text-white" />
                   </div>
                   <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4">{s.title}</h2>
                   <p className="text-gray-600 text-lg leading-relaxed mb-6">{s.desc}</p>
@@ -67,10 +68,10 @@ export default async function CommercialPage({ params }: { params: Promise<{ lan
                     {d.commercial.quoteBtn} <ArrowRight size={18} />
                   </Link>
                 </div>
-                <div className={`${i % 2 !== 0 ? "lg:order-1" : ""} rounded-2xl border border-gray-100 aspect-video bg-gray-50 flex items-center justify-center shadow-sm`}>
+                <div className={`${!isEven ? "lg:order-1" : ""} rounded-2xl aspect-video bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center shadow-xl shadow-blue-500/25`}>
                   <div className="text-center p-8">
-                    <Icon size={64} className="text-blue-100 mx-auto mb-4" />
-                    <p className="text-gray-400 text-sm">Photo coming soon</p>
+                    <Icon size={72} className="text-white/30 mx-auto mb-4" />
+                    <p className="text-blue-200 text-sm font-medium">{s.title}</p>
                   </div>
                 </div>
               </div>
