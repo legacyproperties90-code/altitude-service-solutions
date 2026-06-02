@@ -184,8 +184,8 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                   <div className={`${CARD_ICON} mx-auto`}>
                     <card.icon size={28} className="text-sky-600 group-hover:text-white transition-colors duration-300" />
                   </div>
-                  <h3 className="text-gray-900 font-bold mb-2">{card.label.title}</h3>
-                  <p className="text-gray-500 text-sm">{card.label.desc}</p>
+                  <h3 className="text-black font-bold mb-2">{card.label.title}</h3>
+                  <p className="text-gray-700 text-sm">{card.label.desc}</p>
                 </div>
               ))}
             </div>
@@ -212,8 +212,8 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                   <div className={CARD_ICON}>
                     <Icon size={24} className="text-sky-600 group-hover:text-white transition-colors duration-300" />
                   </div>
-                  <h3 className="text-gray-900 font-bold text-lg mb-2">{s.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
+                  <h3 className="text-black font-bold text-lg mb-2">{s.title}</h3>
+                  <p className="text-gray-700 text-sm leading-relaxed">{s.desc}</p>
                 </div>
               );
             })}
@@ -246,8 +246,8 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                   <div className={CARD_ICON}>
                     <Icon size={24} className="text-sky-600 group-hover:text-white transition-colors duration-300" />
                   </div>
-                  <h3 className="text-gray-900 font-bold text-lg mb-2">{s.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
+                  <h3 className="text-black font-bold text-lg mb-2">{s.title}</h3>
+                  <p className="text-gray-700 text-sm leading-relaxed">{s.desc}</p>
                 </div>
               );
             })}
