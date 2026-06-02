@@ -40,8 +40,8 @@ export default async function ResidentialPage({ params }: { params: Promise<{ la
             return (
               <div key={s.id} id={s.id} className="grid lg:grid-cols-2 gap-12 items-center">
                 <div className={!isEven ? "lg:order-2" : ""}>
-                  <div className="w-14 h-14 rounded-2xl bg-blue-800 flex items-center justify-center mb-6 shadow-lg shadow-blue-900/30">
-                    <Icon size={28} className="text-white" />
+                  <div className="w-14 h-14 rounded-2xl bg-sky-50 border border-sky-100 flex items-center justify-center mb-6">
+                    <Icon size={28} className="text-sky-600" />
                   </div>
                   <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4">{s.title}</h2>
                   <p className="text-gray-600 text-lg leading-relaxed mb-6">{s.desc}</p>
@@ -58,10 +58,10 @@ export default async function ResidentialPage({ params }: { params: Promise<{ la
                   </Link>
                 </div>
                 {/* Blue card placeholder */}
-                <div className={`${!isEven ? "lg:order-1" : ""} rounded-2xl aspect-video bg-gradient-to-br from-blue-900 to-blue-700 flex items-center justify-center shadow-xl shadow-blue-900/25`}>
+                <div className={`${!isEven ? "lg:order-1" : ""} rounded-2xl aspect-video bg-gradient-to-br from-sky-50 to-blue-50 flex items-center justify-center shadow-md shadow-sky-100/50 border border-sky-100`}>
                   <div className="text-center p-8">
-                    <Icon size={72} className="text-white/25 mx-auto mb-4" />
-                    <p className="text-blue-200 text-sm font-medium">{s.title}</p>
+                    <Icon size={72} className="text-sky-200 mx-auto mb-4" />
+                    <p className="text-sky-300 text-sm font-medium">{s.title}</p>
                   </div>
                 </div>
               </div>

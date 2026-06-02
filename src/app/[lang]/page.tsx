@@ -26,9 +26,9 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 const resIcons = [Droplets, Wind, Home, Leaf, CheckCircle, CheckCircle, Eye];
 const comIcons = [Building2, Droplets, Eye, Shield];
 
-/* Card base + hover: azul profundo → se ilumina y sube al hacer hover */
-const CARD = "group relative bg-gradient-to-br from-blue-900 to-blue-700 rounded-2xl p-7 shadow-md shadow-blue-900/20 transition-all duration-300 hover:from-blue-700 hover:to-blue-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-700/35 cursor-default";
-const CARD_ICON = "w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-5 group-hover:bg-white/20 transition-colors duration-300";
+/* Cards: sky blue claro, texto negro, borde y hover elegante */
+const CARD = "group relative bg-white border border-sky-100 rounded-2xl p-7 shadow-sm hover:-translate-y-2 hover:shadow-xl hover:shadow-sky-100 hover:border-sky-300 transition-all duration-300 cursor-default";
+const CARD_ICON = "w-12 h-12 rounded-xl bg-sky-50 flex items-center justify-center mb-5 group-hover:bg-sky-500 transition-all duration-300";
 
 export default async function HomePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = await params;
@@ -162,10 +162,10 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               ].map((card, i) => (
                 <div key={i} className={`${CARD} ${i % 2 !== 0 ? "mt-8" : ""} text-center`}>
                   <div className={`${CARD_ICON} mx-auto`}>
-                    <card.icon size={28} className="text-white" />
+                    <card.icon size={28} className="text-sky-600 group-hover:text-white transition-colors duration-300" />
                   </div>
-                  <h3 className="text-white font-bold mb-2">{card.label.title}</h3>
-                  <p className="text-blue-200 text-sm group-hover:text-white transition-colors duration-300">{card.label.desc}</p>
+                  <h3 className="text-gray-900 font-bold mb-2">{card.label.title}</h3>
+                  <p className="text-gray-500 text-sm">{card.label.desc}</p>
                 </div>
               ))}
             </div>
@@ -190,10 +190,10 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               return (
                 <div key={s.id} className={CARD}>
                   <div className={CARD_ICON}>
-                    <Icon size={24} className="text-white" />
+                    <Icon size={24} className="text-sky-600 group-hover:text-white transition-colors duration-300" />
                   </div>
-                  <h3 className="text-white font-bold text-lg mb-2">{s.title}</h3>
-                  <p className="text-blue-200 text-sm leading-relaxed group-hover:text-white transition-colors duration-300">{s.desc}</p>
+                  <h3 className="text-gray-900 font-bold text-lg mb-2">{s.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
                 </div>
               );
             })}
@@ -224,10 +224,10 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               return (
                 <div key={s.id} className={CARD}>
                   <div className={CARD_ICON}>
-                    <Icon size={24} className="text-white" />
+                    <Icon size={24} className="text-sky-600 group-hover:text-white transition-colors duration-300" />
                   </div>
-                  <h3 className="text-white font-bold text-lg mb-2">{s.title}</h3>
-                  <p className="text-blue-200 text-sm leading-relaxed group-hover:text-white transition-colors duration-300">{s.desc}</p>
+                  <h3 className="text-gray-900 font-bold text-lg mb-2">{s.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
                 </div>
               );
             })}
@@ -258,12 +258,17 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             {d.testimonials.items.map((t) => (
               <div key={t.name} className={CARD}>
                 <div className="flex gap-1 mb-4">
-                  {[1,2,3,4,5].map((i) => <Star key={i} size={16} className="fill-yellow-300 text-yellow-300" />)}
+                  {[1,2,3,4,5].map((i) => <Star key={i} size={16} className="fill-yellow-400 text-yellow-400" />)}
                 </div>
-                <p className="text-blue-100 text-sm leading-relaxed mb-6 group-hover:text-white transition-colors duration-300">&ldquo;{t.text}&rdquo;</p>
-                <div>
-                  <div className="text-white font-semibold">{t.name}</div>
-                  <div className="text-blue-300 text-sm">{t.location}</div>
+                <p className="text-gray-600 text-sm leading-relaxed mb-6 italic">&ldquo;{t.text}&rdquo;</p>
+                <div className="flex items-center gap-3 pt-4 border-t border-sky-50">
+                  <div className="w-9 h-9 rounded-full bg-sky-100 flex items-center justify-center text-sky-700 font-bold text-sm shrink-0">
+                    {t.name.charAt(0)}
+                  </div>
+                  <div>
+                    <div className="text-gray-900 font-semibold text-sm">{t.name}</div>
+                    <div className="text-gray-400 text-xs">{t.location}</div>
+                  </div>
                 </div>
               </div>
             ))}
