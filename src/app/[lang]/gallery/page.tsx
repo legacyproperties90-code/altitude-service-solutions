@@ -19,13 +19,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 
 const photos = [
   { src: "/altura.png",  alt: "High-rise cleaning — Atlanta GA",               tag: { en: "High-Rise Cleaning",  es: "Limpieza en Altura" },     pos: "center 30%" },
-  { src: "/foto4.jpg",   alt: "House siding transformation — Atlanta GA",       tag: { en: "House Washing",       es: "Lavado de Casa" },          pos: "50% 75%" },
-  { src: "/foto1.jpg",   alt: "Driveway pressure washing — Atlanta GA",         tag: { en: "Pressure Washing",    es: "Lavado a Presión" },        pos: "50% 72%" },
-  { src: "/foto3.jpg",   alt: "House soft washing — Lawrenceville GA",          tag: { en: "Soft Washing",        es: "Soft Washing" },            pos: "50% 75%" },
-  { src: "/foto5.jpg",   alt: "Brick house cleaning — Atlanta GA",              tag: { en: "House Washing",       es: "Lavado de Casa" },          pos: "50% 75%" },
-  { src: "/foto6.jpg",   alt: "Home exterior cleaning — Atlanta GA",            tag: { en: "Soft Washing",        es: "Soft Washing" },            pos: "50% 75%" },
-  { src: "/foto2.jpg",   alt: "Commercial parking deck cleaning — Atlanta GA",  tag: { en: "Commercial",          es: "Comercial" },               pos: "center 40%" },
-  { src: "/hero2.jpg",   alt: "House washing results — Lawrenceville GA",       tag: { en: "House Washing",       es: "Lavado de Casa" },          pos: "50% 78%" },
+  { src: "/foto4.jpg",   alt: "House washing results — Atlanta GA",             tag: { en: "House Washing",       es: "Lavado de Casa" },          pos: "50% 100%" },
+  { src: "/foto1.jpg",   alt: "Driveway pressure washing — Atlanta GA",         tag: { en: "Pressure Washing",    es: "Lavado a Presión" },        pos: "50% 100%" },
+  { src: "/foto3.jpg",   alt: "House soft washing — Lawrenceville GA",          tag: { en: "Soft Washing",        es: "Soft Washing" },            pos: "50% 100%" },
+  { src: "/foto5.jpg",   alt: "Brick house cleaning — Atlanta GA",              tag: { en: "House Washing",       es: "Lavado de Casa" },          pos: "50% 100%" },
+  { src: "/foto6.jpg",   alt: "Home exterior cleaning — Atlanta GA",            tag: { en: "Soft Washing",        es: "Soft Washing" },            pos: "50% 100%" },
+  { src: "/foto2.jpg",   alt: "Commercial parking deck — Atlanta GA",           tag: { en: "Commercial",          es: "Comercial" },               pos: "center 40%" },
+  { src: "/hero2.jpg",   alt: "House washing — Lawrenceville GA",               tag: { en: "House Washing",       es: "Lavado de Casa" },          pos: "50% 78%" },
   { src: "/hero1.jpg",   alt: "Gutter cleaning — Atlanta GA",                   tag: { en: "Gutter Cleaning",     es: "Limpieza de Canaletas" },   pos: "70% 50%" },
 ];
 

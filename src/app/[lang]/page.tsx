@@ -117,8 +117,33 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             objectPosition: "center 30%",
           },
           {
+            src: "/foto4.jpg",
+            alt: "House washing results Atlanta GA",
+            objectPosition: "50% 100%",
+          },
+          {
+            src: "/foto1.jpg",
+            alt: "Driveway pressure washing Atlanta GA",
+            objectPosition: "50% 100%",
+          },
+          {
+            src: "/foto5.jpg",
+            alt: "Brick house soft washing Atlanta GA",
+            objectPosition: "50% 100%",
+          },
+          {
+            src: "/foto3.jpg",
+            alt: "House siding soft washing Atlanta GA",
+            objectPosition: "50% 100%",
+          },
+          {
+            src: "/foto6.jpg",
+            alt: "Home exterior cleaning Atlanta GA",
+            objectPosition: "50% 100%",
+          },
+          {
             src: "/foto2.jpg",
-            alt: "Commercial parking deck cleaning — Atlanta GA",
+            alt: "Commercial parking deck cleaning Atlanta GA",
             objectPosition: "center 40%",
           },
         ]}
