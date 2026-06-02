@@ -56,11 +56,14 @@ export default function ChatWidget({ lang }: { lang: Lang }) {
   const [typing, setTyping]     = useState(false);
   const bottomRef               = useRef<HTMLDivElement>(null);
 
-  // Mostrar widget después de 1s y abrir automáticamente después de 3s
+  const [bubble, setBubble] = useState(false);
+
+  // Mostrar burbuja de saludo a los 3s — NO abre el chat automáticamente
   useEffect(() => {
     const t1 = setTimeout(() => setReady(true), 1000);
-    const t2 = setTimeout(() => setOpen(true),  3000);
-    return () => { clearTimeout(t1); clearTimeout(t2); };
+    const t2 = setTimeout(() => setBubble(true), 3000);
+    const t3 = setTimeout(() => setBubble(false), 11000); // desaparece sola
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
 
   // Poner los mensajes de bienvenida la primera vez que se abre
@@ -215,8 +218,32 @@ export default function ChatWidget({ lang }: { lang: Lang }) {
         </div>
       )}
 
+      {/* ── Burbuja de saludo (aparece sola, NO abre el chat) ── */}
+      {bubble && !open && (
+        <div className="fixed bottom-24 right-4 sm:right-6 z-50 max-w-[240px]"
+          style={{ animation: "slideUp 0.4s ease-out" }}>
+          <div className="relative bg-white rounded-2xl rounded-br-sm shadow-xl shadow-black/15 border border-gray-100 px-4 py-3">
+            <button onClick={() => setBubble(false)}
+              className="absolute -top-2 -right-2 w-5 h-5 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-colors">
+              <X size={11} className="text-gray-600" />
+            </button>
+            <p className="text-gray-800 text-sm font-medium leading-snug">
+              {lang === "en" ? "👋 Hi! Need a quote or have questions?" : "👋 ¡Hola! ¿Necesitas una cotización?"}
+            </p>
+            <button onClick={() => { setBubble(false); setOpen(true); }}
+              className="mt-2 text-xs text-blue-600 font-semibold hover:text-blue-800 transition-colors">
+              {lang === "en" ? "Chat with us →" : "Chatea con nosotros →"}
+            </button>
+            {/* triángulo apuntando al FAB */}
+            <div className="absolute -bottom-2 right-5 w-4 h-2 overflow-hidden">
+              <div className="w-3 h-3 bg-white border-r border-b border-gray-100 rotate-45 translate-y-[-6px] translate-x-[2px]" />
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* ── FAB button ── */}
-      <button onClick={() => setOpen(!open)}
+      <button onClick={() => { setOpen(!open); setBubble(false); }}
         className="fixed bottom-5 right-4 sm:right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-blue-700 to-blue-600 text-white flex items-center justify-center shadow-2xl shadow-blue-600/40 hover:scale-110 transition-all duration-300 border-2 border-white/20"
         aria-label="Chat with us">
         {open ? <X size={24} /> : <MessageCircle size={24} />}
