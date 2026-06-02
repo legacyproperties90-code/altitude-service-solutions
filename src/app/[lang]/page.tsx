@@ -29,6 +29,8 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   const lang = (rawLang === "es" ? "es" : "en") as Lang;
   const d = await getDictionary(lang);
 
+  const isEs = lang === "es";
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -38,20 +40,60 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
     url: "https://altitudess.net",
     telephone: "+16787395229",
     email: "info@altitudeservicesolutions.com",
-    address: { "@type": "PostalAddress", addressLocality: "Lawrenceville", addressRegion: "GA", addressCountry: "US" },
+    image: "https://altitudess.net/logo.png",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Lawrenceville",
+      addressLocality: "Lawrenceville",
+      addressRegion: "GA",
+      postalCode: "30046",
+      addressCountry: "US",
+    },
     geo: { "@type": "GeoCoordinates", latitude: 33.9526, longitude: -83.9877 },
     areaServed: [
-      { "@type": "City", name: "Atlanta" }, { "@type": "City", name: "Lawrenceville" },
-      { "@type": "City", name: "Duluth" }, { "@type": "City", name: "Norcross" },
+      { "@type": "City", name: "Atlanta" },
+      { "@type": "City", name: "Lawrenceville" },
+      { "@type": "City", name: "Duluth" },
+      { "@type": "City", name: "Norcross" },
+      { "@type": "City", name: "Buford" },
+      { "@type": "City", name: "Suwanee" },
     ],
     priceRange: "$$",
-    openingHours: "Mo-Sa 08:00-18:00",
+    openingHours: ["Mo-Fr 08:00-18:00", "Sa 08:00-16:00"],
     aggregateRating: { "@type": "AggregateRating", ratingValue: "5", reviewCount: "47" },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Exterior Cleaning Services",
+      itemListElement: [
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Pressure Washing" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Soft Washing" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Roof Cleaning" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "House Washing" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Gutter Cleaning" } },
+      ],
+    },
+  };
+
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: isEs ? [
+      { "@type": "Question", name: "¿Cuánto cuesta el lavado a presión en Atlanta?", acceptedAnswer: { "@type": "Answer", text: "El costo varía según el tamaño y tipo de propiedad. Ofrecemos cotizaciones gratuitas sin compromiso. Llame al (678) 739-5229 o complete el formulario en línea." } },
+      { "@type": "Question", name: "¿Están asegurados?", acceptedAnswer: { "@type": "Answer", text: "Sí, Altitude Service Solutions está completamente asegurado y licenciado en Georgia." } },
+      { "@type": "Question", name: "¿Qué áreas sirven?", acceptedAnswer: { "@type": "Answer", text: "Servimos Atlanta, Lawrenceville, Duluth, Norcross, Buford, Suwanee y todas las áreas circundantes en el norte de Georgia." } },
+      { "@type": "Question", name: "¿Cuál es la diferencia entre soft washing y lavado a presión?", acceptedAnswer: { "@type": "Answer", text: "El soft washing usa baja presión con soluciones especiales para techos y superficies delicadas. El lavado a presión usa alta presión para concreto, entradas y superficies duras." } },
+    ] : [
+      { "@type": "Question", name: "How much does pressure washing cost in Atlanta?", acceptedAnswer: { "@type": "Answer", text: "Costs vary based on property size and type. We offer free, no-obligation quotes. Call (678) 739-5229 or complete our online form." } },
+      { "@type": "Question", name: "Are you insured?", acceptedAnswer: { "@type": "Answer", text: "Yes, Altitude Service Solutions is fully insured and licensed in Georgia." } },
+      { "@type": "Question", name: "What areas do you serve?", acceptedAnswer: { "@type": "Answer", text: "We serve Atlanta, Lawrenceville, Duluth, Norcross, Buford, Suwanee, and all surrounding areas in North Georgia." } },
+      { "@type": "Question", name: "What is the difference between soft washing and pressure washing?", acceptedAnswer: { "@type": "Answer", text: "Soft washing uses low pressure with specialized solutions for roofs and delicate surfaces. Pressure washing uses high pressure for concrete, driveways, and hard surfaces." } },
+    ],
   };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
       {/* HERO — Photo Slider */}
       <HeroSlider
@@ -65,18 +107,13 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         slides={[
           {
             src: "/hero2.jpg",
-            alt: "Clean house after professional washing",
-            objectPosition: "50% 90%",   // muestra la casa limpia del fondo (after)
+            alt: "Professional house washing results — Atlanta GA",
+            objectPosition: "50% 80%",
           },
           {
             src: "/hero2.jpg",
-            alt: "Beautiful home exterior cleaning results",
-            objectPosition: "50% 60%",   // vista media de la casa limpia
-          },
-          {
-            src: "/hero1.jpg",
-            alt: "Professional gutter cleaning results",
-            objectPosition: "80% 50%",   // lado derecho = canaleta limpia (after)
+            alt: "Exterior home cleaning — Altitude Service Solutions",
+            objectPosition: "30% 55%",
           },
         ]}
       />

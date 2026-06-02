@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ChatWidget from "@/components/ChatWidget";
 import { getDictionary, type Lang } from "@/lib/getDictionary";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -86,6 +87,7 @@ export default async function LangLayout({
         <Header lang={lang} d={d} />
         <main className="flex-1">{children}</main>
         <Footer lang={lang} d={d} />
+        <ChatWidget lang={lang} />
       </body>
     </html>
   );
