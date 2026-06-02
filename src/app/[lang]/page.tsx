@@ -131,6 +131,16 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             alt: "Roof and gutter cleaning — Altitude Service Solutions",
             objectPosition: "75% 40%",
           },
+          {
+            src: "/foto1.jpg",
+            alt: "Driveway pressure washing — Atlanta GA",
+            objectPosition: "50% 100%",
+          },
+          {
+            src: "/foto2.jpg",
+            alt: "Commercial parking deck cleaning — Atlanta GA",
+            objectPosition: "center 40%",
+          },
         ]}
       />
 
