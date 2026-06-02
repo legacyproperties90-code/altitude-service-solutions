@@ -68,7 +68,7 @@ export default async function CommercialPage({ params }: { params: Promise<{ lan
                     {d.commercial.quoteBtn} <ArrowRight size={18} />
                   </Link>
                 </div>
-                <div className={`${!isEven ? "lg:order-1" : ""} rounded-2xl aspect-video bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center shadow-xl shadow-blue-500/25`}>
+                <div className={`${!isEven ? "lg:order-1" : ""} rounded-2xl aspect-video bg-gradient-to-br from-blue-900 to-blue-700 flex items-center justify-center shadow-xl shadow-blue-900/25`}>
                   <div className="text-center p-8">
                     <Icon size={72} className="text-white/30 mx-auto mb-4" />
                     <p className="text-blue-200 text-sm font-medium">{s.title}</p>

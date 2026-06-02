@@ -19,6 +19,10 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 const resIcons = [Droplets, Wind, Home, Leaf, CheckCircle, CheckCircle, Eye];
 const comIcons = [Building2, Droplets, Eye, Shield];
 
+/* Card base + hover: azul profundo → se ilumina y sube al hacer hover */
+const CARD = "group relative bg-gradient-to-br from-blue-900 to-blue-700 rounded-2xl p-7 shadow-md shadow-blue-900/20 transition-all duration-300 hover:from-blue-700 hover:to-blue-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-700/35 cursor-default";
+const CARD_ICON = "w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-5 group-hover:bg-white/20 transition-colors duration-300";
+
 export default async function HomePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = await params;
   const lang = (rawLang === "es" ? "es" : "en") as Lang;
@@ -105,11 +109,10 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                 ))}
               </ul>
               <Link href={`/${lang}/contact`}
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold hover:from-blue-700 hover:to-blue-600 transition-all hover:-translate-y-1 shadow-lg shadow-blue-500/20">
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-blue-700 to-blue-600 text-white font-semibold hover:from-blue-800 hover:to-blue-700 transition-all hover:-translate-y-1 shadow-lg shadow-blue-700/20">
                 {d.whyUs.cta} <ArrowRight size={18} />
               </Link>
             </div>
-            {/* Why Us cards — AZUL PODEROSO */}
             <div className="grid grid-cols-2 gap-4">
               {[
                 { icon: Shield, label: d.whyUs.cards[0] },
@@ -117,12 +120,12 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                 { icon: Droplets, label: d.whyUs.cards[2] },
                 { icon: CheckCircle, label: d.whyUs.cards[3] },
               ].map((card, i) => (
-                <div key={i} className={`rounded-2xl p-6 text-center card-hover ${i % 2 !== 0 ? "mt-8" : ""} bg-gradient-to-br from-blue-600 to-blue-700 shadow-xl shadow-blue-500/30`}>
-                  <div className="w-14 h-14 bg-white/15 rounded-xl flex items-center justify-center mx-auto mb-3">
+                <div key={i} className={`${CARD} ${i % 2 !== 0 ? "mt-8" : ""} text-center`}>
+                  <div className={`${CARD_ICON} mx-auto`}>
                     <card.icon size={28} className="text-white" />
                   </div>
                   <h3 className="text-white font-bold mb-2">{card.label.title}</h3>
-                  <p className="text-blue-100 text-sm">{card.label.desc}</p>
+                  <p className="text-blue-200 text-sm group-hover:text-white transition-colors duration-300">{card.label.desc}</p>
                 </div>
               ))}
             </div>
@@ -130,7 +133,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         </div>
       </section>
 
-      {/* RESIDENTIAL SERVICES — cards azul */}
+      {/* RESIDENTIAL SERVICES */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
@@ -142,27 +145,26 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             {d.residential.services.map((s, i) => {
               const Icon = resIcons[i] ?? CheckCircle;
               return (
-                <div key={s.id}
-                  className="group bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-7 card-hover shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-1">
-                  <div className="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center mb-5">
+                <div key={s.id} className={CARD}>
+                  <div className={CARD_ICON}>
                     <Icon size={24} className="text-white" />
                   </div>
                   <h3 className="text-white font-bold text-lg mb-2">{s.title}</h3>
-                  <p className="text-blue-100 text-sm leading-relaxed">{s.desc}</p>
+                  <p className="text-blue-200 text-sm leading-relaxed group-hover:text-white transition-colors duration-300">{s.desc}</p>
                 </div>
               );
             })}
           </div>
           <div className="text-center mt-10">
             <Link href={`/${lang}/residential`}
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-600 hover:text-white transition-all">
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border-2 border-blue-700 text-blue-700 font-semibold hover:bg-blue-700 hover:text-white transition-all">
               {d.residentialSection.viewAll} <ArrowRight size={18} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* COMMERCIAL — cards azul */}
+      {/* COMMERCIAL */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
@@ -174,27 +176,26 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             {d.commercial.services.slice(0, 4).map((s, i) => {
               const Icon = comIcons[i] ?? Building2;
               return (
-                <div key={s.id}
-                  className="group bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-7 card-hover shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-1">
-                  <div className="w-12 h-12 rounded-xl bg-white/15 flex items-center justify-center mb-5">
+                <div key={s.id} className={CARD}>
+                  <div className={CARD_ICON}>
                     <Icon size={24} className="text-white" />
                   </div>
                   <h3 className="text-white font-bold text-lg mb-2">{s.title}</h3>
-                  <p className="text-blue-100 text-sm leading-relaxed">{s.desc}</p>
+                  <p className="text-blue-200 text-sm leading-relaxed group-hover:text-white transition-colors duration-300">{s.desc}</p>
                 </div>
               );
             })}
           </div>
           <div className="text-center mt-10">
             <Link href={`/${lang}/commercial`}
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-600 hover:text-white transition-all">
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border-2 border-blue-700 text-blue-700 font-semibold hover:bg-blue-700 hover:text-white transition-all">
               {d.commercialSection.viewAll} <ArrowRight size={18} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* TESTIMONIALS — cards azul */}
+      {/* TESTIMONIALS */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
@@ -203,14 +204,14 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {d.testimonials.items.map((t) => (
-              <div key={t.name} className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-7 card-hover shadow-lg shadow-blue-500/20">
+              <div key={t.name} className={CARD}>
                 <div className="flex gap-1 mb-4">
                   {[1,2,3,4,5].map((i) => <Star key={i} size={16} className="fill-yellow-300 text-yellow-300" />)}
                 </div>
-                <p className="text-blue-100 text-sm leading-relaxed mb-6">&ldquo;{t.text}&rdquo;</p>
+                <p className="text-blue-100 text-sm leading-relaxed mb-6 group-hover:text-white transition-colors duration-300">&ldquo;{t.text}&rdquo;</p>
                 <div>
                   <div className="text-white font-semibold">{t.name}</div>
-                  <div className="text-blue-200 text-sm">{t.location}</div>
+                  <div className="text-blue-300 text-sm">{t.location}</div>
                 </div>
               </div>
             ))}
@@ -219,13 +220,13 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-blue-700 to-blue-500">
+      <section className="py-20 bg-gradient-to-r from-blue-900 to-blue-700">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-4xl sm:text-5xl font-black text-white mb-5">{d.cta.title}</h2>
-          <p className="text-blue-100 text-lg mb-10">{d.cta.desc}</p>
+          <p className="text-blue-200 text-lg mb-10">{d.cta.desc}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href={`/${lang}/contact`}
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white text-blue-700 font-bold text-lg hover:bg-blue-50 transition-all hover:shadow-2xl hover:-translate-y-1">
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white text-blue-800 font-bold text-lg hover:bg-blue-50 transition-all hover:shadow-2xl hover:-translate-y-1">
               {d.cta.primary} <ArrowRight size={20} />
             </Link>
             <a href="tel:+16787395229"

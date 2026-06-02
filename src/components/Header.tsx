@@ -28,9 +28,9 @@ export default function Header({ lang, d }: { lang: Lang; d: Dictionary }) {
             <Image
               src="/logo.png"
               alt="Altitude Service Solutions"
-              width={160}
-              height={64}
-              className="h-14 w-auto object-contain"
+              width={220}
+              height={80}
+              className="h-16 w-auto object-contain"
               priority
             />
           </Link>

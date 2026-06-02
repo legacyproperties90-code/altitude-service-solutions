@@ -16,11 +16,7 @@ body {
   background-clip: text;
 }
 
+/* Card hover — override with per-card Tailwind classes */
 .card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
