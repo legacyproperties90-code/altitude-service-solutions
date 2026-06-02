@@ -64,15 +64,11 @@ export default function HeroSlider({ slides, headline, highlight, subtitle, cta,
       {/* ── CONTENIDO ── */}
       <div className="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-10 pt-24 pb-20 text-center">
 
-        <h1
-          className="text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-tight mb-5"
-          style={{ textShadow: "0 2px 24px rgba(0,0,0,0.9), 0 1px 6px rgba(0,0,0,0.8)" }}>
+        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-black leading-tight mb-5">
           {headline}{" "}{highlight}
         </h1>
 
-        <p
-          className="text-base sm:text-lg text-white max-w-xl mx-auto mb-8 leading-relaxed font-medium"
-          style={{ textShadow: "0 1px 12px rgba(0,0,0,0.9)" }}>
+        <p className="text-base sm:text-lg text-gray-900 max-w-xl mx-auto mb-8 leading-relaxed font-semibold">
           {subtitle}
         </p>
 
