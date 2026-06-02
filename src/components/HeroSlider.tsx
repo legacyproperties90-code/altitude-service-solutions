@@ -53,8 +53,8 @@ export default function HeroSlider({ slides, headline, highlight, subtitle, cta,
             className="object-cover"
             style={{ objectPosition: slide.objectPosition }}
           />
-          {/* Overlay suave — permite ver bien la foto */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/25 to-black/55" />
+          {/* Overlay muy suave — solo bordes para legibilidad del header y dots */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/40" />
         </div>
       ))}
 
