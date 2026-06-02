@@ -107,13 +107,13 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         slides={[
           {
             src: "/hero2.jpg",
-            alt: "Professional house washing results — Atlanta GA",
-            objectPosition: "50% 80%",
+            alt: "House washing results Atlanta GA — Altitude Service Solutions",
+            objectPosition: "50% 22%",   // casa de arriba completa
           },
           {
             src: "/hero2.jpg",
-            alt: "Exterior home cleaning — Altitude Service Solutions",
-            objectPosition: "30% 55%",
+            alt: "Professional exterior cleaning Atlanta — Altitude Service Solutions",
+            objectPosition: "50% 78%",   // casa de abajo completa
           },
         ]}
       />
