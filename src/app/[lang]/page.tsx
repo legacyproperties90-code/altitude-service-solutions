@@ -60,13 +60,25 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         highlight={d.hero.titleHighlight}
         subtitle={d.hero.subtitle}
         cta={d.hero.cta}
-        callNow={d.hero.callNow}
         phone={d.nav.phone}
         stats={d.stats}
         slides={[
-          { src: "/hero2.jpg", alt: "House washing before and after", label: lang === "es" ? "Lavado de Casas" : "House Washing" },
-          { src: "/hero1.jpg", alt: "Gutter cleaning before and after", label: lang === "es" ? "Limpieza de Canaletas" : "Gutter Cleaning" },
-          { src: "/hero2.jpg", alt: "Exterior cleaning results", label: lang === "es" ? "Resultados Garantizados" : "Guaranteed Results" },
+          {
+            src: "/hero2.jpg",
+            alt: "House washing — after results",
+            label: lang === "es" ? "Lavado de Casas • Atlanta, GA" : "House Washing • Atlanta, GA",
+            objectPosition: "center 75%",   // muestra la casa limpia (parte inferior = after)
+          },
+          {
+            src: "/hero1.jpg",
+            alt: "Gutter cleaning — after results",
+            label: lang === "es" ? "Limpieza de Canaletas" : "Gutter Cleaning",
+            objectPosition: "right center",  // muestra la canaleta limpia (derecha = after)
+          },
+          {
+            branded: true,
+            label: lang === "es" ? "100% Satisfacción Garantizada" : "100% Satisfaction Guaranteed",
+          },
         ]}
       />
 
