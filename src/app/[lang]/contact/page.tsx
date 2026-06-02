@@ -373,6 +373,3 @@ export default function ContactPage({ params }: { params: Promise<{ lang: string
     </div>
   );
 }
-
-/* Needed import */
-import { Send } from "lucide-react";
