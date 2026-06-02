@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Phone, Shield, Star, CheckCircle, ArrowRight, Droplets, Home, Building2, Leaf, Wind, Eye } from "lucide-react";
 import { getDictionary, type Lang } from "@/lib/getDictionary";
+import HeroSlider from "@/components/HeroSlider";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
@@ -52,43 +53,22 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      {/* HERO */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0A1628]">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628] via-[#0F1F3D] to-[#0A1628]" />
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl" />
-        </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-20 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-900/40 border border-blue-700/40 text-blue-300 text-sm font-medium mb-8">
-            <Star size={14} className="fill-blue-400 text-blue-400" />
-            {d.hero.badge}
-          </div>
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-tight mb-6">
-            {d.hero.title}{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-sky-300 bg-clip-text text-transparent">{d.hero.titleHighlight}</span>
-          </h1>
-          <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed">{d.hero.subtitle}</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Link href={`/${lang}/contact`}
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold text-lg hover:from-blue-700 hover:to-blue-600 transition-all hover:shadow-2xl hover:shadow-blue-500/30 hover:-translate-y-1">
-              {d.hero.cta} <ArrowRight size={20} />
-            </Link>
-            <a href="tel:+16787395229"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border border-blue-700/50 text-white font-semibold text-lg hover:bg-blue-900/30 transition-all">
-              <Phone size={20} className="text-blue-400" /> {d.nav.phone}
-            </a>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
-            {d.stats.map((s) => (
-              <div key={s.label} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-5">
-                <div className="text-3xl font-black text-blue-400 mb-1">{s.value}</div>
-                <div className="text-gray-400 text-sm">{s.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* HERO — Photo Slider */}
+      <HeroSlider
+        lang={lang}
+        headline={d.hero.title}
+        highlight={d.hero.titleHighlight}
+        subtitle={d.hero.subtitle}
+        cta={d.hero.cta}
+        callNow={d.hero.callNow}
+        phone={d.nav.phone}
+        stats={d.stats}
+        slides={[
+          { src: "/hero2.jpg", alt: "House washing before and after", label: lang === "es" ? "Lavado de Casas" : "House Washing" },
+          { src: "/hero1.jpg", alt: "Gutter cleaning before and after", label: lang === "es" ? "Limpieza de Canaletas" : "Gutter Cleaning" },
+          { src: "/hero2.jpg", alt: "Exterior cleaning results", label: lang === "es" ? "Resultados Garantizados" : "Guaranteed Results" },
+        ]}
+      />
 
       {/* WHY US */}
       <section className="py-20 bg-gray-50">
