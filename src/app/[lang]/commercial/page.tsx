@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Building2, Droplets, Eye, Shield, CheckCircle } from "lucide-react";
 import { getDictionary } from "@/lib/getDictionary";
 
@@ -16,7 +17,15 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   };
 }
 
-const icons = [Building2, Droplets, Building2, Eye, Shield];
+const icons  = [Building2, Droplets, Building2, Eye, Shield];
+
+const photos = [
+  { src: "/foto1.jpg",   pos: "50% 100%"  },   // Commercial Pressure Washing (driveway)
+  { src: "/nueva3.jpg",  pos: "75% 50%"   },   // Soft Washing
+  { src: "/foto2.jpg",   pos: "center 40%" },  // Parking Deck
+  { src: "/altura.png",  pos: "center 30%" },  // High-Rise Window Cleaning
+  { src: "/foto4.jpg",   pos: "50% 100%"  },   // Waterproofing
+];
 
 export default async function CommercialPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
@@ -46,10 +55,13 @@ export default async function CommercialPage({ params }: { params: Promise<{ lan
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-16">
           {d.commercial.services.map((s, i) => {
-            const Icon = icons[i] ?? Building2;
+            const Icon  = icons[i] ?? Building2;
+            const photo = photos[i];
             const isEven = i % 2 === 0;
             return (
               <div key={s.id} id={s.id} className="grid lg:grid-cols-2 gap-12 items-center">
+
+                {/* Text side */}
                 <div className={!isEven ? "lg:order-2" : ""}>
                   <div className="w-14 h-14 rounded-2xl bg-sky-50 border border-sky-100 flex items-center justify-center mb-6">
                     <Icon size={28} className="text-sky-600" />
@@ -68,12 +80,25 @@ export default async function CommercialPage({ params }: { params: Promise<{ lan
                     {d.commercial.quoteBtn} <ArrowRight size={18} />
                   </Link>
                 </div>
-                <div className={`${!isEven ? "lg:order-1" : ""} rounded-2xl aspect-video bg-gradient-to-br from-sky-50 to-blue-50 flex items-center justify-center shadow-xl shadow-blue-900/25`}>
-                  <div className="text-center p-8">
-                    <Icon size={72} className="text-white/30 mx-auto mb-4" />
-                    <p className="text-blue-200 text-sm font-medium">{s.title}</p>
+
+                {/* Photo side */}
+                <div className={`${!isEven ? "lg:order-1" : ""} rounded-2xl overflow-hidden aspect-video relative shadow-xl shadow-black/10`}>
+                  <Image
+                    src={photo.src}
+                    alt={s.title}
+                    fill
+                    unoptimized
+                    className="object-cover"
+                    style={{ objectPosition: photo.pos }}
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  <div className="absolute bottom-3 left-3">
+                    <span className="bg-blue-700/85 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full">
+                      {s.title}
+                    </span>
                   </div>
                 </div>
+
               </div>
             );
           })}

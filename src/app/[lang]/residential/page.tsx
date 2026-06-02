@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Droplets, Home, Leaf, Wind, Eye, CheckCircle } from "lucide-react";
 import { getDictionary } from "@/lib/getDictionary";
 
@@ -16,7 +17,18 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   };
 }
 
-const icons = [Droplets, Wind, Home, Leaf, CheckCircle, CheckCircle, Eye];
+const icons  = [Droplets, Wind, Home, Leaf, CheckCircle, CheckCircle, Eye];
+
+/* Each service's real photo + crop position */
+const photos = [
+  { src: "/foto3.jpg",   pos: "50% 100%" },   // Soft Washing
+  { src: "/foto1.jpg",   pos: "50% 100%" },   // Pressure Washing
+  { src: "/foto4.jpg",   pos: "50% 100%" },   // House Washing
+  { src: "/nueva2.jpg",  pos: "75% 40%"  },   // Roof Cleaning
+  { src: "/foto5.jpg",   pos: "50% 100%" },   // Fence & Deck
+  { src: "/nueva1.jpg",  pos: "75% 40%"  },   // Gutter Cleaning
+  { src: "/nueva3.jpg",  pos: "75% 50%"  },   // Window Cleaning
+];
 
 export default async function ResidentialPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
@@ -35,10 +47,13 @@ export default async function ResidentialPage({ params }: { params: Promise<{ la
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-20">
           {d.residential.services.map((s, i) => {
-            const Icon = icons[i] ?? CheckCircle;
+            const Icon  = icons[i]  ?? CheckCircle;
+            const photo = photos[i];
             const isEven = i % 2 === 0;
             return (
               <div key={s.id} id={s.id} className="grid lg:grid-cols-2 gap-12 items-center">
+
+                {/* Text side */}
                 <div className={!isEven ? "lg:order-2" : ""}>
                   <div className="w-14 h-14 rounded-2xl bg-sky-50 border border-sky-100 flex items-center justify-center mb-6">
                     <Icon size={28} className="text-sky-600" />
@@ -57,13 +72,26 @@ export default async function ResidentialPage({ params }: { params: Promise<{ la
                     {d.residential.getQuote} <ArrowRight size={18} />
                   </Link>
                 </div>
-                {/* Blue card placeholder */}
-                <div className={`${!isEven ? "lg:order-1" : ""} rounded-2xl aspect-video bg-gradient-to-br from-sky-50 to-blue-50 flex items-center justify-center shadow-md shadow-sky-100/50 border border-sky-100`}>
-                  <div className="text-center p-8">
-                    <Icon size={72} className="text-sky-200 mx-auto mb-4" />
-                    <p className="text-sky-300 text-sm font-medium">{s.title}</p>
+
+                {/* Photo side */}
+                <div className={`${!isEven ? "lg:order-1" : ""} rounded-2xl overflow-hidden aspect-video relative shadow-xl shadow-black/10`}>
+                  <Image
+                    src={photo.src}
+                    alt={s.title}
+                    fill
+                    unoptimized
+                    className="object-cover"
+                    style={{ objectPosition: photo.pos }}
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  {/* Service name badge */}
+                  <div className="absolute bottom-3 left-3">
+                    <span className="bg-blue-700/85 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full">
+                      {s.title}
+                    </span>
                   </div>
                 </div>
+
               </div>
             );
           })}
