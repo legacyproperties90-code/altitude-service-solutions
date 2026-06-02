@@ -58,8 +58,6 @@ export default function HeroSlider({ slides, headline, highlight, subtitle, cta,
             2. Capa oscura fija detrás del área de texto — siempre legible sin importar la foto
           */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/50" />
-          {/* Faja detrás del contenido central */}
-          <div className="absolute inset-x-0 top-[15%] bottom-[20%] bg-black/25" />
         </div>
       ))}
 
