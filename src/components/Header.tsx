@@ -23,16 +23,30 @@ export default function Header({ lang, d }: { lang: Lang; d: Dictionary }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-20">
 
-          {/* Logo */}
-          <Link href={`/${lang}`} className="flex items-center">
-            <Image
-              src="/logo.png"
-              alt="Altitude Service Solutions"
-              width={220}
-              height={80}
-              className="h-16 w-auto object-contain"
-              priority
-            />
+          {/* Logo — horizontal: icono + nombre */}
+          <Link href={`/${lang}`} className="flex items-center gap-3 group">
+            {/* Ícono del logo (edificios) */}
+            <div className="shrink-0 w-12 h-12 overflow-hidden flex items-center justify-center">
+              <Image
+                src="/logo.png"
+                alt=""
+                width={120}
+                height={120}
+                className="w-[120px] h-[120px] object-cover object-top scale-[1.4] -translate-y-3"
+                priority
+              />
+            </div>
+            {/* Separador */}
+            <div className="w-px h-10 bg-gray-200 shrink-0" />
+            {/* Nombre */}
+            <div className="flex flex-col leading-none">
+              <span className="font-black text-xl sm:text-2xl tracking-tight text-gray-900 group-hover:text-blue-700 transition-colors">
+                ALTITUDE
+              </span>
+              <span className="font-semibold text-[10px] sm:text-xs tracking-[0.18em] text-blue-600 uppercase mt-0.5">
+                Service Solutions, LLC
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}
