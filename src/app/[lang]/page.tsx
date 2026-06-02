@@ -3,6 +3,12 @@ import Link from "next/link";
 import { Phone, Shield, Star, CheckCircle, ArrowRight, Droplets, Home, Building2, Leaf, Wind, Eye } from "lucide-react";
 import { getDictionary, type Lang } from "@/lib/getDictionary";
 import HeroSlider from "@/components/HeroSlider";
+import TrustBadges from "@/components/TrustBadges";
+import HowItWorks from "@/components/HowItWorks";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
+import VideoSection from "@/components/VideoSection";
+import GoogleReviews from "@/components/GoogleReviews";
+import BlogSection from "@/components/BlogSection";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
@@ -118,6 +124,12 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         ]}
       />
 
+      {/* TRUST BADGES */}
+      <TrustBadges lang={lang} />
+
+      {/* HOW IT WORKS */}
+      <HowItWorks lang={lang} />
+
       {/* WHY US */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -161,6 +173,9 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         </div>
       </section>
 
+      {/* BEFORE / AFTER SLIDER */}
+      <BeforeAfterSlider lang={lang} />
+
       {/* RESIDENTIAL SERVICES */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -192,6 +207,9 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         </div>
       </section>
 
+      {/* VIDEO */}
+      <VideoSection lang={lang} />
+
       {/* COMMERCIAL */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -222,6 +240,12 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           </div>
         </div>
       </section>
+
+      {/* GOOGLE REVIEWS */}
+      <GoogleReviews lang={lang} />
+
+      {/* BLOG */}
+      <BlogSection lang={lang} />
 
       {/* TESTIMONIALS */}
       <section className="py-20 bg-white">
