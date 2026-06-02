@@ -175,14 +175,14 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { icon: Shield, label: d.whyUs.cards[0] },
-                { icon: Star, label: d.whyUs.cards[1] },
-                { icon: Droplets, label: d.whyUs.cards[2] },
-                { icon: CheckCircle, label: d.whyUs.cards[3] },
+                { icon: Shield,      label: d.whyUs.cards[0], color: "text-green-500",   bg: "bg-green-50",  hoverBg: "group-hover:bg-green-500"  },
+                { icon: Star,        label: d.whyUs.cards[1], color: "text-yellow-500 fill-yellow-400", bg: "bg-yellow-50", hoverBg: "group-hover:bg-yellow-500" },
+                { icon: Droplets,    label: d.whyUs.cards[2], color: "text-emerald-500", bg: "bg-emerald-50", hoverBg: "group-hover:bg-emerald-500" },
+                { icon: CheckCircle, label: d.whyUs.cards[3], color: "text-blue-700",    bg: "bg-blue-50",   hoverBg: "group-hover:bg-blue-700"   },
               ].map((card, i) => (
                 <div key={i} className={`${CARD} ${i % 2 !== 0 ? "mt-8" : ""} text-center`}>
-                  <div className={`${CARD_ICON} mx-auto`}>
-                    <card.icon size={28} className="text-sky-600 group-hover:text-white transition-colors duration-300" />
+                  <div className={`w-12 h-12 rounded-xl ${card.bg} flex items-center justify-center mb-5 ${card.hoverBg} transition-all duration-300 mx-auto`}>
+                    <card.icon size={28} className={`${card.color} group-hover:text-white group-hover:fill-white transition-colors duration-300`} />
                   </div>
                   <h3 className="text-black font-bold mb-2">{card.label.title}</h3>
                   <p className="text-gray-700 text-sm">{card.label.desc}</p>
