@@ -34,10 +34,10 @@ export default function Header({ lang, d }: { lang: Lang; d: Dictionary }) {
               priority
             />
             <div className="flex flex-col leading-none">
-              <span className="font-black text-xl sm:text-[1.35rem] tracking-tight text-gray-900 group-hover:text-blue-700 transition-colors">
+              <span className="font-black text-xl sm:text-[1.35rem] tracking-tight" style={{ color: "#58595b" }}>
                 ALTITUDE
               </span>
-              <span className="font-bold text-[10px] sm:text-[11px] tracking-[0.2em] text-blue-600 uppercase">
+              <span className="font-bold text-[10px] sm:text-[11px] tracking-[0.2em] uppercase" style={{ color: "#58595b" }}>
                 Service Solutions, LLC
               </span>
             </div>
