@@ -114,17 +114,17 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           {
             src: "/altura.png",
             alt: "High-rise building cleaning — Altitude Service Solutions Atlanta GA",
-            objectPosition: "center 30%",
+            objectPosition: "center 25%",
           },
           {
             src: "/foto4.jpg",
             alt: "House washing results Atlanta GA",
-            objectPosition: "50% 100%",
+            objectPosition: "50% 90%",
           },
           {
             src: "/foto5.jpg",
             alt: "Brick house soft washing Atlanta GA",
-            objectPosition: "50% 100%",
+            objectPosition: "50% 90%",
           },
         ]}
       />
