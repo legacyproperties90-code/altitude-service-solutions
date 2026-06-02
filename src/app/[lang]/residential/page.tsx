@@ -17,7 +17,9 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   };
 }
 
-const icons = [Droplets, Wind, Home, Leaf, CheckCircle, CheckCircle, Eye];
+const icons  = [Droplets, Wind, Home, Leaf, CheckCircle, CheckCircle, Eye];
+const colors = ["text-sky-500","text-blue-600","text-indigo-500","text-emerald-500","text-orange-500","text-teal-500","text-violet-500"];
+const bgs    = ["bg-sky-50","bg-blue-50","bg-indigo-50","bg-emerald-50","bg-orange-50","bg-teal-50","bg-violet-50"];
 
 /*
   src       = named photo from Drive
@@ -60,8 +62,8 @@ export default async function ResidentialPage({ params }: { params: Promise<{ la
             return (
               <div key={s.id} id={s.id} className="grid lg:grid-cols-2 gap-12 items-center">
                 <div className={!isEven ? "lg:order-2" : ""}>
-                  <div className="w-14 h-14 rounded-2xl bg-sky-50 border border-sky-100 flex items-center justify-center mb-6">
-                    <Icon size={28} className="text-sky-600" />
+                  <div className={`w-14 h-14 rounded-2xl ${bgs[i] ?? "bg-sky-50"} border border-gray-100 flex items-center justify-center mb-6`}>
+                    <Icon size={28} className={colors[i] ?? "text-sky-600"} />
                   </div>
                   <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4">{s.title}</h2>
                   <p className="text-gray-600 text-lg leading-relaxed mb-6">{s.desc}</p>

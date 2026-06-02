@@ -198,14 +198,14 @@ export default function ContactPage({ params }: { params: Promise<{ lang: string
               </h2>
               <div className="space-y-5">
                 {[
-                  { icon: Phone, label: t.callUs,  val: "(678) 739-5229",                       href: "tel:+16787395229" },
-                  { icon: Mail,  label: t.emailUs, val: "info@altitudeservicesolutions.com",     href: "mailto:info@altitudeservicesolutions.com" },
-                  { icon: MapPin, label: t.location, val: t.locationVal,                         href: null },
+                  { icon: Phone,  label: t.callUs,   val: "(678) 739-5229",                     href: "tel:+16787395229",                            iconColor: "text-green-400",  bg: "bg-green-500/15 border-green-500/20" },
+                  { icon: Mail,   label: t.emailUs,  val: "info@altitudeservicesolutions.com",   href: "mailto:info@altitudeservicesolutions.com",    iconColor: "text-blue-400",   bg: "bg-blue-500/15 border-blue-500/20" },
+                  { icon: MapPin, label: t.location, val: t.locationVal,                         href: null,                                          iconColor: "text-red-400",    bg: "bg-red-500/15 border-red-500/20" },
                 ].map((item) => {
                   const inner = (
                     <div className="flex items-start gap-4">
-                      <div className="w-11 h-11 rounded-xl bg-blue-600/20 flex items-center justify-center shrink-0 border border-blue-500/20">
-                        <item.icon size={18} className="text-sky-400" />
+                      <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 border ${item.bg}`}>
+                        <item.icon size={18} className={item.iconColor} />
                       </div>
                       <div>
                         <div className="text-gray-400 text-xs uppercase tracking-wider mb-0.5">{item.label}</div>
@@ -228,8 +228,8 @@ export default function ContactPage({ params }: { params: Promise<{ lang: string
               <ul className="space-y-3.5">
                 {t.bullets.map((b) => (
                   <li key={b} className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-sky-100 flex items-center justify-center shrink-0 mt-0.5">
-                      <CheckCircle size={12} className="text-sky-600" />
+                    <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center shrink-0 mt-0.5">
+                      <CheckCircle size={12} className="text-green-600" />
                     </div>
                     <span className="text-gray-600 text-sm leading-snug">{b}</span>
                   </li>
@@ -240,7 +240,7 @@ export default function ContactPage({ params }: { params: Promise<{ lang: string
             {/* Hours */}
             <div className="bg-sky-50 rounded-2xl p-6 border border-sky-100">
               <div className="flex items-center gap-3 mb-3">
-                <Clock size={18} className="text-sky-600" />
+                <Clock size={18} className="text-orange-500" />
                 <span className="font-bold text-gray-900 text-sm">
                   {lang === "es" ? "Horario de Atención" : "Business Hours"}
                 </span>

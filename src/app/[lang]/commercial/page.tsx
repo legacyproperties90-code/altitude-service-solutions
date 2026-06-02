@@ -18,6 +18,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 }
 
 const icons  = [Building2, Droplets, Building2, Eye, Shield];
+const colors = ["text-slate-600","text-sky-500","text-gray-600","text-violet-500","text-green-600"];
+const bgs    = ["bg-slate-50","bg-sky-50","bg-gray-100","bg-violet-50","bg-green-50"];
 
 const photos = [
   { src: "/foto1.jpg",   pos: "50% 100%"  },   // Commercial Pressure Washing (driveway)
@@ -63,8 +65,8 @@ export default async function CommercialPage({ params }: { params: Promise<{ lan
 
                 {/* Text side */}
                 <div className={!isEven ? "lg:order-2" : ""}>
-                  <div className="w-14 h-14 rounded-2xl bg-sky-50 border border-sky-100 flex items-center justify-center mb-6">
-                    <Icon size={28} className="text-sky-600" />
+                  <div className={`w-14 h-14 rounded-2xl ${bgs[i] ?? "bg-sky-50"} border border-gray-100 flex items-center justify-center mb-6`}>
+                    <Icon size={28} className={colors[i] ?? "text-sky-600"} />
                   </div>
                   <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4">{s.title}</h2>
                   <p className="text-gray-600 text-lg leading-relaxed mb-6">{s.desc}</p>

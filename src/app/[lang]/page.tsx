@@ -23,8 +23,15 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   };
 }
 
-const resIcons = [Droplets, Wind, Home, Leaf, CheckCircle, CheckCircle, Eye];
-const comIcons = [Building2, Droplets, Eye, Shield];
+const resIcons   = [Droplets, Wind, Home, Leaf, CheckCircle, CheckCircle, Eye];
+const resColors  = ["text-sky-500","text-blue-600","text-indigo-500","text-emerald-500","text-orange-500","text-teal-500","text-violet-500"];
+const resHovers  = ["group-hover:bg-sky-500","group-hover:bg-blue-600","group-hover:bg-indigo-500","group-hover:bg-emerald-500","group-hover:bg-orange-500","group-hover:bg-teal-500","group-hover:bg-violet-500"];
+const resBgs     = ["bg-sky-50","bg-blue-50","bg-indigo-50","bg-emerald-50","bg-orange-50","bg-teal-50","bg-violet-50"];
+
+const comIcons   = [Building2, Droplets, Building2, Eye, Shield];
+const comColors  = ["text-slate-600","text-sky-500","text-gray-600","text-violet-500","text-green-600"];
+const comHovers  = ["group-hover:bg-slate-600","group-hover:bg-sky-500","group-hover:bg-gray-600","group-hover:bg-violet-500","group-hover:bg-green-600"];
+const comBgs     = ["bg-slate-50","bg-sky-50","bg-gray-100","bg-violet-50","bg-green-50"];
 
 /* Cards: sky blue claro, texto negro, borde y hover elegante */
 const CARD = "group relative bg-white border border-sky-100 rounded-2xl p-7 shadow-sm hover:-translate-y-2 hover:shadow-xl hover:shadow-sky-100 hover:border-sky-300 transition-all duration-300 cursor-default";
@@ -164,7 +171,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               <ul className="space-y-4 mb-10">
                 {d.whyUs.bullets.map((item) => (
                   <li key={item} className="flex items-center gap-3 text-gray-700">
-                    <CheckCircle size={20} className="text-blue-500 shrink-0" />{item}
+                    <CheckCircle size={20} className="text-green-500 shrink-0" />{item}
                   </li>
                 ))}
               </ul>
@@ -209,8 +216,8 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               const Icon = resIcons[i] ?? CheckCircle;
               return (
                 <div key={s.id} className={CARD}>
-                  <div className={CARD_ICON}>
-                    <Icon size={24} className="text-sky-600 group-hover:text-white transition-colors duration-300" />
+                  <div className={`w-12 h-12 rounded-xl ${resBgs[i]} flex items-center justify-center mb-5 ${resHovers[i]} transition-all duration-300`}>
+                    <Icon size={24} className={`${resColors[i]} group-hover:text-white transition-colors duration-300`} />
                   </div>
                   <h3 className="text-black font-bold text-lg mb-2">{s.title}</h3>
                   <p className="text-gray-700 text-sm leading-relaxed">{s.desc}</p>
@@ -243,8 +250,8 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               const Icon = comIcons[i] ?? Building2;
               return (
                 <div key={s.id} className={CARD}>
-                  <div className={CARD_ICON}>
-                    <Icon size={24} className="text-sky-600 group-hover:text-white transition-colors duration-300" />
+                  <div className={`w-12 h-12 rounded-xl ${comBgs[i]} flex items-center justify-center mb-5 ${comHovers[i]} transition-all duration-300`}>
+                    <Icon size={24} className={`${comColors[i]} group-hover:text-white transition-colors duration-300`} />
                   </div>
                   <h3 className="text-black font-bold text-lg mb-2">{s.title}</h3>
                   <p className="text-gray-700 text-sm leading-relaxed">{s.desc}</p>
