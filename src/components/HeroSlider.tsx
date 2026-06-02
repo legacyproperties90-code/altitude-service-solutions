@@ -57,7 +57,7 @@ export default function HeroSlider({ slides, headline, highlight, subtitle, cta,
             1. Gradiente vertical — oscuro arriba (texto legible), claro al centro, oscuro abajo (dots)
             2. Capa oscura fija detrás del área de texto — siempre legible sin importar la foto
           */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/30" />
         </div>
       ))}
 
