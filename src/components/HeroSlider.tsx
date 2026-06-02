@@ -48,7 +48,8 @@ export default function HeroSlider({ slides, headline, highlight, subtitle, cta,
             fill
             priority={i === 0}
             sizes="100vw"
-            quality={85}
+            quality={100}
+            unoptimized={slide.src.endsWith(".png")}
             className="object-cover"
             style={{ objectPosition: slide.objectPosition }}
           />
