@@ -24,7 +24,10 @@ const photos = [
   { src: "/foto3.jpg",   alt: "House soft washing — Lawrenceville GA",          tag: { en: "Soft Washing",        es: "Soft Washing" },            pos: "50% 100%" },
   { src: "/foto5.jpg",   alt: "Brick house cleaning — Atlanta GA",              tag: { en: "House Washing",       es: "Lavado de Casa" },          pos: "50% 100%" },
   { src: "/foto6.jpg",   alt: "Home exterior cleaning — Atlanta GA",            tag: { en: "Soft Washing",        es: "Soft Washing" },            pos: "50% 100%" },
-  { src: "/foto2.jpg",   alt: "Commercial parking deck — Atlanta GA",           tag: { en: "Commercial",          es: "Comercial" },               pos: "center 40%" },
+  { src: "/nueva3.jpg",  alt: "House soft washing results — Atlanta GA",         tag: { en: "Soft Washing",        es: "Soft Washing" },            pos: "75% 50%" },
+  { src: "/nueva1.jpg",  alt: "Gutter cleaning results — Atlanta GA",            tag: { en: "Gutter Cleaning",     es: "Limpieza de Canaletas" },   pos: "75% 40%" },
+  { src: "/nueva2.jpg",  alt: "Roof and gutter cleaning — Atlanta GA",           tag: { en: "Gutter Cleaning",     es: "Limpieza de Canaletas" },   pos: "75% 40%" },
+  { src: "/foto2.jpg",   alt: "Commercial parking deck — Atlanta GA",            tag: { en: "Commercial",          es: "Comercial" },               pos: "center 40%" },
   { src: "/hero2.jpg",   alt: "House washing — Lawrenceville GA",               tag: { en: "House Washing",       es: "Lavado de Casa" },          pos: "50% 78%" },
   { src: "/hero1.jpg",   alt: "Gutter cleaning — Atlanta GA",                   tag: { en: "Gutter Cleaning",     es: "Limpieza de Canaletas" },   pos: "70% 50%" },
 ];
