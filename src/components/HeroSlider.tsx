@@ -69,10 +69,7 @@ export default function HeroSlider({ slides, headline, highlight, subtitle, cta,
         <h1
           className="text-4xl sm:text-6xl lg:text-7xl font-black text-white leading-tight mb-5"
           style={{ textShadow: "0 2px 24px rgba(0,0,0,0.9), 0 1px 6px rgba(0,0,0,0.8)" }}>
-          {headline}{" "}
-          <span className="bg-gradient-to-r from-blue-400 to-sky-300 bg-clip-text text-transparent">
-            {highlight}
-          </span>
+          {headline}{" "}{highlight}
         </h1>
 
         <p

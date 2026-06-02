@@ -45,10 +45,10 @@ export default function Header({ lang, d }: { lang: Lang; d: Dictionary }) {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
-            <Link href={`/${lang}`} className="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">{d.nav.home}</Link>
+            <Link href={`/${lang}`} className="text-gray-800 hover:text-blue-600 text-sm font-bold transition-colors">{d.nav.home}</Link>
 
             <div className="relative group">
-              <button className="flex items-center gap-1 text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">
+              <button className="flex items-center gap-1 text-gray-800 hover:text-blue-600 text-sm font-bold transition-colors">
                 {d.nav.residential} <ChevronDown size={14} />
               </button>
               <div className="absolute top-full left-0 mt-2 w-52 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
@@ -62,7 +62,7 @@ export default function Header({ lang, d }: { lang: Lang; d: Dictionary }) {
             </div>
 
             <div className="relative group">
-              <button className="flex items-center gap-1 text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">
+              <button className="flex items-center gap-1 text-gray-800 hover:text-blue-600 text-sm font-bold transition-colors">
                 {d.nav.commercial} <ChevronDown size={14} />
               </button>
               <div className="absolute top-full left-0 mt-2 w-60 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
@@ -75,8 +75,8 @@ export default function Header({ lang, d }: { lang: Lang; d: Dictionary }) {
               </div>
             </div>
 
-            <Link href={`/${lang}/gallery`} className="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">{d.nav.gallery}</Link>
-            <Link href={`/${lang}/contact`} className="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">{d.nav.contact}</Link>
+            <Link href={`/${lang}/gallery`} className="text-gray-800 hover:text-blue-600 text-sm font-bold transition-colors">{d.nav.gallery}</Link>
+            <Link href={`/${lang}/contact`} className="text-gray-800 hover:text-blue-600 text-sm font-bold transition-colors">{d.nav.contact}</Link>
           </nav>
 
           {/* Right side */}
