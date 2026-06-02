@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import Link from "next/link";
 import { Phone, MessageSquare } from "lucide-react";
 
@@ -12,7 +12,7 @@ export default function StickyCTA({ lang }: { lang: string }) {
         {isEs ? "Llamar" : "Call Now"}
       </a>
       <Link href={`/${lang}/contact`}
-        className="flex-1 flex items-center justify-center gap-2 py-4 bg-blue-600 text-white font-bold text-sm active:bg-blue-700 transition-colors">
+        className="flex-1 flex items-center justify-center gap-2 py-4 bg-blue-800 text-white font-bold text-sm active:bg-blue-800 transition-colors">
         <MessageSquare size={18} />
         {isEs ? "Cotización Gratis" : "Free Quote"}
       </Link>

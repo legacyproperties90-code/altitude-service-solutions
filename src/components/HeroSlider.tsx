@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -78,7 +78,7 @@ export default function HeroSlider({ slides, headline, highlight, subtitle, cta,
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
           <Link href={`/${lang}/contact`}
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-bold text-base hover:from-blue-500 hover:to-blue-400 hover:-translate-y-0.5 transition-all shadow-xl shadow-blue-600/40">
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-blue-800 to-blue-500 text-white font-bold text-base hover:from-blue-500 hover:to-blue-400 hover:-translate-y-0.5 transition-all shadow-xl shadow-blue-700/40">
             {cta} <ArrowRight size={18} />
           </Link>
           <a href="tel:+16787395229"
@@ -101,11 +101,11 @@ export default function HeroSlider({ slides, headline, highlight, subtitle, cta,
 
       {/* ── FLECHAS ── */}
       <button onClick={prev} aria-label="Previous"
-        className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/50 border border-white/25 text-white flex items-center justify-center hover:bg-blue-600 transition-all">
+        className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/50 border border-white/25 text-white flex items-center justify-center hover:bg-blue-800 transition-all">
         <ChevronLeft size={22} />
       </button>
       <button onClick={next} aria-label="Next"
-        className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/50 border border-white/25 text-white flex items-center justify-center hover:bg-blue-600 transition-all">
+        className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/50 border border-white/25 text-white flex items-center justify-center hover:bg-blue-800 transition-all">
         <ChevronRight size={22} />
       </button>
 

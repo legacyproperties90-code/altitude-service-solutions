@@ -1,4 +1,4 @@
-import { Shield, Star, Leaf, Clock, Award, Users } from "lucide-react";
+﻿import { Shield, Star, Leaf, Clock, Award, Users } from "lucide-react";
 
 const badges = [
   { icon: Shield,  color: "text-green-300",  en: "Fully Insured & Licensed",   es: "Totalmente Asegurados" },
@@ -11,7 +11,7 @@ const badges = [
 
 export default function TrustBadges({ lang }: { lang: string }) {
   return (
-    <section className="bg-blue-700 py-5">
+    <section className="bg-blue-800 py-5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
           {badges.map((b) => (

@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { ClipboardList, Truck, Sparkles, ArrowRight, Phone } from "lucide-react";
 
 const steps = {
@@ -8,8 +8,8 @@ const steps = {
       icon: ClipboardList,
       title: "Request a Free Quote",
       desc: "Fill out our quick form or give us a call. We respond within 24 hours with a detailed, no-obligation estimate tailored to your property.",
-      accent: "from-blue-500 to-blue-600",
-      glow: "shadow-blue-500/30",
+      accent: "from-blue-500 to-blue-800",
+      glow: "shadow-blue-600/30",
       border: "border-blue-500/20",
       label: "Step One",
     },
@@ -40,8 +40,8 @@ const steps = {
       icon: ClipboardList,
       title: "Solicita tu Cotización",
       desc: "Completa nuestro formulario o llámanos. Respondemos en 24 horas con un estimado detallado y sin compromiso, personalizado para tu propiedad.",
-      accent: "from-blue-500 to-blue-600",
-      glow: "shadow-blue-500/30",
+      accent: "from-blue-500 to-blue-800",
+      glow: "shadow-blue-600/30",
       border: "border-blue-500/20",
       label: "Paso Uno",
     },
@@ -76,7 +76,7 @@ export default function HowItWorks({ lang }: { lang: string }) {
     <section className="relative py-24 overflow-hidden bg-[#060d1f]">
 
       {/* Background blobs */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/8 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-800/8 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-sky-500/8 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
@@ -151,7 +151,7 @@ export default function HowItWorks({ lang }: { lang: string }) {
         {/* CTA */}
         <div className="mt-16 text-center flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link href={`/${lang}/contact`}
-            className="inline-flex items-center gap-2.5 px-9 py-4 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold text-lg hover:from-sky-400 hover:to-blue-500 transition-all hover:-translate-y-1 shadow-xl shadow-blue-600/30">
+            className="inline-flex items-center gap-2.5 px-9 py-4 rounded-xl bg-gradient-to-r from-sky-500 to-blue-800 text-white font-bold text-lg hover:from-sky-400 hover:to-blue-500 transition-all hover:-translate-y-1 shadow-xl shadow-blue-700/30">
             {isEs ? "Empezar Ahora" : "Get Started Today"} <ArrowRight size={20} />
           </Link>
           <a href="tel:+16787395229"

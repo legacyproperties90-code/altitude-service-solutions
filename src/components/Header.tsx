@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -45,16 +45,16 @@ export default function Header({ lang, d }: { lang: Lang; d: Dictionary }) {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
-            <Link href={`/${lang}`} className="text-gray-800 hover:text-blue-600 text-sm font-bold transition-colors">{d.nav.home}</Link>
+            <Link href={`/${lang}`} className="text-gray-800 hover:text-blue-700 text-sm font-bold transition-colors">{d.nav.home}</Link>
 
             <div className="relative group">
-              <button className="flex items-center gap-1 text-gray-800 hover:text-blue-600 text-sm font-bold transition-colors">
+              <button className="flex items-center gap-1 text-gray-800 hover:text-blue-700 text-sm font-bold transition-colors">
                 {d.nav.residential} <ChevronDown size={14} />
               </button>
               <div className="absolute top-full left-0 mt-2 w-52 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 {resLinks.map((l) => (
                   <Link key={l.href} href={l.href}
-                    className="block px-4 py-2.5 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 first:rounded-t-xl last:rounded-b-xl transition-colors">
+                    className="block px-4 py-2.5 text-sm text-gray-600 hover:text-blue-700 hover:bg-blue-50 first:rounded-t-xl last:rounded-b-xl transition-colors">
                     {l.label}
                   </Link>
                 ))}
@@ -62,34 +62,34 @@ export default function Header({ lang, d }: { lang: Lang; d: Dictionary }) {
             </div>
 
             <div className="relative group">
-              <button className="flex items-center gap-1 text-gray-800 hover:text-blue-600 text-sm font-bold transition-colors">
+              <button className="flex items-center gap-1 text-gray-800 hover:text-blue-700 text-sm font-bold transition-colors">
                 {d.nav.commercial} <ChevronDown size={14} />
               </button>
               <div className="absolute top-full left-0 mt-2 w-60 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 {comLinks.map((l) => (
                   <Link key={l.href} href={l.href}
-                    className="block px-4 py-2.5 text-sm text-gray-600 hover:text-blue-600 hover:bg-blue-50 first:rounded-t-xl last:rounded-b-xl transition-colors">
+                    className="block px-4 py-2.5 text-sm text-gray-600 hover:text-blue-700 hover:bg-blue-50 first:rounded-t-xl last:rounded-b-xl transition-colors">
                     {l.label}
                   </Link>
                 ))}
               </div>
             </div>
 
-            <Link href={`/${lang}/gallery`} className="text-gray-800 hover:text-blue-600 text-sm font-bold transition-colors">{d.nav.gallery}</Link>
-            <Link href={`/${lang}/contact`} className="text-gray-800 hover:text-blue-600 text-sm font-bold transition-colors">{d.nav.contact}</Link>
+            <Link href={`/${lang}/gallery`} className="text-gray-800 hover:text-blue-700 text-sm font-bold transition-colors">{d.nav.gallery}</Link>
+            <Link href={`/${lang}/contact`} className="text-gray-800 hover:text-blue-700 text-sm font-bold transition-colors">{d.nav.contact}</Link>
           </nav>
 
           {/* Right side */}
           <div className="hidden lg:flex items-center gap-3">
             <Link href={switchPath}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 text-gray-500 hover:text-blue-600 hover:border-blue-300 text-sm font-medium transition-all">
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 text-gray-500 hover:text-blue-700 hover:border-blue-300 text-sm font-medium transition-all">
               <Globe size={14} /> {otherLang.toUpperCase()}
             </Link>
-            <a href="tel:+16787395229" className="flex items-center gap-2 text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors">
+            <a href="tel:+16787395229" className="flex items-center gap-2 text-blue-700 hover:text-blue-700 text-sm font-medium transition-colors">
               <Phone size={16} /> {d.nav.phone}
             </a>
             <Link href={`/${lang}/contact`}
-              className="px-5 py-2.5 rounded-lg bg-gradient-to-r from-blue-600 to-blue-500 text-white text-sm font-semibold hover:from-blue-700 hover:to-blue-600 transition-all shadow-md shadow-blue-500/20">
+              className="px-5 py-2.5 rounded-lg bg-gradient-to-r from-blue-800 to-blue-500 text-white text-sm font-semibold hover:from-blue-800 hover:to-blue-800 transition-all shadow-md shadow-blue-600/20">
               {d.nav.getQuote}
             </Link>
           </div>
@@ -111,7 +111,7 @@ export default function Header({ lang, d }: { lang: Lang; d: Dictionary }) {
             </button>
             {resOpen && (
               <div className="pl-4 space-y-1 mt-1">
-                {resLinks.map((l) => <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="block text-gray-500 py-1.5 text-sm hover:text-blue-600">{l.label}</Link>)}
+                {resLinks.map((l) => <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="block text-gray-500 py-1.5 text-sm hover:text-blue-700">{l.label}</Link>)}
               </div>
             )}
           </div>
@@ -122,7 +122,7 @@ export default function Header({ lang, d }: { lang: Lang; d: Dictionary }) {
             </button>
             {comOpen && (
               <div className="pl-4 space-y-1 mt-1">
-                {comLinks.map((l) => <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="block text-gray-500 py-1.5 text-sm hover:text-blue-600">{l.label}</Link>)}
+                {comLinks.map((l) => <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="block text-gray-500 py-1.5 text-sm hover:text-blue-700">{l.label}</Link>)}
               </div>
             )}
           </div>
@@ -134,11 +134,11 @@ export default function Header({ lang, d }: { lang: Lang; d: Dictionary }) {
             <Link href={switchPath} onClick={() => setOpen(false)} className="flex items-center gap-2 text-gray-500 font-medium">
               <Globe size={16} /> {lang === "en" ? "Ver en Español" : "View in English"}
             </Link>
-            <a href="tel:+16787395229" className="flex items-center gap-2 text-blue-600 font-medium">
+            <a href="tel:+16787395229" className="flex items-center gap-2 text-blue-700 font-medium">
               <Phone size={16} /> {d.nav.phone}
             </a>
             <Link href={`/${lang}/contact`} onClick={() => setOpen(false)}
-              className="block w-full text-center px-5 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold">
+              className="block w-full text-center px-5 py-3 rounded-lg bg-gradient-to-r from-blue-800 to-blue-500 text-white font-semibold">
               {d.nav.getQuote}
             </Link>
           </div>

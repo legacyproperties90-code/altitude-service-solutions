@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -118,7 +118,7 @@ export default function ChatWidget({ lang }: { lang: Lang }) {
           style={{ animation: "slideUp 0.35s ease-out" }}>
 
           {/* Header */}
-          <div className="bg-gradient-to-r from-blue-800 to-blue-600 px-4 py-3 flex items-center gap-3">
+          <div className="bg-gradient-to-r from-blue-800 to-blue-800 px-4 py-3 flex items-center gap-3">
             <div className="relative shrink-0">
               <div className="w-11 h-11 rounded-full overflow-hidden bg-white flex items-center justify-center border-2 border-white/30">
                 <Image src="/logo.png" alt="Altitude" width={44} height={44} className="object-contain scale-110" />
@@ -149,7 +149,7 @@ export default function ChatWidget({ lang }: { lang: Lang }) {
                 <div className={`max-w-[78%] px-3.5 py-2.5 rounded-2xl text-sm leading-snug ${
                   msg.from === "bot"
                     ? "bg-white text-gray-800 shadow-sm border border-gray-100 rounded-tl-sm"
-                    : "bg-blue-600 text-white rounded-tr-sm"
+                    : "bg-blue-800 text-white rounded-tr-sm"
                 }`}>
                   {msg.text}
                 </div>
@@ -202,11 +202,11 @@ export default function ChatWidget({ lang }: { lang: Lang }) {
             {step === "done" && (
               <div className="space-y-1.5">
                 <a href="tel:+16787395229"
-                  className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-blue-600 text-white text-sm font-bold hover:bg-blue-700 transition-all">
+                  className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-blue-800 text-white text-sm font-bold hover:bg-blue-800 transition-all">
                   <Phone size={15} /> (678) 739-5229
                 </a>
                 <Link href={`/${lang}/contact`} onClick={() => setOpen(false)}
-                  className="w-full flex items-center justify-center px-4 py-2.5 rounded-xl border-2 border-blue-600 text-blue-600 text-sm font-semibold hover:bg-blue-50 transition-all">
+                  className="w-full flex items-center justify-center px-4 py-2.5 rounded-xl border-2 border-blue-700 text-blue-700 text-sm font-semibold hover:bg-blue-50 transition-all">
                   {lang === "en" ? "Get a Free Quote" : "Solicitar Cotización"}
                 </Link>
                 <button onClick={restart} className="w-full text-center text-xs text-gray-400 hover:text-blue-500 py-1 transition-colors">
@@ -231,7 +231,7 @@ export default function ChatWidget({ lang }: { lang: Lang }) {
               {lang === "en" ? "👋 Hi! Need a quote or have questions?" : "👋 ¡Hola! ¿Necesitas una cotización?"}
             </p>
             <button onClick={() => { setBubble(false); setOpen(true); }}
-              className="mt-2 text-xs text-blue-600 font-semibold hover:text-blue-800 transition-colors">
+              className="mt-2 text-xs text-blue-700 font-semibold hover:text-blue-800 transition-colors">
               {lang === "en" ? "Chat with us →" : "Chatea con nosotros →"}
             </button>
             {/* triángulo apuntando al FAB */}
@@ -244,7 +244,7 @@ export default function ChatWidget({ lang }: { lang: Lang }) {
 
       {/* ── FAB button ── */}
       <button onClick={() => { setOpen(!open); setBubble(false); }}
-        className="fixed bottom-5 right-4 sm:right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-blue-700 to-blue-600 text-white flex items-center justify-center shadow-2xl shadow-blue-600/40 hover:scale-110 transition-all duration-300 border-2 border-white/20"
+        className="fixed bottom-5 right-4 sm:right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-blue-800 to-blue-800 text-white flex items-center justify-center shadow-2xl shadow-blue-700/40 hover:scale-110 transition-all duration-300 border-2 border-white/20"
         aria-label="Chat with us">
         {open ? <X size={24} /> : <MessageCircle size={24} />}
         {!open && (
