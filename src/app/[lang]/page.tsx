@@ -65,19 +65,18 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         slides={[
           {
             src: "/hero2.jpg",
-            alt: "House washing — after results",
-            label: lang === "es" ? "Lavado de Casas • Atlanta, GA" : "House Washing • Atlanta, GA",
-            objectPosition: "center 75%",   // muestra la casa limpia (parte inferior = after)
+            alt: "Clean house after professional washing",
+            objectPosition: "50% 90%",   // muestra la casa limpia del fondo (after)
+          },
+          {
+            src: "/hero2.jpg",
+            alt: "Beautiful home exterior cleaning results",
+            objectPosition: "50% 60%",   // vista media de la casa limpia
           },
           {
             src: "/hero1.jpg",
-            alt: "Gutter cleaning — after results",
-            label: lang === "es" ? "Limpieza de Canaletas" : "Gutter Cleaning",
-            objectPosition: "right center",  // muestra la canaleta limpia (derecha = after)
-          },
-          {
-            branded: true,
-            label: lang === "es" ? "100% Satisfacción Garantizada" : "100% Satisfaction Guaranteed",
+            alt: "Professional gutter cleaning results",
+            objectPosition: "80% 50%",   // lado derecho = canaleta limpia (after)
           },
         ]}
       />
