@@ -117,9 +117,34 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             objectPosition: "center 30%",
           },
           {
-            src: "/hero2.jpg",
-            alt: "Exterior home cleaning Atlanta — Altitude Service Solutions",
-            objectPosition: "50% 78%",
+            src: "/foto1.jpg",
+            alt: "Driveway pressure washing before and after — Atlanta GA",
+            objectPosition: "50% 72%",
+          },
+          {
+            src: "/foto2.jpg",
+            alt: "Commercial parking deck cleaning — Atlanta GA",
+            objectPosition: "center 40%",
+          },
+          {
+            src: "/foto3.jpg",
+            alt: "House siding soft washing before and after — Atlanta GA",
+            objectPosition: "50% 75%",
+          },
+          {
+            src: "/foto4.jpg",
+            alt: "Dramatic house washing transformation — Atlanta GA",
+            objectPosition: "50% 75%",
+          },
+          {
+            src: "/foto5.jpg",
+            alt: "Brick house soft washing before and after — Atlanta GA",
+            objectPosition: "50% 75%",
+          },
+          {
+            src: "/foto6.jpg",
+            alt: "Home exterior cleaning results — Atlanta GA",
+            objectPosition: "50% 75%",
           },
         ]}
       />

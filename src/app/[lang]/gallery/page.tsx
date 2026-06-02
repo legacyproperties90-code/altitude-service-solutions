@@ -18,10 +18,15 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 }
 
 const photos = [
-  { src: "/hero2.jpg", alt: "House washing before & after — Atlanta GA", tag: { en: "House Washing", es: "Lavado de Casa" }, pos: "50% 22%" },
-  { src: "/hero2.jpg", alt: "Professional exterior cleaning results — Lawrenceville GA", tag: { en: "Exterior Cleaning", es: "Limpieza Exterior" }, pos: "50% 78%" },
-  { src: "/hero1.jpg", alt: "Gutter cleaning before & after — Atlanta GA", tag: { en: "Gutter Cleaning", es: "Limpieza de Canaletas" }, pos: "30% 50%" },
-  { src: "/hero1.jpg", alt: "Professional gutter cleaning — Duluth GA", tag: { en: "Gutter Cleaning", es: "Limpieza de Canaletas" }, pos: "70% 50%" },
+  { src: "/altura.png",  alt: "High-rise cleaning — Atlanta GA",               tag: { en: "High-Rise Cleaning",  es: "Limpieza en Altura" },     pos: "center 30%" },
+  { src: "/foto4.jpg",   alt: "House siding transformation — Atlanta GA",       tag: { en: "House Washing",       es: "Lavado de Casa" },          pos: "50% 75%" },
+  { src: "/foto1.jpg",   alt: "Driveway pressure washing — Atlanta GA",         tag: { en: "Pressure Washing",    es: "Lavado a Presión" },        pos: "50% 72%" },
+  { src: "/foto3.jpg",   alt: "House soft washing — Lawrenceville GA",          tag: { en: "Soft Washing",        es: "Soft Washing" },            pos: "50% 75%" },
+  { src: "/foto5.jpg",   alt: "Brick house cleaning — Atlanta GA",              tag: { en: "House Washing",       es: "Lavado de Casa" },          pos: "50% 75%" },
+  { src: "/foto6.jpg",   alt: "Home exterior cleaning — Atlanta GA",            tag: { en: "Soft Washing",        es: "Soft Washing" },            pos: "50% 75%" },
+  { src: "/foto2.jpg",   alt: "Commercial parking deck cleaning — Atlanta GA",  tag: { en: "Commercial",          es: "Comercial" },               pos: "center 40%" },
+  { src: "/hero2.jpg",   alt: "House washing results — Lawrenceville GA",       tag: { en: "House Washing",       es: "Lavado de Casa" },          pos: "50% 78%" },
+  { src: "/hero1.jpg",   alt: "Gutter cleaning — Atlanta GA",                   tag: { en: "Gutter Cleaning",     es: "Limpieza de Canaletas" },   pos: "70% 50%" },
 ];
 
 export default async function GalleryPage({ params }: { params: Promise<{ lang: string }> }) {
@@ -67,7 +72,7 @@ export default async function GalleryPage({ params }: { params: Promise<{ lang: 
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
           {/* Real photos */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5 mb-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-5">
             {photos.map((p, i) => (
               <div key={i} className="group relative overflow-hidden rounded-2xl aspect-video shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <Image
