@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, ImageOff } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, Upload } from "lucide-react";
 import { getDictionary } from "@/lib/getDictionary";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
@@ -16,28 +17,43 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   };
 }
 
+const photos = [
+  { src: "/hero2.jpg", alt: "House washing before & after — Atlanta GA", tag: { en: "House Washing", es: "Lavado de Casa" }, pos: "50% 22%" },
+  { src: "/hero2.jpg", alt: "Professional exterior cleaning results — Lawrenceville GA", tag: { en: "Exterior Cleaning", es: "Limpieza Exterior" }, pos: "50% 78%" },
+  { src: "/hero1.jpg", alt: "Gutter cleaning before & after — Atlanta GA", tag: { en: "Gutter Cleaning", es: "Limpieza de Canaletas" }, pos: "30% 50%" },
+  { src: "/hero1.jpg", alt: "Professional gutter cleaning — Duluth GA", tag: { en: "Gutter Cleaning", es: "Limpieza de Canaletas" }, pos: "70% 50%" },
+];
+
 export default async function GalleryPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   const d = await getDictionary(lang);
+  const isEs = lang === "es";
+
+  const cats = isEs
+    ? ["Todos", "Lavado de Casa", "Canaletas", "Techos", "Comercial"]
+    : ["All", "House Washing", "Gutters", "Roofing", "Commercial"];
 
   return (
     <>
-      <section className="pt-32 pb-16 bg-gradient-to-b from-blue-600 to-blue-500">
+      {/* Header */}
+      <section className="pt-32 pb-16 bg-gradient-to-b from-blue-800 to-blue-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-blue-100 font-semibold text-sm tracking-widest uppercase mb-3">{d.gallery.badge}</p>
+          <p className="text-blue-200 font-semibold text-sm tracking-widest uppercase mb-3">{d.gallery.badge}</p>
           <h1 className="text-5xl sm:text-6xl font-black text-white mb-5">{d.gallery.title}</h1>
           <p className="text-blue-100 text-xl max-w-2xl mx-auto">{d.gallery.desc}</p>
         </div>
       </section>
 
-      <section className="py-8 bg-white border-b border-gray-100">
+      {/* Category tabs */}
+      <section className="py-6 bg-white border-b border-gray-100 sticky top-20 z-30 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex flex-wrap gap-3 justify-center">
-            {d.gallery.categories.map((c, i) => (
+          <div className="flex flex-wrap gap-2 justify-center">
+            {cats.map((c, i) => (
               <button key={c}
-                className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${i === 0
-                  ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
-                  : "bg-gray-100 text-gray-600 hover:bg-blue-50 hover:text-blue-600 border border-gray-200"
+                className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
+                  i === 0
+                    ? "bg-blue-700 text-white shadow-md shadow-blue-700/20"
+                    : "bg-gray-100 text-gray-600 hover:bg-sky-50 hover:text-sky-700 border border-gray-200"
                 }`}>
                 {c}
               </button>
@@ -46,28 +62,70 @@ export default async function GalleryPage({ params }: { params: Promise<{ lang: 
         </div>
       </section>
 
-      <section className="py-16 bg-white">
+      {/* Photos grid */}
+      <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {Array.from({ length: 12 }).map((_, i) => (
-              <div key={i} className="aspect-square bg-gray-50 border border-gray-100 rounded-2xl flex flex-col items-center justify-center card-hover hover:border-blue-200 hover:shadow-md transition-all">
-                <ImageOff size={32} className="text-gray-300 mb-3" />
-                <p className="text-gray-400 text-xs text-center px-4">Photo coming soon</p>
+
+          {/* Real photos */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5 mb-5">
+            {photos.map((p, i) => (
+              <div key={i} className="group relative overflow-hidden rounded-2xl aspect-video shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <Image
+                  src={p.src}
+                  alt={p.alt}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  style={{ objectPosition: p.pos }}
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                />
+                {/* Overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                {/* Tag */}
+                <div className="absolute top-3 left-3">
+                  <span className="bg-blue-700/90 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full">
+                    {isEs ? p.tag.es : p.tag.en}
+                  </span>
+                </div>
+                {/* Location on hover */}
+                <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                  <p className="text-white font-semibold text-sm">Altitude Service Solutions</p>
+                  <p className="text-gray-300 text-xs">Atlanta, GA</p>
+                </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-16 bg-gray-50 border border-gray-100 rounded-2xl p-10 text-center shadow-sm">
-            <h3 className="text-2xl font-black text-gray-900 mb-3">{d.gallery.comingSoon}</h3>
-            <p className="text-gray-500 text-lg max-w-xl mx-auto mb-6">{d.gallery.comingDesc}</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          {/* Placeholder grid for more photos */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-10">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <div key={i}
+                className="aspect-square bg-white border-2 border-dashed border-gray-200 rounded-2xl flex flex-col items-center justify-center gap-2 hover:border-sky-300 hover:bg-sky-50 transition-all">
+                <Upload size={22} className="text-gray-300" />
+                <p className="text-gray-300 text-xs text-center font-medium px-3">
+                  {isEs ? "Foto próximamente" : "Photo coming soon"}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="bg-gradient-to-r from-blue-900 to-blue-700 rounded-2xl p-10 text-center">
+            <h3 className="text-2xl font-black text-white mb-2">
+              {isEs ? "¿Quieres ver más resultados?" : "Want to See More Results?"}
+            </h3>
+            <p className="text-blue-200 text-lg mb-7 max-w-xl mx-auto">
+              {isEs
+                ? "Llámanos o solicita una cotización. Podemos visitar tu propiedad y mostrarte exactamente qué podemos hacer."
+                : "Give us a call or request a quote. We can visit your property and show you exactly what we can do."}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link href={`/${lang}/contact`}
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold hover:from-blue-700 hover:to-blue-600 transition-all shadow-lg shadow-blue-500/20">
-                {d.gallery.getQuote} <ArrowRight size={18} />
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-white text-blue-800 font-bold hover:bg-blue-50 transition-all">
+                {isEs ? "Cotización Gratis" : "Get a Free Quote"} <ArrowRight size={18} />
               </Link>
               <a href="tel:+16787395229"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl border-2 border-blue-600 text-blue-600 font-semibold hover:bg-blue-600 hover:text-white transition-all">
-                {d.gallery.callUs}
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl border-2 border-white/40 text-white font-bold hover:bg-white/10 transition-all">
+                (678) 739-5229
               </a>
             </div>
           </div>
