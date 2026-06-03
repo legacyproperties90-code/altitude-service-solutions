@@ -75,6 +75,7 @@ export default function Header({ lang, d }: { lang: Lang; d: Dictionary }) {
               </div>
             </div>
 
+            <Link href={`/${lang}/about`} className="text-gray-800 hover:text-blue-700 text-sm font-bold transition-colors">{lang === "es" ? "Nosotros" : "About"}</Link>
             <Link href={`/${lang}/gallery`} className="text-gray-800 hover:text-blue-700 text-sm font-bold transition-colors">{d.nav.gallery}</Link>
             <Link href={`/${lang}/contact`} className="text-gray-800 hover:text-blue-700 text-sm font-bold transition-colors">{d.nav.contact}</Link>
           </nav>
@@ -127,6 +128,7 @@ export default function Header({ lang, d }: { lang: Lang; d: Dictionary }) {
             )}
           </div>
 
+          <Link href={`/${lang}/about`} onClick={() => setOpen(false)} className="block text-gray-900 font-medium py-2">{lang === "es" ? "Nosotros" : "About"}</Link>
           <Link href={`/${lang}/gallery`} onClick={() => setOpen(false)} className="block text-gray-900 font-medium py-2">{d.nav.gallery}</Link>
           <Link href={`/${lang}/contact`} onClick={() => setOpen(false)} className="block text-gray-900 font-medium py-2">{d.nav.contact}</Link>
 

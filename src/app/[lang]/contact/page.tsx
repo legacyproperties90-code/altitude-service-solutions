@@ -158,6 +158,15 @@ export default function ContactPage({ params }: { params: Promise<{ lang: string
       address: form.address, message: form.message,
     }]);
 
+    // Send email notification (non-blocking)
+    if (!err) {
+      fetch("/api/notify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: form.name, email: form.email, phone: form.phone, service: serviceNames, address: form.address, message: form.message }),
+      }).catch(() => {});
+    }
+
     setLoading(false);
     if (err) setError(t.errorMsg);
     else setSent(true);
