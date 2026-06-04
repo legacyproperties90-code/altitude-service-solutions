@@ -31,7 +31,7 @@ const photos = [
   { src: "/svc_soft_washing.jpg",    pos: "center 50%",  type: "sidebyside" },  // side-by-side portrait → shows both
   { src: "/foto10.jpg",              pos: "75% 50%",     type: "sidebyside" },  // side-by-side → show clean right side
   { src: "/svc_house_washing.jpg",   pos: "50% 100%",    type: "stacked"    },  // stacked → show bottom (after=clean siding)
-  { src: "/nueva2.jpg",              pos: "75% 40%",     type: "sidebyside" },  // roof/gutter side-by-side
+  { src: "/svc_roof2.jpg",            pos: "75% 40%",     type: "sidebyside" },  // roof cleaning before/after
   { src: "/svc_fence_deck.jpg",      pos: "50% 100%",    type: "stacked"    },  // stacked → show bottom (after=restored fence)
   { src: "/svc_gutter_cleaning.jpg", pos: "center 50%",  type: "sidebyside" },  // side-by-side portrait → shows both
   { src: "/nueva3.jpg",              pos: "75% 50%",     type: "sidebyside" },  // window / exterior
