@@ -50,9 +50,10 @@ export default function BeforeAfterSlider({ lang }: { lang: string }) {
           <div
             ref={containerRef}
             className="relative w-full rounded-2xl overflow-hidden shadow-2xl shadow-gray-900/20 select-none"
-            style={{ height: "400px" }}
+            style={{ height: "min(400px, 70vw)" }}
             onMouseDown={(e) => { dragging.current = true; updatePos(e.clientX); }}
-            onTouchMove={(e)  => updatePos(e.touches[0].clientX)}
+            onTouchStart={(e) => updatePos(e.touches[0].clientX)}
+            onTouchMove={(e)  => { e.preventDefault(); updatePos(e.touches[0].clientX); }}
           >
             {/* AFTER — right side (clean gutter): objectPosition 100% shows right half */}
             <div className="absolute inset-0">

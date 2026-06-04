@@ -298,7 +298,7 @@ export default function ContactPage({ params }: { params: Promise<{ lang: string
                       <Home size={14} className="text-blue-600" />
                       <span className="text-blue-700 font-bold text-xs uppercase tracking-wider">{t.residentialLabel}</span>
                     </div>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                    <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-2">
                       {res.map((s) => (
                         <ServicePill key={s.id} icon={s.icon} label={s.label}
                           selected={selectedServices.has(s.id)} onToggle={() => toggleService(s.id)} />

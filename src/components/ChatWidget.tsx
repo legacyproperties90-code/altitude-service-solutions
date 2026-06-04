@@ -114,7 +114,7 @@ export default function ChatWidget({ lang }: { lang: Lang }) {
     <>
       {/* ── Ventana del chat ── */}
       {open && (
-        <div className="fixed bottom-24 right-4 sm:right-6 z-50 w-[340px] sm:w-[370px] bg-white rounded-2xl shadow-2xl shadow-black/25 border border-gray-100 flex flex-col overflow-hidden"
+        <div className="fixed bottom-36 sm:bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[370px] max-w-[370px] bg-white rounded-2xl shadow-2xl shadow-black/25 border border-gray-100 flex flex-col overflow-hidden"
           style={{ animation: "slideUp 0.35s ease-out" }}>
 
           {/* Header */}
@@ -244,7 +244,7 @@ export default function ChatWidget({ lang }: { lang: Lang }) {
 
       {/* ── FAB button ── */}
       <button onClick={() => { setOpen(!open); setBubble(false); }}
-        className="fixed bottom-5 right-4 sm:right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-blue-800 to-blue-800 text-white flex items-center justify-center shadow-2xl shadow-blue-700/40 hover:scale-110 transition-all duration-300 border-2 border-white/20"
+        className="fixed bottom-20 sm:bottom-5 right-4 sm:right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-blue-800 to-blue-800 text-white flex items-center justify-center shadow-2xl shadow-blue-700/40 hover:scale-110 transition-all duration-300 border-2 border-white/20"
         aria-label="Chat with us">
         {open ? <X size={24} /> : <MessageCircle size={24} />}
         {!open && (

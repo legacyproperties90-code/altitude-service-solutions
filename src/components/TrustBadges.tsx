@@ -13,7 +13,7 @@ export default function TrustBadges({ lang }: { lang: string }) {
   return (
     <section className="bg-blue-800 py-5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3">
           {badges.map((b) => (
             <div key={b.en} className="flex items-center gap-2.5 justify-center sm:justify-start">
               <b.icon size={20} className={`${b.color} shrink-0 fill-current`} />

@@ -62,21 +62,21 @@ export default function HeroSlider({ slides, headline, highlight, subtitle, cta,
       ))}
 
       {/* ── CONTENIDO ── */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-10 pt-24 pb-20 text-center">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-10 pt-24 pb-16 text-center">
 
         <h1
-          className="text-5xl sm:text-7xl lg:text-8xl font-black text-white leading-tight mb-6"
+          className="text-4xl sm:text-7xl lg:text-8xl font-black text-white leading-tight mb-4 sm:mb-6"
           style={{ textShadow: "0 2px 30px rgba(0,0,0,0.95), 0 1px 8px rgba(0,0,0,0.9)" }}>
           {headline}{" "}{highlight}
         </h1>
 
         <p
-          className="text-lg sm:text-xl text-white max-w-2xl mx-auto mb-8 leading-relaxed font-bold"
+          className="text-base sm:text-xl text-white max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed font-bold"
           style={{ textShadow: "0 1px 20px rgba(0,0,0,0.95), 0 1px 6px rgba(0,0,0,0.9)" }}>
           {subtitle}
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-3 justify-center mb-10">
+        <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8 sm:mb-10">
           <Link href={`/${lang}/contact`}
             className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-blue-800 to-blue-500 text-white font-bold text-base hover:from-blue-500 hover:to-blue-400 hover:-translate-y-0.5 transition-all shadow-xl shadow-blue-700/40">
             {cta} <ArrowRight size={18} />
@@ -89,9 +89,9 @@ export default function HeroSlider({ slides, headline, highlight, subtitle, cta,
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 max-w-2xl mx-auto">
           {stats.map((s) => (
-            <div key={s.label} className="bg-black/50 backdrop-blur-md border border-white/15 rounded-xl px-3 py-3">
+            <div key={s.label} className="bg-black/50 backdrop-blur-md border border-white/15 rounded-xl px-2 py-2.5 sm:px-3 sm:py-3">
               <div className="text-2xl font-black text-blue-300" style={{ textShadow: "0 1px 8px rgba(0,0,0,0.6)" }}>{s.value}</div>
               <div className="text-gray-200 text-xs leading-tight mt-0.5">{s.label}</div>
             </div>
