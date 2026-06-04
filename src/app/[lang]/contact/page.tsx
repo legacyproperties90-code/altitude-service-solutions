@@ -36,13 +36,11 @@ const comServices = {
     { id: "com-pressure",   icon: Building2,  label: "Commercial Pressure Washing" },
     { id: "parking-deck",   icon: Building2,  label: "Parking Deck Cleaning" },
     { id: "highrise",       icon: Eye,        label: "High-Rise Window Cleaning" },
-    { id: "waterproof",     icon: Shield,     label: "Waterproofing" },
   ],
   es: [
     { id: "com-pressure",   icon: Building2,  label: "Lavado Comercial" },
     { id: "parking-deck",   icon: Building2,  label: "Limpieza de Estacionamiento" },
     { id: "highrise",       icon: Eye,        label: "Ventanas en Altura" },
-    { id: "waterproof",     icon: Shield,     label: "Impermeabilización" },
   ],
 };
 

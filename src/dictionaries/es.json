@@ -155,12 +155,6 @@
         "desc": "Limpieza profesional y segura de ventanas para edificios comerciales de varios pisos. Nuestros técnicos capacitados usan equipos de última generación para resultados perfectos a cualquier altura.",
         "benefits": ["Cualquier altura de edificio", "Técnicas conformes con OSHA", "Acabado sin rayas", "Programación flexible"]
       },
-      {
-        "id": "waterproofing",
-        "title": "Impermeabilización",
-        "desc": "Proteja su inversión comercial de la infiltración de agua y daños. Aplicamos tratamientos impermeabilizantes de grado profesional en paredes, decks, techos y cimientos.",
-        "benefits": ["Paredes y fachadas exteriores", "Decks y terrazas de techo", "Protección de cimientos", "Garantía a largo plazo"]
-      }
     ]
   },
   "gallery": {
