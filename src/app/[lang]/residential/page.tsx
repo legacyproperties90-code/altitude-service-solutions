@@ -34,7 +34,7 @@ const photos = [
   { src: "/svc_roof2.jpg",            pos: "75% 40%",     type: "sidebyside" },  // roof cleaning before/after
   { src: "/svc_fence_deck.jpg",      pos: "50% 100%",    type: "stacked"    },  // stacked → show bottom (after=restored fence)
   { src: "/svc_gutter_cleaning.jpg", pos: "center 50%",  type: "sidebyside" },  // side-by-side portrait → shows both
-  { src: "/nueva3.jpg",              pos: "75% 50%",     type: "sidebyside" },  // window / exterior
+  null,  // Window Cleaning — awaiting photo upload
 ];
 
 export default async function ResidentialPage({ params }: { params: Promise<{ lang: string }> }) {
@@ -58,7 +58,7 @@ export default async function ResidentialPage({ params }: { params: Promise<{ la
             const photo = photos[i];
             const isEven = i % 2 === 0;
             /* side-by-side photos look better in a more square container */
-            const aspectClass = photo.type === "sidebyside" ? "aspect-[4/3]" : "aspect-video";
+            const aspectClass = photo ? (photo.type === "sidebyside" ? "aspect-[4/3]" : "aspect-video") : "aspect-video";
             return (
               <div key={s.id} id={s.id} className="grid lg:grid-cols-2 gap-12 items-center">
                 <div className={!isEven ? "lg:order-2" : ""}>
@@ -80,6 +80,7 @@ export default async function ResidentialPage({ params }: { params: Promise<{ la
                   </Link>
                 </div>
                 <div className={`${!isEven ? "lg:order-1" : ""} rounded-2xl overflow-hidden ${aspectClass} relative shadow-xl shadow-black/10`}>
+                  {photo ? (
                   <Image src={photo.src} alt={s.title} fill unoptimized
                     className="object-cover" style={{ objectPosition: photo.pos }}
                     sizes="(max-width: 1024px) 100vw, 50vw" />
@@ -88,6 +89,13 @@ export default async function ResidentialPage({ params }: { params: Promise<{ la
                       {s.title}
                     </span>
                   </div>
+                  ) : (
+                  <div className="absolute inset-0 bg-gradient-to-br from-violet-50 to-blue-50 flex flex-col items-center justify-center gap-3">
+                    <Icon size={56} className={`${colors[i] ?? "text-violet-400"} opacity-30`} />
+                    <span className="text-gray-400 text-sm font-medium">{s.title}</span>
+                    <span className="text-gray-300 text-xs">{lang === "es" ? "Foto próximamente" : "Photo coming soon"}</span>
+                  </div>
+                  )}
                 </div>
               </div>
             );
