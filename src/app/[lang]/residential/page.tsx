@@ -29,7 +29,7 @@ const bgs    = ["bg-sky-50","bg-blue-50","bg-indigo-50","bg-emerald-50","bg-oran
 */
 const photos = [
   { src: "/svc_soft_washing.jpg",    pos: "center 50%",  type: "sidebyside" },  // side-by-side portrait → shows both
-  { src: "/svc_pressure_washing.jpg",pos: "50% 100%",    type: "stacked"    },  // stacked → show bottom (after=clean driveway)
+  { src: "/foto10.jpg",              pos: "75% 50%",     type: "sidebyside" },  // side-by-side → show clean right side
   { src: "/svc_house_washing.jpg",   pos: "50% 100%",    type: "stacked"    },  // stacked → show bottom (after=clean siding)
   { src: "/nueva2.jpg",              pos: "75% 40%",     type: "sidebyside" },  // roof/gutter side-by-side
   { src: "/svc_fence_deck.jpg",      pos: "50% 100%",    type: "stacked"    },  // stacked → show bottom (after=restored fence)
