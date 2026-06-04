@@ -7,7 +7,7 @@ const services = [
   "Soft Washing", "Pressure Washing", "House Washing", "Roof Cleaning",
   "Fence & Deck", "Gutter Cleaning", "Window Cleaning",
   "Commercial Pressure Washing", "Parking Deck Cleaning",
-  "High-Rise Window Cleaning", "Waterproofing",
+  "High-Rise Window Cleaning",
 ];
 
 export default function ContactPage() {

@@ -30,13 +30,6 @@ const services = [
     desc: "Professional, safe window cleaning for multi-story commercial buildings. Our trained technicians use industry-leading equipment to deliver spotless results at any height.",
     benefits: ["All building heights", "OSHA-compliant techniques", "Streak-free finish", "Flexible scheduling"],
   },
-  {
-    id: "waterproofing",
-    icon: Shield,
-    title: "Commercial Waterproofing",
-    desc: "Protect your commercial investment from water infiltration and damage. We apply professional-grade waterproofing treatments to walls, decks, roofs, and foundations.",
-    benefits: ["Exterior walls & facades", "Roof decks & terraces", "Foundation protection", "Long-term warranty"],
-  },
 ];
 
 export default function CommercialPage() {
