@@ -16,7 +16,45 @@ body {
   background-clip: text;
 }
 
-/* Card hover — override with per-card Tailwind classes */
+/* Card hover */
 .card-hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* ── Arrow animations ── */
+@keyframes arrow-slide {
+  0%   { transform: translateX(0px);  opacity: 1; }
+  40%  { transform: translateX(6px);  opacity: 1; }
+  55%  { transform: translateX(6px);  opacity: 0; }
+  56%  { transform: translateX(-4px); opacity: 0; }
+  70%  { transform: translateX(0px);  opacity: 1; }
+  100% { transform: translateX(0px);  opacity: 1; }
+}
+
+@keyframes arrow-pulse {
+  0%, 100% { transform: translateX(0);   }
+  50%       { transform: translateX(5px); }
+}
+
+/* Flechas en botones primarios — deslizamiento continuo */
+.btn-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-arrow svg {
+  animation: arrow-slide 1.8s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+/* Flechas en links secundarios — pulso suave */
+.link-arrow svg {
+  animation: arrow-pulse 1.4s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+/* Flechas en botones blancos (sobre fondo azul) */
+.btn-white-arrow svg {
+  animation: arrow-slide 1.8s ease-in-out infinite;
+  flex-shrink: 0;
 }

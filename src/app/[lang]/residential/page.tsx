@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Droplets, Home, Leaf, Wind, Eye, CheckCircle } from "lucide-react";
@@ -75,7 +75,7 @@ export default async function ResidentialPage({ params }: { params: Promise<{ la
                     ))}
                   </ul>
                   <Link href={`/${lang}/contact`}
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-blue-700 to-blue-600 text-white font-semibold hover:from-blue-800 hover:to-blue-700 transition-all hover:-translate-y-1 shadow-lg shadow-blue-700/20">
+                    className="btn-arrow inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-blue-700 to-blue-600 text-white font-semibold hover:from-blue-800 hover:to-blue-700 transition-all hover:-translate-y-1 shadow-lg shadow-blue-700/20">
                     {d.residential.getQuote} <ArrowRight size={18} />
                   </Link>
                 </div>
@@ -100,7 +100,7 @@ export default async function ResidentialPage({ params }: { params: Promise<{ la
           <h2 className="text-4xl font-black text-white mb-5">{d.residential.bookCta}</h2>
           <p className="text-blue-100 text-lg mb-8">{d.residential.bookDesc}</p>
           <Link href={`/${lang}/contact`}
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-blue-800 font-bold text-lg hover:bg-blue-50 transition-all">
+            className="btn-arrow inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-blue-800 font-bold text-lg hover:bg-blue-50 transition-all">
             {d.residential.getQuote} <ArrowRight size={20} />
           </Link>
         </div>

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Shield, Star, Users, Award, MapPin, Phone, CheckCircle, Heart } from "lucide-react";
@@ -217,7 +217,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href={`/${lang}/contact`}
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-blue-800 font-bold text-lg hover:bg-blue-50 transition-all hover:-translate-y-1">
+              className="btn-arrow inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-blue-800 font-bold text-lg hover:bg-blue-50 transition-all hover:-translate-y-1">
               {isEs ? "Cotización Gratis" : "Get a Free Quote"} <ArrowRight size={20} />
             </Link>
             <a href="tel:+16787395229"

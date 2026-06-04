@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { ArrowRight, Droplets, Home, Leaf, Wind, Eye, CheckCircle } from "lucide-react";
 
 const services = [
@@ -92,7 +92,7 @@ export default function ResidentialPage() {
                   ))}
                 </ul>
                 <Link href="/contact"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold hover:from-blue-700 hover:to-blue-600 transition-all hover:-translate-y-1">
+                  className="btn-arrow inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold hover:from-blue-700 hover:to-blue-600 transition-all hover:-translate-y-1">
                   Get a Free Quote <ArrowRight size={18} />
                 </Link>
               </div>
@@ -112,7 +112,7 @@ export default function ResidentialPage() {
           <h2 className="text-4xl font-black text-white mb-5">Ready to Book a Service?</h2>
           <p className="text-gray-300 text-lg mb-8">Get a free estimate today — no obligation, no pressure.</p>
           <Link href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-bold text-lg hover:from-blue-700 hover:to-blue-600 transition-all">
+            className="btn-arrow inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-bold text-lg hover:from-blue-700 hover:to-blue-600 transition-all">
             Get a Free Quote <ArrowRight size={20} />
           </Link>
         </div>

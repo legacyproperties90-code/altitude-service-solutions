@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Building2, Droplets, Eye, Shield, CheckCircle } from "lucide-react";
@@ -77,7 +77,7 @@ export default async function CommercialPage({ params }: { params: Promise<{ lan
                     ))}
                   </ul>
                   <Link href={`/${lang}/contact`}
-                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold hover:from-blue-700 hover:to-blue-600 transition-all hover:-translate-y-1 shadow-lg shadow-blue-500/20">
+                    className="btn-arrow inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold hover:from-blue-700 hover:to-blue-600 transition-all hover:-translate-y-1 shadow-lg shadow-blue-500/20">
                     {d.commercial.quoteBtn} <ArrowRight size={18} />
                   </Link>
                 </div>
@@ -111,7 +111,7 @@ export default async function CommercialPage({ params }: { params: Promise<{ lan
           <h2 className="text-4xl font-black text-white mb-5">{d.commercial.bookCta}</h2>
           <p className="text-blue-100 text-lg mb-8">{d.commercial.bookDesc}</p>
           <Link href={`/${lang}/contact`}
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-blue-700 font-bold text-lg hover:bg-blue-50 transition-all">
+            className="btn-arrow inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-blue-700 font-bold text-lg hover:bg-blue-50 transition-all">
             {d.commercial.bookBtn} <ArrowRight size={20} />
           </Link>
         </div>
