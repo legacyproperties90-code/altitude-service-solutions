@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
     headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
     body: JSON.stringify({
       from: "Altitude Service Solutions <onboarding@resend.dev>",
-      to: ["leonel@altitudess.net", "ehleonel@yahoo.com"],
+      to: ["leonel@altitudess.net"],
       reply_to: email,
       subject: `🏠 New Quote — ${name} | ${service}`,
       html,
