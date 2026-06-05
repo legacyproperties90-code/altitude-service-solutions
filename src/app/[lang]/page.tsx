@@ -33,9 +33,9 @@ const comColors  = ["text-slate-600","text-sky-500","text-gray-600","text-violet
 const comHovers  = ["group-hover:bg-slate-600","group-hover:bg-sky-500","group-hover:bg-gray-600","group-hover:bg-violet-500","group-hover:bg-green-600"];
 const comBgs     = ["bg-slate-50","bg-sky-50","bg-gray-100","bg-violet-50","bg-green-50"];
 
-/* Cards premium con shimmer y glow */
-const CARD = "card-glow group relative bg-gradient-to-br from-white to-slate-50/60 border border-gray-100/80 rounded-2xl p-7 shadow-md cursor-default";
-const CARD_ICON = "w-14 h-14 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:shadow-xl transition-all duration-300";
+/* Cards premium MAX glow */
+const CARD = "card-glow group relative bg-gradient-to-br from-white via-blue-50/20 to-sky-50/30 border border-blue-100/50 rounded-2xl p-7 cursor-default";
+const CARD_ICON = "w-14 h-14 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-115 group-hover:shadow-2xl transition-all duration-300";
 
 export default async function HomePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = await params;
