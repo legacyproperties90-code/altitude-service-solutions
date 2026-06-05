@@ -17,15 +17,14 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   };
 }
 
-const icons  = [Building2, Droplets, Building2, Eye];
-const colors = ["text-slate-600","text-sky-500","text-gray-600","text-violet-500"];
-const bgs    = ["bg-slate-50","bg-sky-50","bg-gray-100","bg-violet-50"];
+const icons  = [Building2, Droplets, Building2];
+const colors = ["text-slate-600","text-sky-500","text-gray-600"];
+const bgs    = ["bg-slate-50","bg-sky-50","bg-gray-100"];
 
 const photos = [
   { src: "/foto1.jpg",   pos: "50% 100%"  },   // Commercial Pressure Washing
   { src: "/nueva3.jpg",  pos: "75% 50%"   },   // Soft Washing
   { src: "/foto2.jpg",   pos: "center 40%" },  // Parking Deck
-  { src: "/altura.png",  pos: "center 30%" },  // High-Rise Window Cleaning
 ];
 
 export default async function CommercialPage({ params }: { params: Promise<{ lang: string }> }) {

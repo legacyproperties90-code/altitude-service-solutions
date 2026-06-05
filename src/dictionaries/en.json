@@ -148,12 +148,6 @@
         "title": "Parking Deck Cleaning",
         "desc": "Parking decks accumulate oil, tire marks, and grime that create hazardous conditions and an unprofessional appearance. Our team restores them to a clean, safe state.",
         "benefits": ["Oil & grease removal", "Tire mark elimination", "Safety improvement", "Multi-level structures"]
-      },
-      {
-        "id": "high-rise-window-cleaning",
-        "title": "High-Rise Window Cleaning",
-        "desc": "Professional, safe window cleaning for multi-story commercial buildings. Our trained technicians use industry-leading equipment to deliver spotless results at any height.",
-        "benefits": ["All building heights", "OSHA-compliant techniques", "Streak-free finish", "Flexible scheduling"]
       }
     ]
   },
@@ -216,7 +210,7 @@
     },
     "commercial": {
       "title": "Commercial Pressure Washing Atlanta | Altitude Service Solutions",
-      "description": "Commercial pressure washing, parking deck cleaning & high-rise window cleaning in Atlanta. Trusted by Atlantic Private Residences & The Aberdeen. Free quotes."
+      "description": "Commercial pressure washing, soft washing & parking deck cleaning in Atlanta, GA. Trusted by Atlantic Private Residences & The Aberdeen. Free quotes."
     },
     "gallery": {
       "title": "Project Gallery | Pressure Washing Before & After | Altitude Service Solutions",
