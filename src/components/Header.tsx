@@ -77,7 +77,7 @@ export default function Header({ lang, d }: { lang: Lang; d: Dictionary }) {
 
             <Link href={`/${lang}/about`} className="text-gray-800 hover:text-blue-700 text-sm font-bold transition-colors">{lang === "es" ? "Nosotros" : "About"}</Link>
             <Link href={`/${lang}/gallery`} className="text-gray-800 hover:text-blue-700 text-sm font-bold transition-colors">{d.nav.gallery}</Link>
-            <Link href={`/${lang}/contact`} className="text-gray-800 hover:text-blue-700 text-sm font-bold transition-colors">{d.nav.contact}</Link>
+            <Link href={`/${lang}/contact#quote-form`} className="text-gray-800 hover:text-blue-700 text-sm font-bold transition-colors">{d.nav.contact}</Link>
           </nav>
 
           {/* Right side */}
@@ -89,7 +89,7 @@ export default function Header({ lang, d }: { lang: Lang; d: Dictionary }) {
             <a href="tel:+16787395229" className="flex items-center gap-2 text-blue-700 hover:text-blue-700 text-sm font-medium transition-colors">
               <Phone size={16} /> {d.nav.phone}
             </a>
-            <Link href={`/${lang}/contact`}
+            <Link href={`/${lang}/contact#quote-form`}
               className="px-5 py-2.5 rounded-lg bg-gradient-to-r from-blue-800 to-blue-500 text-white text-sm font-semibold hover:from-blue-800 hover:to-blue-800 transition-all shadow-md shadow-blue-600/20">
               {d.nav.getQuote}
             </Link>
@@ -130,7 +130,7 @@ export default function Header({ lang, d }: { lang: Lang; d: Dictionary }) {
 
           <Link href={`/${lang}/about`} onClick={() => setOpen(false)} className="block text-gray-900 font-medium py-2">{lang === "es" ? "Nosotros" : "About"}</Link>
           <Link href={`/${lang}/gallery`} onClick={() => setOpen(false)} className="block text-gray-900 font-medium py-2">{d.nav.gallery}</Link>
-          <Link href={`/${lang}/contact`} onClick={() => setOpen(false)} className="block text-gray-900 font-medium py-2">{d.nav.contact}</Link>
+          <Link href={`/${lang}/contact#quote-form`} onClick={() => setOpen(false)} className="block text-gray-900 font-medium py-2">{d.nav.contact}</Link>
 
           <div className="pt-4 border-t border-gray-100 space-y-3">
             <Link href={switchPath} onClick={() => setOpen(false)} className="flex items-center gap-2 text-gray-500 font-medium">
@@ -139,7 +139,7 @@ export default function Header({ lang, d }: { lang: Lang; d: Dictionary }) {
             <a href="tel:+16787395229" className="flex items-center gap-2 text-blue-700 font-medium">
               <Phone size={16} /> {d.nav.phone}
             </a>
-            <Link href={`/${lang}/contact`} onClick={() => setOpen(false)}
+            <Link href={`/${lang}/contact#quote-form`} onClick={() => setOpen(false)}
               className="block w-full text-center px-5 py-3 rounded-lg bg-gradient-to-r from-blue-800 to-blue-500 text-white font-semibold">
               {d.nav.getQuote}
             </Link>

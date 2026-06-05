@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Upload } from "lucide-react";
@@ -103,19 +103,6 @@ export default async function GalleryPage({ params }: { params: Promise<{ lang: 
             ))}
           </div>
 
-          {/* Placeholder grid for more photos */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-10">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <div key={i}
-                className="aspect-square bg-white border-2 border-dashed border-gray-200 rounded-2xl flex flex-col items-center justify-center gap-2 hover:border-sky-300 hover:bg-sky-50 transition-all">
-                <Upload size={22} className="text-gray-300" />
-                <p className="text-gray-300 text-xs text-center font-medium px-3">
-                  {isEs ? "Foto próximamente" : "Photo coming soon"}
-                </p>
-              </div>
-            ))}
-          </div>
-
           {/* CTA */}
           <div className="bg-gradient-to-r from-blue-900 to-blue-700 rounded-2xl p-10 text-center">
             <h3 className="text-2xl font-black text-white mb-2">
@@ -127,7 +114,7 @@ export default async function GalleryPage({ params }: { params: Promise<{ lang: 
                 : "Give us a call or request a quote. We can visit your property and show you exactly what we can do."}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link href={`/${lang}/contact`}
+              <Link href={`/${lang}/contact#quote-form`}
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-white text-blue-800 font-bold hover:bg-blue-50 transition-all">
                 {isEs ? "Cotización Gratis" : "Get a Free Quote"} <ArrowRight size={18} />
               </Link>

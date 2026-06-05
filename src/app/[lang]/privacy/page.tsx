@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import { getDictionary } from "@/lib/getDictionary";
 
@@ -189,7 +189,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ lang: 
               className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors">
               {lang === "es" ? "Ver Términos y Condiciones →" : "View Terms & Conditions →"}
             </Link>
-            <Link href={`/${lang}/contact`}
+            <Link href={`/${lang}/contact#quote-form`}
               className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors">
               {d.nav.getQuote}
             </Link>

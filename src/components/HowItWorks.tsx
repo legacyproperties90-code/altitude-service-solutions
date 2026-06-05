@@ -150,7 +150,7 @@ export default function HowItWorks({ lang }: { lang: string }) {
 
         {/* CTA */}
         <div className="mt-16 text-center flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href={`/${lang}/contact`}
+          <Link href={`/${lang}/contact#quote-form`}
             className="inline-flex items-center gap-2.5 px-9 py-4 rounded-xl bg-gradient-to-r from-sky-500 to-blue-800 text-white font-bold text-lg hover:from-sky-400 hover:to-blue-500 transition-all hover:-translate-y-1 shadow-xl shadow-blue-700/30">
             {isEs ? "Empezar Ahora" : "Get Started Today"} <ArrowRight size={20} />
           </Link>

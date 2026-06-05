@@ -2,7 +2,7 @@
 import { useState, use } from "react";
 import {
   Phone, Mail, MapPin, Send, CheckCircle, Clock, Shield,
-  Droplets, Wind, Home, Leaf, Eye, Building2, Star,
+  Droplets, Wind, Home, Leaf, Eye, Building2, Star, ChevronDown,
 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 
@@ -261,7 +261,7 @@ export default function ContactPage({ params }: { params: Promise<{ lang: string
           </div>
 
           {/* ── RIGHT: Form ── */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3" id="quote-form">
             {sent ? (
               /* ── Success state ── */
               <div className="bg-white rounded-2xl p-12 text-center shadow-sm border border-gray-100 h-full flex flex-col items-center justify-center min-h-[500px]">
@@ -277,52 +277,8 @@ export default function ContactPage({ params }: { params: Promise<{ lang: string
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-
-                {/* ── Service selector ── */}
-                <div className="bg-gradient-to-br from-blue-50 to-sky-50 px-7 py-7 border-b border-blue-100">
-                  <div className="flex items-center justify-between mb-5">
-                    <div>
-                      <h3 className="text-gray-900 font-black text-lg">{t.servicesTitle}</h3>
-                      <p className="text-gray-500 text-xs mt-0.5">{t.selectHint}</p>
-                    </div>
-                    {selectedServices.size > 0 && (
-                      <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">
-                        {selectedServices.size} {lang === "es" ? "seleccionado(s)" : "selected"}
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Residential */}
-                  <div className="mb-5">
-                    <div className="flex items-center gap-2 mb-3">
-                      <Home size={14} className="text-blue-600" />
-                      <span className="text-blue-700 font-bold text-xs uppercase tracking-wider">{t.residentialLabel}</span>
-                    </div>
-                    <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-2">
-                      {res.map((s) => (
-                        <ServicePill key={s.id} icon={s.icon} label={s.label}
-                          selected={selectedServices.has(s.id)} onToggle={() => toggleService(s.id)} />
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Commercial */}
-                  <div>
-                    <div className="flex items-center gap-2 mb-3">
-                      <Building2 size={14} className="text-sky-600" />
-                      <span className="text-sky-700 font-bold text-xs uppercase tracking-wider">{t.commercialLabel}</span>
-                    </div>
-                    <div className="grid grid-cols-2 gap-2">
-                      {com.map((s) => (
-                        <ServicePill key={s.id} icon={s.icon} label={s.label}
-                          selected={selectedServices.has(s.id)} onToggle={() => toggleService(s.id)} />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
                 {/* ── Fields ── */}
-                <div className="px-7 py-7 space-y-5">
+                <div className="px-5 sm:px-7 py-7 space-y-5">
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div>
                       <label className={label}>{t.name} <span className="text-red-400 font-normal text-xs ml-1">*{t.required}</span></label>
@@ -347,6 +303,52 @@ export default function ContactPage({ params }: { params: Promise<{ lang: string
                       <input type="text" value={form.address} onChange={(e) => setForm({ ...form, address: e.target.value })}
                         placeholder={t.addressPlaceholder} className={field} />
                     </div>
+                  </div>
+
+                  {/* ── Services dropdown ── */}
+                  <div>
+                    <label className={label}>
+                      {t.servicesTitle} *
+                      {selectedServices.size > 0 && (
+                        <span className="ml-2 bg-blue-600 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+                          {selectedServices.size} {lang === "es" ? "selec." : "selected"}
+                        </span>
+                      )}
+                    </label>
+                    <details className="group">
+                      <summary className={`${field} cursor-pointer list-none flex items-center justify-between`}>
+                        <span className="text-gray-500">
+                          {selectedServices.size > 0
+                            ? [...res, ...com].filter(s => selectedServices.has(s.id)).map(s => s.label).join(", ")
+                            : (lang === "es" ? "Selecciona uno o más servicios" : "Select one or more services")}
+                        </span>
+                        <ChevronDown size={16} className="text-gray-400 group-open:rotate-180 transition-transform shrink-0 ml-2" />
+                      </summary>
+                      <div className="mt-2 border-2 border-blue-100 rounded-xl bg-blue-50/50 p-4 space-y-4">
+                        <div>
+                          <p className="text-blue-700 font-bold text-xs uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                            <Home size={12} />{t.residentialLabel}
+                          </p>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            {res.map((s) => (
+                              <ServicePill key={s.id} icon={s.icon} label={s.label}
+                                selected={selectedServices.has(s.id)} onToggle={() => toggleService(s.id)} />
+                            ))}
+                          </div>
+                        </div>
+                        <div>
+                          <p className="text-sky-700 font-bold text-xs uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                            <Building2 size={12} />{t.commercialLabel}
+                          </p>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            {com.map((s) => (
+                              <ServicePill key={s.id} icon={s.icon} label={s.label}
+                                selected={selectedServices.has(s.id)} onToggle={() => toggleService(s.id)} />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </details>
                   </div>
 
                   <div>

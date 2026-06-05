@@ -216,7 +216,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
               : "Contact us today for a free no-obligation quote. We respond within 24 hours."}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href={`/${lang}/contact`}
+            <Link href={`/${lang}/contact#quote-form`}
               className="btn-arrow inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-blue-800 font-bold text-lg hover:bg-blue-50 transition-all hover:-translate-y-1">
               {isEs ? "Cotización Gratis" : "Get a Free Quote"} <ArrowRight size={20} />
             </Link>

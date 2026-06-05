@@ -11,7 +11,7 @@ const copy = {
     greeting: "Hi! 👋 Welcome to Altitude Service Solutions!",
     subGreeting: "How can I help you today?",
     options: [
-      { id: "quote",    label: "🏠 Get a Free Quote",    reply: "I'd love to help! Fill out our quick form and we'll get back to you within 24 hours.",                                         action: "link",    href: "/en/contact" },
+      { id: "quote",    label: "🏠 Get a Free Quote",    reply: "I'd love to help! Fill out our quick form and we'll get back to you within 24 hours.",                                         action: "link",    href: "/en/contact#quote-form" },
       { id: "services", label: "🧹 See Our Services",    reply: "We offer Pressure Washing, Soft Washing, Roof Cleaning, House Washing, Gutter Cleaning & Window Cleaning.",                   action: "submenu", sub: "services" },
       { id: "call",     label: "📞 Call Us Now",         reply: "Perfect! Give us a call at (678) 739-5229 — available Mon–Fri 8am–6pm, Sat 8am–4pm.",                                        action: "tel" },
       { id: "areas",    label: "📍 Service Areas",       reply: "We serve Atlanta, Lawrenceville, Duluth, Norcross, Buford, Suwanee and all surrounding North Georgia areas.",                 action: "text" },
@@ -29,7 +29,7 @@ const copy = {
     greeting: "¡Hola! 👋 ¡Bienvenido a Altitude Service Solutions!",
     subGreeting: "¿En qué puedo ayudarte hoy?",
     options: [
-      { id: "quote",    label: "🏠 Solicitar Cotización Gratis", reply: "¡Con gusto te ayudo! Completa nuestro formulario y te contactamos en menos de 24 horas.",                             action: "link",    href: "/es/contact" },
+      { id: "quote",    label: "🏠 Solicitar Cotización Gratis", reply: "¡Con gusto te ayudo! Completa nuestro formulario y te contactamos en menos de 24 horas.",                             action: "link",    href: "/es/contact#quote-form" },
       { id: "services", label: "🧹 Ver Nuestros Servicios",      reply: "Ofrecemos Lavado a Presión, Soft Washing, Limpieza de Techos, Lavado de Casas, Canaletas y Ventanas.",               action: "submenu", sub: "services" },
       { id: "call",     label: "📞 Llamar Ahora",                reply: "¡Perfecto! Llámanos al (678) 739-5229 — disponibles Lun–Vie 8am–6pm, Sáb 8am–4pm.",                                 action: "tel" },
       { id: "areas",    label: "📍 Áreas de Servicio",           reply: "Servimos a Atlanta, Lawrenceville, Duluth, Norcross, Buford, Suwanee y todas las áreas del norte de Georgia.",      action: "text" },
@@ -205,7 +205,7 @@ export default function ChatWidget({ lang }: { lang: Lang }) {
                   className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-blue-800 text-white text-sm font-bold hover:bg-blue-800 transition-all">
                   <Phone size={15} /> (678) 739-5229
                 </a>
-                <Link href={`/${lang}/contact`} onClick={() => setOpen(false)}
+                <Link href={`/${lang}/contact#quote-form`} onClick={() => setOpen(false)}
                   className="w-full flex items-center justify-center px-4 py-2.5 rounded-xl border-2 border-blue-700 text-blue-700 text-sm font-semibold hover:bg-blue-50 transition-all">
                   {lang === "en" ? "Get a Free Quote" : "Solicitar Cotización"}
                 </Link>

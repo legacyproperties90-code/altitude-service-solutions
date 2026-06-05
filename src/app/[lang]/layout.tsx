@@ -5,7 +5,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
 import StickyCTA from "@/components/StickyCTA";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import Analytics from "@/components/Analytics";
 import { getDictionary, type Lang } from "@/lib/getDictionary";
 
@@ -102,7 +101,6 @@ export default async function LangLayout({
         <main className="flex-1">{children}</main>
         <Footer lang={lang} d={d} />
         <ChatWidget lang={lang} />
-        <WhatsAppButton lang={lang} />
         <StickyCTA lang={lang} />
         <Analytics />
       </body>

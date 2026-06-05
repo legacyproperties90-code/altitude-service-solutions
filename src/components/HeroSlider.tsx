@@ -77,7 +77,7 @@ export default function HeroSlider({ slides, headline, highlight, subtitle, cta,
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8 sm:mb-10">
-          <Link href={`/${lang}/contact`}
+          <Link href={`/${lang}/contact#quote-form`}
             className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-gradient-to-r from-blue-800 to-blue-500 text-white font-bold text-base hover:from-blue-500 hover:to-blue-400 hover:-translate-y-0.5 transition-all shadow-xl shadow-blue-700/40">
             {cta} <ArrowRight size={18} />
           </Link>

@@ -74,27 +74,29 @@ export default async function ResidentialPage({ params }: { params: Promise<{ la
                       </li>
                     ))}
                   </ul>
-                  <Link href={`/${lang}/contact`}
+                  <Link href={`/${lang}/contact#quote-form`}
                     className="btn-arrow inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-blue-700 to-blue-600 text-white font-semibold hover:from-blue-800 hover:to-blue-700 transition-all hover:-translate-y-1 shadow-lg shadow-blue-700/20">
                     {d.residential.getQuote} <ArrowRight size={18} />
                   </Link>
                 </div>
                 <div className={`${!isEven ? "lg:order-1" : ""} rounded-2xl overflow-hidden ${aspectClass} relative shadow-xl shadow-black/10`}>
                   {photo ? (
-                  <Image src={photo.src} alt={s.title} fill unoptimized
-                    className="object-cover" style={{ objectPosition: photo.pos }}
-                    sizes="(max-width: 1024px) 100vw, 50vw" />
-                  <div className="absolute bottom-3 left-3">
-                    <span className="bg-blue-800/85 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full">
-                      {s.title}
-                    </span>
-                  </div>
+                    <>
+                      <Image src={photo.src} alt={s.title} fill unoptimized
+                        className="object-cover" style={{ objectPosition: photo.pos }}
+                        sizes="(max-width: 1024px) 100vw, 50vw" />
+                      <div className="absolute bottom-3 left-3">
+                        <span className="bg-blue-800/85 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-full">
+                          {s.title}
+                        </span>
+                      </div>
+                    </>
                   ) : (
-                  <div className="absolute inset-0 bg-gradient-to-br from-violet-50 to-blue-50 flex flex-col items-center justify-center gap-3">
-                    <Icon size={56} className={`${colors[i] ?? "text-violet-400"} opacity-30`} />
-                    <span className="text-gray-400 text-sm font-medium">{s.title}</span>
-                    <span className="text-gray-300 text-xs">{lang === "es" ? "Foto próximamente" : "Photo coming soon"}</span>
-                  </div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-violet-50 to-blue-50 flex flex-col items-center justify-center gap-3">
+                      <Icon size={56} className={`${colors[i] ?? "text-violet-400"} opacity-30`} />
+                      <span className="text-gray-400 text-sm font-medium">{s.title}</span>
+                      <span className="text-gray-300 text-xs">{lang === "es" ? "Foto próximamente" : "Photo coming soon"}</span>
+                    </div>
                   )}
                 </div>
               </div>
@@ -107,7 +109,7 @@ export default async function ResidentialPage({ params }: { params: Promise<{ la
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-4xl font-black text-white mb-5">{d.residential.bookCta}</h2>
           <p className="text-blue-100 text-lg mb-8">{d.residential.bookDesc}</p>
-          <Link href={`/${lang}/contact`}
+          <Link href={`/${lang}/contact#quote-form`}
             className="btn-arrow inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-blue-800 font-bold text-lg hover:bg-blue-50 transition-all">
             {d.residential.getQuote} <ArrowRight size={20} />
           </Link>

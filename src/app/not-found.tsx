@@ -15,7 +15,7 @@ export default function NotFound() {
             className="btn-arrow inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-blue-700 to-blue-600 text-white font-bold hover:from-blue-800 hover:to-blue-700 transition-all">
             <Home size={18} /> Go Home
           </Link>
-          <Link href="/en/contact"
+          <Link href="/en/contact#quote-form"
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border border-blue-700/50 text-white font-semibold hover:bg-blue-900/30 transition-all">
             Get a Quote <ArrowRight size={18} />
           </Link>

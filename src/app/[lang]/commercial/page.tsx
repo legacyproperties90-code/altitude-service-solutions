@@ -76,7 +76,7 @@ export default async function CommercialPage({ params }: { params: Promise<{ lan
                       </li>
                     ))}
                   </ul>
-                  <Link href={`/${lang}/contact`}
+                  <Link href={`/${lang}/contact#quote-form`}
                     className="btn-arrow inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold hover:from-blue-700 hover:to-blue-600 transition-all hover:-translate-y-1 shadow-lg shadow-blue-500/20">
                     {d.commercial.quoteBtn} <ArrowRight size={18} />
                   </Link>
@@ -110,7 +110,7 @@ export default async function CommercialPage({ params }: { params: Promise<{ lan
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-4xl font-black text-white mb-5">{d.commercial.bookCta}</h2>
           <p className="text-blue-100 text-lg mb-8">{d.commercial.bookDesc}</p>
-          <Link href={`/${lang}/contact`}
+          <Link href={`/${lang}/contact#quote-form`}
             className="btn-arrow inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-blue-700 font-bold text-lg hover:bg-blue-50 transition-all">
             {d.commercial.bookBtn} <ArrowRight size={20} />
           </Link>
