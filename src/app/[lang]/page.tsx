@@ -33,9 +33,9 @@ const comColors  = ["text-slate-600","text-sky-500","text-gray-600","text-violet
 const comHovers  = ["group-hover:bg-slate-600","group-hover:bg-sky-500","group-hover:bg-gray-600","group-hover:bg-violet-500","group-hover:bg-green-600"];
 const comBgs     = ["bg-slate-50","bg-sky-50","bg-gray-100","bg-violet-50","bg-green-50"];
 
-/* Cards con glow elegante */
-const CARD = "card-glow group relative bg-white border border-sky-100 rounded-2xl p-7 shadow-sm hover:border-sky-300 cursor-default overflow-hidden";
-const CARD_ICON = "w-12 h-12 rounded-xl bg-sky-50 flex items-center justify-center mb-5 group-hover:bg-sky-500 group-hover:shadow-lg group-hover:shadow-sky-400/30 transition-all duration-300";
+/* Cards premium con shimmer y glow */
+const CARD = "card-glow group relative bg-gradient-to-br from-white to-slate-50/60 border border-gray-100/80 rounded-2xl p-7 shadow-md cursor-default";
+const CARD_ICON = "w-14 h-14 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:shadow-xl transition-all duration-300";
 
 export default async function HomePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = await params;
@@ -216,11 +216,11 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               const Icon = resIcons[i] ?? CheckCircle;
               return (
                 <div key={s.id} className={CARD}>
-                  <div className={`w-12 h-12 rounded-xl ${resBgs[i]} flex items-center justify-center mb-5 ${resHovers[i]} transition-all duration-300`}>
-                    <Icon size={24} className={`${resColors[i]} group-hover:text-white transition-colors duration-300`} />
+                  <div className={`${CARD_ICON} ${resBgs[i]} ${resHovers[i]} group-hover:shadow-[0_8px_24px_-4px]`}>
+                    <Icon size={26} className={`${resColors[i]} group-hover:text-white transition-colors duration-300`} />
                   </div>
-                  <h3 className="text-black font-bold text-lg mb-2">{s.title}</h3>
-                  <p className="text-gray-700 text-sm leading-relaxed">{s.desc}</p>
+                  <h3 className="text-gray-900 font-black text-lg mb-2 group-hover:text-blue-700 transition-colors duration-300">{s.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
                 </div>
               );
             })}
@@ -250,11 +250,11 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               const Icon = comIcons[i] ?? Building2;
               return (
                 <div key={s.id} className={CARD}>
-                  <div className={`w-12 h-12 rounded-xl ${comBgs[i]} flex items-center justify-center mb-5 ${comHovers[i]} transition-all duration-300`}>
-                    <Icon size={24} className={`${comColors[i]} group-hover:text-white transition-colors duration-300`} />
+                  <div className={`${CARD_ICON} ${comBgs[i]} ${comHovers[i]}`}>
+                    <Icon size={26} className={`${comColors[i]} group-hover:text-white transition-colors duration-300`} />
                   </div>
-                  <h3 className="text-black font-bold text-lg mb-2">{s.title}</h3>
-                  <p className="text-gray-700 text-sm leading-relaxed">{s.desc}</p>
+                  <h3 className="text-gray-900 font-black text-lg mb-2 group-hover:text-blue-700 transition-colors duration-300">{s.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{s.desc}</p>
                 </div>
               );
             })}

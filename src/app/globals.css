@@ -29,18 +29,61 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
-/* ── Glow card effect ── */
-@keyframes card-shine {
-  0%   { background-position: 200% center; }
-  100% { background-position: -200% center; }
+/* ── Premium Card Effect ── */
+@keyframes shimmer-sweep {
+  0%   { transform: translateX(-150%) skewX(-15deg); opacity: 1; }
+  100% { transform: translateX(250%) skewX(-15deg); opacity: 1; }
 }
 
 .card-glow {
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s ease, border-color 0.35s ease;
+  overflow: hidden;
 }
+
+/* Shimmer sweep on hover */
+.card-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.65) 50%, transparent 65%);
+  transform: translateX(-150%) skewX(-15deg);
+  pointer-events: none;
+  opacity: 0;
+}
+.card-glow:hover::after {
+  animation: shimmer-sweep 0.55s ease forwards;
+}
+
+/* Gradient border reveal on hover */
+.card-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(135deg, #38bdf8, #3b82f6, #818cf8, #38bdf8);
+  background-size: 300% 300%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.card-glow:hover::before {
+  opacity: 1;
+}
+
 .card-glow:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(59,130,246,0.18), 0 0 0 1px rgba(59,130,246,0.2);
+  transform: translateY(-10px) scale(1.015);
+  box-shadow:
+    0 30px 60px -10px rgba(59,130,246,0.25),
+    0 10px 25px -5px rgba(56,189,248,0.18),
+    0 2px 8px rgba(0,0,0,0.06);
+  border-color: transparent !important;
 }
 
 /* ── Button glow ── */
