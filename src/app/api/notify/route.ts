@@ -37,12 +37,15 @@ export async function POST(req: NextRequest) {
     method: "POST",
     headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
     body: JSON.stringify({
-      from: "Altitude Quotes <noreply@altitudess.net>",
-      to: ["leonel@altitudess.net"],
-      subject: `🏠 New Quote Request from ${name} — ${service}`,
+      from: "Altitude Service Solutions <onboarding@resend.dev>",
+      to: ["leonel@altitudess.net", "ehleonel@yahoo.com"],
+      reply_to: email,
+      subject: `🏠 New Quote — ${name} | ${service}`,
       html,
     }),
   });
 
-  return NextResponse.json({ ok: res.ok });
+  const resBody = await res.json().catch(() => ({}));
+  console.log("Resend response:", res.status, JSON.stringify(resBody));
+  return NextResponse.json({ ok: res.ok, status: res.status, body: resBody });
 }
