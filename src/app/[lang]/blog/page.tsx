@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Calendar, Clock } from "lucide-react";
+import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
 import { posts } from "@/lib/blog";
-import { getDictionary, type Lang } from "@/lib/getDictionary";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
   const isEs = lang === "es";
   const baseUrl = "https://altitudess.net";
   return {
-    title: isEs ? "Blog — Consejos de Limpieza Exterior" : "Blog — Exterior Cleaning Tips",
+    title: isEs ? "Blog — Consejos de Limpieza Exterior" : "Blog — Exterior Cleaning Tips & Guides",
     description: isEs
       ? "Consejos, guías y recursos sobre lavado a presión, limpieza de techos y mantenimiento exterior en Atlanta, GA."
       : "Tips, guides, and resources for pressure washing, roof cleaning, and exterior maintenance in Atlanta, GA.",
@@ -22,10 +21,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 
 export default async function BlogIndex({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: rawLang } = await params;
-  const lang = (rawLang === "es" ? "es" : "en") as Lang;
+  const lang = rawLang === "es" ? "es" : "en";
   const isEs = lang === "es";
-
-  const langPosts = posts.filter((p) => p.lang === lang);
 
   return (
     <main className="min-h-screen bg-white">
@@ -44,39 +41,46 @@ export default async function BlogIndex({ params }: { params: Promise<{ lang: st
       </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16">
-        {langPosts.length === 0 ? (
+        {posts.length === 0 ? (
           <div className="text-center py-20">
-            <p className="text-gray-400 text-lg">
-              {isEs ? "Próximamente..." : "Coming soon..."}
-            </p>
+            <p className="text-gray-400 text-lg">{isEs ? "Próximamente..." : "Coming soon..."}</p>
           </div>
         ) : (
           <div className="space-y-8">
-            {langPosts.map((post) => (
-              <article key={post.slug} className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all p-8">
-                <div className="flex items-center gap-4 text-sm text-gray-400 mb-4">
-                  <span className="flex items-center gap-1.5">
-                    <Calendar size={14} />
-                    {new Date(post.publishDate).toLocaleDateString(lang === "es" ? "es-US" : "en-US", { year: "numeric", month: "long", day: "numeric" })}
-                  </span>
-                  {post.readTime && (
-                    <span className="flex items-center gap-1.5">
-                      <Clock size={14} />
-                      {post.readTime} {isEs ? "min de lectura" : "min read"}
+            {posts.map((post) => {
+              const slug = isEs ? post.slugEs : post.slug;
+              const title = isEs ? post.titleEs : post.title;
+              const description = isEs ? post.descriptionEs : post.description;
+              const tag = isEs ? post.tagEs : post.tag;
+              const readTime = isEs ? post.readTimeEs : post.readTime;
+              return (
+                <article key={post.slug} className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all p-8">
+                  <div className="flex items-center gap-4 text-sm text-gray-400 mb-4 flex-wrap">
+                    <span className="flex items-center gap-1.5 text-blue-600 font-semibold">
+                      <Tag size={13} />
+                      {tag}
                     </span>
-                  )}
-                </div>
-                <h2 className="text-2xl font-black text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">
-                  {post.title}
-                </h2>
-                <p className="text-gray-600 leading-relaxed mb-6">{post.excerpt}</p>
-                <Link
-                  href={`/${lang}/blog/${post.slug}`}
-                  className="inline-flex items-center gap-2 text-blue-700 font-semibold hover:gap-3 transition-all">
-                  {isEs ? "Leer más" : "Read more"} <ArrowRight size={16} />
-                </Link>
-              </article>
-            ))}
+                    <span className="flex items-center gap-1.5">
+                      <Calendar size={13} />
+                      {new Date(post.publishDate).toLocaleDateString(isEs ? "es-US" : "en-US", { year: "numeric", month: "long", day: "numeric" })}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <Clock size={13} />
+                      {readTime}
+                    </span>
+                  </div>
+                  <h2 className="text-2xl font-black text-gray-900 mb-3 group-hover:text-blue-700 transition-colors leading-tight">
+                    {title}
+                  </h2>
+                  <p className="text-gray-600 leading-relaxed mb-6">{description}</p>
+                  <Link
+                    href={`/${lang}/blog/${slug}`}
+                    className="inline-flex items-center gap-2 text-blue-700 font-semibold hover:gap-3 transition-all">
+                    {isEs ? "Leer más" : "Read more"} <ArrowRight size={16} />
+                  </Link>
+                </article>
+              );
+            })}
           </div>
         )}
       </div>
