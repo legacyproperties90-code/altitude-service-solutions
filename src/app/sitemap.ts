@@ -26,12 +26,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const lang of langs) {
     for (const page of staticPages) {
       entries.push({
-        url: ,
+        url: `${baseUrl}/${lang}${page.path}`,
         lastModified: LAST_MODIFIED,
         changeFrequency: page.freq,
         priority: page.priority,
         alternates: {
-          languages: Object.fromEntries(langs.map((l) => [l, ])),
+          languages: Object.fromEntries(langs.map((l) => [l, `${baseUrl}/${l}${page.path}`])),
         },
       });
     }
@@ -40,26 +40,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog posts
   for (const post of posts) {
     entries.push({
-      url: ,
+      url: `${baseUrl}/en/blog/${post.slug}`,
       lastModified: new Date(post.publishDate),
       changeFrequency: "monthly",
       priority: 0.75,
       alternates: {
         languages: {
-          en: ,
-          es: ,
+          en: `${baseUrl}/en/blog/${post.slug}`,
+          es: `${baseUrl}/es/blog/${post.slug}`,
         },
       },
     });
     entries.push({
-      url: ,
+      url: `${baseUrl}/es/blog/${post.slug}`,
       lastModified: new Date(post.publishDate),
       changeFrequency: "monthly",
       priority: 0.75,
       alternates: {
         languages: {
-          en: ,
-          es: ,
+          en: `${baseUrl}/en/blog/${post.slug}`,
+          es: `${baseUrl}/es/blog/${post.slug}`,
         },
       },
     });
@@ -69,12 +69,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const city of cities) {
     for (const lang of langs) {
       entries.push({
-        url: ,
+        url: `${baseUrl}/${lang}/locations/${city.slug}`,
         lastModified: LAST_MODIFIED,
         changeFrequency: "monthly",
         priority: 0.85,
         alternates: {
-          languages: Object.fromEntries(langs.map((l) => [l, ])),
+          languages: Object.fromEntries(langs.map((l) => [l, `${baseUrl}/${l}/locations/${city.slug}`])),
         },
       });
     }
@@ -84,12 +84,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const svc of services) {
     for (const lang of langs) {
       entries.push({
-        url: ,
+        url: `${baseUrl}/${lang}/services/${svc.slug}`,
         lastModified: LAST_MODIFIED,
         changeFrequency: "monthly",
         priority: 0.9,
         alternates: {
-          languages: Object.fromEntries(langs.map((l) => [l, ])),
+          languages: Object.fromEntries(langs.map((l) => [l, `${baseUrl}/${l}/services/${svc.slug}`])),
         },
       });
     }
