@@ -2,16 +2,20 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Clock, Tag } from "lucide-react";
 
+const imgA = "/foto10.jpg";
+const imgB = "/svc_soft_washing.jpg";
+const imgC = "/foto2.jpg";
+
 const posts = {
   en: [
-    { tag: "Maintenance Tips", title: "How Often Should You Pressure Wash Your Home in Atlanta?", excerpt: "Atlanta's humid climate makes exterior cleaning a year-round necessity. Learn the recommended frequency for each surface type.", readTime: "4 min read", img: "/foto10.jpg", imgPos: "50% 100%" },
-    { tag: "Soft Wash vs Pressure", title: "Soft Wash vs Pressure Wash: Which Is Right for Your Home?", excerpt: "Not all surfaces are equal. Discover when to use soft washing vs. pressure washing and why the wrong method can damage your property.", readTime: "5 min read", img: "/svc_soft_washing.jpg", imgPos: "75% 50%" },
-    { tag: "Commercial", title: "Why Regular Parking Lot Cleaning Boosts Your Business Value", excerpt: "First impressions count. A clean parking deck and building exterior directly impacts customer perception and property value in Atlanta.", readTime: "3 min read", img: "/foto2.jpg", imgPos: "center 40%" },
+    { tag: "Maintenance Tips", title: "How Often Should You Pressure Wash Your Home in Atlanta?", excerpt: "Atlanta's humid climate makes exterior cleaning a year-round necessity. Learn the recommended frequency for each surface type.", readTime: "4 min read", img: imgA, imgPos: "50% 100%" },
+    { tag: "Soft Wash vs Pressure", title: "Soft Wash vs Pressure Wash: Which Is Right for Your Home?", excerpt: "Not all surfaces are equal. Discover when to use soft washing vs. pressure washing and why the wrong method can damage your property.", readTime: "5 min read", img: imgB, imgPos: "75% 50%" },
+    { tag: "Commercial", title: "Why Regular Parking Lot Cleaning Boosts Your Business Value", excerpt: "First impressions count. A clean parking deck and building exterior directly impacts customer perception and property value in Atlanta.", readTime: "3 min read", img: imgC, imgPos: "center 40%" },
   ],
   es: [
-    { tag: "Mantenimiento", title: "¿Con Qué Frecuencia Lavar a Presión tu Casa en Atlanta?", excerpt: "El clima húmedo de Atlanta hace que la limpieza exterior sea necesaria todo el año. Aprende la frecuencia recomendada para cada superficie.", readTime: "4 min lectura", img: "/foto10.jpg", imgPos: "50% 100%" },
-    { tag: "Soft Wash vs Presión", title: "Soft Wash vs Lavado a Presión: ¿Cuál Es el Correcto?", excerpt: "No todas las superficies son iguales. Descubre cuándo usar cada método y por qué elegir el incorrecto puede dañar tu propiedad.", readTime: "5 min lectura", img: "/svc_soft_washing.jpg", imgPos: "75% 50%" },
-    { tag: "Comercial", title: "Por Qué la Limpieza Regular Aumenta el Valor de tu Negocio", excerpt: "La primera impresión cuenta. Un estacionamiento limpio impacta la percepción del cliente y el valor de tu propiedad en Atlanta.", readTime: "3 min lectura", img: "/foto2.jpg", imgPos: "center 40%" },
+    { tag: "Mantenimiento", title: "¿Con Qué Frecuencia Lavar a Presión tu Casa en Atlanta?", excerpt: "El clima húmedo de Atlanta hace que la limpieza exterior sea necesaria todo el año. Aprende la frecuencia recomendada para cada superficie.", readTime: "4 min lectura", img: imgA, imgPos: "50% 100%" },
+    { tag: "Soft Wash vs Presión", title: "Soft Wash vs Lavado a Presión: ¿Cuál Es el Correcto?", excerpt: "No todas las superficies son iguales. Descubre cuándo usar cada método y por qué elegir el incorrecto puede dañar tu propiedad.", readTime: "5 min lectura", img: imgB, imgPos: "75% 50%" },
+    { tag: "Comercial", title: "Por Qué la Limpieza Regular Aumenta el Valor de tu Negocio", excerpt: "La primera impresión cuenta. Un estacionamiento limpio impacta la percepción del cliente y el valor de tu propiedad en Atlanta.", readTime: "3 min lectura", img: imgC, imgPos: "center 40%" },
   ],
 };
 
@@ -36,7 +40,8 @@ export default function BlogSection({ lang }: { lang: string }) {
 
         <div className="grid md:grid-cols-3 gap-6">
           {items.map((post, i) => (
-            <article key={i} className="card-glow group bg-white rounded-2xl overflow-hidden shadow-sm flex flex-col border border-gray-100">
+            <Link key={i} href={`/${lang}/contact#quote-form`}
+              className="card-glow group bg-white rounded-2xl overflow-hidden shadow-sm flex flex-col border border-gray-100">
               <div className="relative h-48 overflow-hidden">
                 <Image src={post.img} alt={post.title} fill unoptimized
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -58,7 +63,7 @@ export default function BlogSection({ lang }: { lang: string }) {
                   </span>
                 </div>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>
