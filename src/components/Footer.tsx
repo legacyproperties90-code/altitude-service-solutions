@@ -3,8 +3,27 @@ import { Phone, Mail, MapPin, Star } from "lucide-react";
 import type { Dictionary, Lang } from "@/lib/getDictionary";
 
 const cities = {
-  en: ["Atlanta", "Lawrenceville", "Duluth", "Norcross", "Buford", "Suwanee", "Dacula", "Snellville"],
-  es: ["Atlanta", "Lawrenceville", "Duluth", "Norcross", "Buford", "Suwanee", "Dacula", "Snellville"],
+  en: ["Atlanta","Lawrenceville","Duluth","Norcross","Buford","Suwanee","Dacula","Snellville","Peachtree Corners","Sugar Hill","Lilburn","Loganville","Alpharetta","Johns Creek","Cumming","Gainesville"],
+  es: ["Atlanta","Lawrenceville","Duluth","Norcross","Buford","Suwanee","Dacula","Snellville","Peachtree Corners","Sugar Hill","Lilburn","Loganville","Alpharetta","Johns Creek","Cumming","Gainesville"],
+};
+
+const serviceLinks = {
+  en: [
+    { label: "Pressure Washing",    slug: "pressure-washing" },
+    { label: "Soft Washing",         slug: "soft-washing" },
+    { label: "House Washing",        slug: "house-washing" },
+    { label: "Roof Cleaning",        slug: "roof-cleaning" },
+    { label: "Gutter Cleaning",      slug: "gutter-cleaning" },
+    { label: "Fence & Deck Cleaning",slug: "fence-deck-cleaning" },
+  ],
+  es: [
+    { label: "Lavado a Presión",      slug: "pressure-washing" },
+    { label: "Lavado Suave",          slug: "soft-washing" },
+    { label: "Lavado de Casas",       slug: "house-washing" },
+    { label: "Limpieza de Techos",    slug: "roof-cleaning" },
+    { label: "Limpieza de Canaletas", slug: "gutter-cleaning" },
+    { label: "Cercas y Terrazas",     slug: "fence-deck-cleaning" },
+  ],
 };
 
 export default function Footer({ lang, d }: { lang: Lang; d: Dictionary }) {
@@ -52,13 +71,13 @@ export default function Footer({ lang, d }: { lang: Lang; d: Dictionary }) {
                 : "Professional exterior cleaning services in Atlanta, GA. Fully insured, licensed, and 100% satisfaction guaranteed."}
             </p>
 
-            {/* Google rating */}
+            {/* Google rating — no fake count */}
             <div className="flex items-center gap-2 mb-5 p-3 bg-white/4 rounded-xl border border-white/5 w-fit">
               <div className="flex gap-0.5">
                 {[1,2,3,4,5].map((i) => <Star key={i} size={13} className="fill-yellow-400 text-yellow-400" />)}
               </div>
               <span className="text-white text-xs font-bold">5.0</span>
-              <span className="text-gray-500 text-xs">{isEs ? "47 reseñas Google" : "47 Google reviews"}</span>
+              <span className="text-gray-500 text-xs">Google</span>
             </div>
 
             {/* Socials */}
@@ -75,13 +94,31 @@ export default function Footer({ lang, d }: { lang: Lang; d: Dictionary }) {
             </div>
           </div>
 
-          {/* Residential */}
+          {/* Services */}
           <div>
             <h4 className="text-white font-bold text-sm mb-5 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-              {d.footer.residential}
+              {isEs ? "Servicios" : "Services"}
             </h4>
             <ul className="space-y-2.5">
+              {serviceLinks[isEs ? "es" : "en"].map((s) => (
+                <li key={s.slug}>
+                  <Link href={`/${lang}/services/${s.slug}`}
+                    className="text-gray-500 hover:text-sky-400 text-sm transition-colors leading-tight block">
+                    {s.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Residential / Commercial collapsed */}
+          <div>
+            <h4 className="text-white font-bold text-sm mb-5 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-sky-400" />
+              {d.footer.residential}
+            </h4>
+            <ul className="space-y-2.5 mb-6">
               {d.residential.services.map((s) => (
                 <li key={s.id}>
                   <Link href={`/${lang}/residential#${s.id}`}
@@ -91,12 +128,8 @@ export default function Footer({ lang, d }: { lang: Lang; d: Dictionary }) {
                 </li>
               ))}
             </ul>
-          </div>
-
-          {/* Commercial */}
-          <div>
-            <h4 className="text-white font-bold text-sm mb-5 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-sky-400" />
+            <h4 className="text-white font-bold text-sm mb-3 flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
               {d.footer.commercial}
             </h4>
             <ul className="space-y-2.5">
@@ -124,8 +157,8 @@ export default function Footer({ lang, d }: { lang: Lang; d: Dictionary }) {
                 </a>
               </li>
               <li>
-                <a href="mailto:info@altitudeservicesolutions.com" className="flex items-start gap-2.5 text-gray-500 hover:text-sky-400 text-xs transition-colors break-all">
-                  <Mail size={14} className="text-sky-500 shrink-0 mt-0.5" /> info@altitudeservicesolutions.com
+                <a href="mailto:info@altitudess.net" className="flex items-start gap-2.5 text-gray-500 hover:text-sky-400 text-xs transition-colors break-all">
+                  <Mail size={14} className="text-sky-500 shrink-0 mt-0.5" /> info@altitudess.net
                 </a>
               </li>
               <li>
