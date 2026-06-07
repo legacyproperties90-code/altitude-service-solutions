@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
 import { posts } from "@/lib/blog";
 import { cities } from "@/lib/cities";
+import { services } from "@/lib/services";
 
 const baseUrl = "https://altitudess.net";
-const LAST_MODIFIED = new Date("2026-06-06");
+const LAST_MODIFIED = new Date("2026-06-07");
 const langs = ["en", "es"];
 
 const staticPages = [
@@ -25,12 +26,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const lang of langs) {
     for (const page of staticPages) {
       entries.push({
-        url: `${baseUrl}/${lang}${page.path}`,
+        url: ,
         lastModified: LAST_MODIFIED,
         changeFrequency: page.freq,
         priority: page.priority,
         alternates: {
-          languages: Object.fromEntries(langs.map((l) => [l, `${baseUrl}/${l}${page.path}`])),
+          languages: Object.fromEntries(langs.map((l) => [l, ])),
         },
       });
     }
@@ -39,26 +40,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Blog posts
   for (const post of posts) {
     entries.push({
-      url: `${baseUrl}/en/blog/${post.slug}`,
+      url: ,
       lastModified: new Date(post.publishDate),
       changeFrequency: "monthly",
       priority: 0.75,
       alternates: {
         languages: {
-          en: `${baseUrl}/en/blog/${post.slug}`,
-          es: `${baseUrl}/es/blog/${post.slugEs}`,
+          en: ,
+          es: ,
         },
       },
     });
     entries.push({
-      url: `${baseUrl}/es/blog/${post.slugEs}`,
+      url: ,
       lastModified: new Date(post.publishDate),
       changeFrequency: "monthly",
       priority: 0.75,
       alternates: {
         languages: {
-          en: `${baseUrl}/en/blog/${post.slug}`,
-          es: `${baseUrl}/es/blog/${post.slugEs}`,
+          en: ,
+          es: ,
         },
       },
     });
@@ -68,12 +69,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const city of cities) {
     for (const lang of langs) {
       entries.push({
-        url: `${baseUrl}/${lang}/locations/${city.slug}`,
+        url: ,
         lastModified: LAST_MODIFIED,
         changeFrequency: "monthly",
         priority: 0.85,
         alternates: {
-          languages: Object.fromEntries(langs.map((l) => [l, `${baseUrl}/${l}/locations/${city.slug}`])),
+          languages: Object.fromEntries(langs.map((l) => [l, ])),
+        },
+      });
+    }
+  }
+
+  // Service pages
+  for (const svc of services) {
+    for (const lang of langs) {
+      entries.push({
+        url: ,
+        lastModified: LAST_MODIFIED,
+        changeFrequency: "monthly",
+        priority: 0.9,
+        alternates: {
+          languages: Object.fromEntries(langs.map((l) => [l, ])),
         },
       });
     }
