@@ -26,7 +26,7 @@ export default function WhatsAppButton({ lang }: { lang: string }) {
 
   return (
     <a
-      href={}
+      href={`https://wa.me/${PHONE}?text=${msg}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
@@ -34,7 +34,7 @@ export default function WhatsAppButton({ lang }: { lang: string }) {
       onMouseLeave={() => setHovered(false)}
       className="fixed bottom-36 sm:bottom-[88px] right-4 sm:right-6 z-50 flex items-center justify-end group transition-opacity duration-300"
     >
-      <div className={}>
+      <div className={`absolute right-full mr-3 bg-white text-gray-800 text-sm font-semibold px-4 py-2.5 rounded-xl shadow-lg whitespace-nowrap border border-gray-100 transition-all duration-300 ${hovered ? "opacity-100 translate-x-0" : "opacity-0 translate-x-2 pointer-events-none"}`}>
         {isEs ? "Escríbenos por WhatsApp" : "Chat on WhatsApp"}
         <div className="absolute right-[-6px] top-1/2 -translate-y-1/2 w-0 h-0 border-t-4 border-b-4 border-l-4 border-transparent border-l-white" />
       </div>
