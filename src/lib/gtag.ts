@@ -6,7 +6,8 @@ declare global {
   }
 }
 
-export const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "";
+// Public GA4 Measurement ID — safe to hardcode (it's in the client JS anyway)
+export const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "G-B56F1RM1XS";
 
 export function pageview(url: string) {
   if (!window.gtag || !GA_ID) return;
