@@ -5,6 +5,7 @@ import {
   Droplets, Wind, Home, Leaf, Eye, Building2, Star, ChevronDown,
 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
+import { track } from "@/lib/gtag";
 
 /* ── Types ── */
 type Lang = "en" | "es";
@@ -167,7 +168,7 @@ export default function ContactPage({ params }: { params: Promise<{ lang: string
 
     setLoading(false);
     if (err) setError(t.errorMsg);
-    else setSent(true);
+    else { setSent(true); track.quoteSubmit(); }
   };
 
   const field = "w-full bg-gray-50 border-2 border-gray-100 rounded-xl px-4 py-3.5 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:bg-white transition-all text-sm";
