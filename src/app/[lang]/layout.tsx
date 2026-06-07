@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
 import StickyCTA from "@/components/StickyCTA";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import Analytics from "@/components/Analytics";
 import { getDictionary, type Lang } from "@/lib/getDictionary";
 
@@ -62,11 +63,20 @@ export async function generateMetadata({
       siteName: "Altitude Service Solutions",
       title: d.meta.home.title,
       description: d.meta.home.description,
+      images: [
+        {
+          url: `${baseUrl}/altura.png`,
+          width: 1200,
+          height: 630,
+          alt: "Altitude Service Solutions — Professional Pressure Washing Atlanta GA",
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: d.meta.home.title,
       description: d.meta.home.description,
+      images: [`${baseUrl}/altura.png`],
     },
     alternates: {
       canonical: `${baseUrl}/${lang}`,
@@ -101,6 +111,7 @@ export default async function LangLayout({
         <main className="flex-1">{children}</main>
         <Footer lang={lang} d={d} />
         <ChatWidget lang={lang} />
+        <WhatsAppButton lang={lang} />
         <StickyCTA lang={lang} />
         <Analytics />
       </body>
