@@ -25,11 +25,11 @@ export async function generateMetadata({
   const isEs = lang === "es";
   const name = isEs ? svc.nameEs : svc.name;
   const title = isEs
-    ? 
-    : ;
+    ? `${name} en Atlanta, GA | Altitude Service Solutions`
+    : `${name} in Atlanta, GA | Altitude Service Solutions`;
   const description = isEs ? svc.descriptionEs : svc.description;
   const baseUrl = "https://altitudess.net";
-  const canonical = ;
+  const canonical = `${baseUrl}/${lang}/services/${svc.slug}`;
 
   return {
     title,
@@ -37,15 +37,15 @@ export async function generateMetadata({
     alternates: {
       canonical,
       languages: {
-        en: ,
-        es: ,
+        en: `${baseUrl}/en/services/${svc.slug}`,
+        es: `${baseUrl}/es/services/${svc.slug}`,
       },
     },
     openGraph: {
       title,
       description,
       url: canonical,
-      images: [{ url: , width: 1200, height: 630, alt: title }],
+      images: [{ url: `${baseUrl}${svc.photo}`, width: 1200, height: 630, alt: title }],
     },
   };
 }
@@ -89,8 +89,7 @@ export default async function ServicePage({
       addressRegion: "GA",
       addressCountry: "US",
     },
-    aggregateRating: { "@type": "AggregateRating", ratingValue: "5", reviewCount: "9" },
-    priceRange: "3396",
+    priceRange: "$$",
     openingHours: ["Mo-Fr 08:00-18:00", "Sa 08:00-16:00"],
     mainEntityOfPage: {
       "@type": "FAQPage",
@@ -110,7 +109,7 @@ export default async function ServicePage({
       <section className="relative min-h-[65vh] flex items-center overflow-hidden">
         <Image
           src={svc.photo}
-          alt={}
+          alt={`${name} - Altitude Service Solutions`}
           fill
           unoptimized
           priority
@@ -141,7 +140,7 @@ export default async function ServicePage({
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href={}
+                href={`/${lang}/contact#quote-form`}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-sky-500 text-white font-bold text-lg hover:from-blue-500 hover:to-sky-400 transition-all hover:-translate-y-1 shadow-xl shadow-blue-700/40">
                 {isEs ? "Cotización Gratis" : "Get a Free Quote"} <ArrowRight size={20} />
               </Link>
@@ -184,8 +183,8 @@ export default async function ServicePage({
               </p>
               <h2 className="text-4xl font-black text-gray-900 mb-6 leading-tight">
                 {isEs
-                  ? 
-                  : }
+                  ? `Beneficios del ${name}`
+                  : `Benefits of ${name}`}
               </h2>
               <div className="space-y-4">
                 {benefits.map((b) => (
@@ -199,7 +198,7 @@ export default async function ServicePage({
               </div>
               <div className="mt-8">
                 <Link
-                  href={}
+                  href={`/${lang}/contact#quote-form`}
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-blue-700 to-blue-600 text-white font-semibold hover:from-blue-600 hover:to-sky-500 transition-all hover:-translate-y-1 shadow-lg shadow-blue-600/25">
                   {isEs ? "Obtener Cotización Gratis" : "Get Free Quote"} <ArrowRight size={18} />
                 </Link>
@@ -208,7 +207,7 @@ export default async function ServicePage({
             <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">
               <Image
                 src={svc.photo}
-                alt={}
+                alt={`${name} service by Altitude Service Solutions`}
                 fill
                 unoptimized
                 className="object-cover"
@@ -243,8 +242,8 @@ export default async function ServicePage({
             </p>
             <h2 className="text-4xl font-black text-gray-900">
               {isEs
-                ? 
-                : }
+                ? `Superficies para ${name}`
+                : `Surfaces for ${name}`}
             </h2>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -271,8 +270,8 @@ export default async function ServicePage({
             </p>
             <h2 className="text-4xl font-black text-gray-900 mb-4">
               {isEs
-                ? 
-                : }
+                ? `Servicio de ${name} en tu Área`
+                : `${name} Service in Your Area`}
             </h2>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto">
               {isEs
@@ -284,7 +283,7 @@ export default async function ServicePage({
             {serviceCities.map((city) => (
               <Link
                 key={city.slug}
-                href={}
+                href={`/${lang}/locations/${city.slug}`}
                 className="px-5 py-2.5 bg-gray-50 border border-gray-200 rounded-full text-gray-700 font-medium text-sm hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700 transition-all">
                 {isEs ? svc.nameEs : svc.name} — {city.name}, GA
               </Link>
@@ -325,8 +324,8 @@ export default async function ServicePage({
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-4xl font-black text-white mb-5">
             {isEs
-              ? 
-              : }
+              ? `¿Listo para un ${name} Profesional?`
+              : `Ready for Professional ${name}?`}
           </h2>
           <p className="text-blue-200 text-lg mb-10">
             {isEs
@@ -335,7 +334,7 @@ export default async function ServicePage({
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href={}
+              href={`/${lang}/contact#quote-form`}
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white text-blue-800 font-bold text-lg hover:bg-blue-50 transition-all hover:-translate-y-1">
               {isEs ? "Cotización Gratis" : "Get a Free Quote"} <ArrowRight size={20} />
             </Link>
