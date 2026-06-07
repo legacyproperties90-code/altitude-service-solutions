@@ -20,8 +20,8 @@ export async function generateMetadata({
 
   const isEs = lang === "es";
   const title = isEs
-    ? `Lavado a Presión ${city.name}, GA | Altitude Service Solutions`
-    : `Pressure Washing ${city.name}, GA | Altitude Service Solutions`;
+    ? `Lavado a Presión en ${city.name}, GA`
+    : `Pressure Washing in ${city.name}, GA`;
   const description = isEs
     ? `Servicios profesionales de lavado a presión y soft washing en ${city.name}, Georgia. Totalmente asegurados, licenciados y con 100% de satisfacción garantizada. ¡Cotización gratis!`
     : `Professional pressure washing & soft washing services in ${city.name}, Georgia. Fully insured, licensed, and 100% satisfaction guaranteed. Free quotes!`;
@@ -95,7 +95,6 @@ export default async function CityPage({
       addressRegion: "GA",
       addressCountry: "US",
     },
-    aggregateRating: { "@type": "AggregateRating", ratingValue: "5", reviewCount: "9" },
     priceRange: "$$",
     openingHours: ["Mo-Fr 08:00-18:00", "Sa 08:00-16:00"],
   };
