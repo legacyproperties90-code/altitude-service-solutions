@@ -18,6 +18,22 @@ export default function Header({ lang, d }: { lang: Lang; d: Dictionary }) {
   const resLinks = d.residential.services.map((s) => ({ label: s.title, href: `/${lang}/residential#${s.id}` }));
   const comLinks = d.commercial.services.map((s) => ({ label: s.title, href: `/${lang}/commercial#${s.id}` }));
 
+  const svcLinks = lang === "es" ? [
+    { label: "Lavado a Presión",      href: `/${lang}/services/pressure-washing` },
+    { label: "Lavado Suave",          href: `/${lang}/services/soft-washing` },
+    { label: "Lavado de Casas",       href: `/${lang}/services/house-washing` },
+    { label: "Limpieza de Techos",    href: `/${lang}/services/roof-cleaning` },
+    { label: "Limpieza de Canaletas", href: `/${lang}/services/gutter-cleaning` },
+    { label: "Cercas y Terrazas",     href: `/${lang}/services/fence-deck-cleaning` },
+  ] : [
+    { label: "Pressure Washing",     href: `/${lang}/services/pressure-washing` },
+    { label: "Soft Washing",          href: `/${lang}/services/soft-washing` },
+    { label: "House Washing",         href: `/${lang}/services/house-washing` },
+    { label: "Roof Cleaning",         href: `/${lang}/services/roof-cleaning` },
+    { label: "Gutter Cleaning",       href: `/${lang}/services/gutter-cleaning` },
+    { label: "Fence & Deck Cleaning", href: `/${lang}/services/fence-deck-cleaning` },
+  ];
+
   return (
     <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -46,6 +62,20 @@ export default function Header({ lang, d }: { lang: Lang; d: Dictionary }) {
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
             <Link href={`/${lang}`} className="text-gray-800 hover:text-blue-700 text-sm font-bold transition-colors">{d.nav.home}</Link>
+
+            <div className="relative group">
+              <button className="flex items-center gap-1 text-gray-800 hover:text-blue-700 text-sm font-bold transition-colors">
+                {lang === "es" ? "Servicios" : "Services"} <ChevronDown size={14} />
+              </button>
+              <div className="absolute top-full left-0 mt-2 w-52 bg-white border border-gray-100 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                {svcLinks.map((l) => (
+                  <Link key={l.href} href={l.href}
+                    className="block px-4 py-2.5 text-sm text-gray-600 hover:text-blue-700 hover:bg-blue-50 first:rounded-t-xl last:rounded-b-xl transition-colors">
+                    {l.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
 
             <div className="relative group">
               <button className="flex items-center gap-1 text-gray-800 hover:text-blue-700 text-sm font-bold transition-colors">
@@ -105,6 +135,13 @@ export default function Header({ lang, d }: { lang: Lang; d: Dictionary }) {
       {open && (
         <div className="lg:hidden bg-white border-t border-gray-100 px-4 py-6 space-y-4 shadow-lg">
           <Link href={`/${lang}`} onClick={() => setOpen(false)} className="block text-gray-900 font-medium py-2">{d.nav.home}</Link>
+
+          <div>
+            <p className="text-gray-500 text-xs font-semibold uppercase tracking-wider pt-1 pb-1">{lang === "es" ? "Servicios" : "Services"}</p>
+            <div className="pl-2 space-y-1">
+              {svcLinks.map((l) => <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="block text-gray-500 py-1.5 text-sm hover:text-blue-700">{l.label}</Link>)}
+            </div>
+          </div>
 
           <div>
             <button onClick={() => setResOpen(!resOpen)} className="flex items-center justify-between w-full text-gray-900 font-medium py-2">
