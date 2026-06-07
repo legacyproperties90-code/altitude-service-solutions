@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
 const baseUrl = "https://altitudess.net";
+const LAST_MODIFIED = new Date("2026-06-05");
 const langs = ["en", "es"];
 const pages = [
   { path: "", priority: 1.0, freq: "weekly" as const },
@@ -20,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const page of pages) {
       entries.push({
         url: `${baseUrl}/${lang}${page.path}`,
-        lastModified: new Date(),
+        lastModified: LAST_MODIFIED,
         changeFrequency: page.freq,
         priority: page.priority,
         alternates: {
