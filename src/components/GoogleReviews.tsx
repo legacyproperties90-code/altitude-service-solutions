@@ -45,14 +45,24 @@ export default function GoogleReviews({ lang }: { lang: string }) {
               ? "Lee las reseñas reales de nuestros clientes directamente en Google."
               : "Read real reviews from our clients directly on Google."}
           </p>
-          <a
-            href="https://www.google.com/maps/search/Altitude+Service+Solutions+Lawrenceville+GA"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white border-2 border-gray-200 text-gray-700 font-semibold hover:border-blue-400 hover:text-blue-700 transition-all shadow-sm">
-            {isEs ? "Ver reseñas en Google" : "See reviews on Google"}
-            <ExternalLink size={16} />
-          </a>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Altitude+Service+Solutions+LLC+Lawrenceville+GA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white border-2 border-gray-200 text-gray-700 font-semibold hover:border-blue-400 hover:text-blue-700 transition-all shadow-sm">
+              {isEs ? "Ver reseñas en Google" : "See reviews on Google"}
+              <ExternalLink size={16} />
+            </a>
+            <a
+              href="https://search.google.com/local/writereview?placeid=ChIJ11svnphy20"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-all shadow-sm">
+              {isEs ? "Dejar Reseña" : "Leave a Review"}
+              <ExternalLink size={16} />
+            </a>
+          </div>
         </div>
       </div>
     </section>
