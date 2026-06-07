@@ -25,8 +25,8 @@ export async function generateMetadata({
   const isEs = lang === "es";
   const name = isEs ? svc.nameEs : svc.name;
   const title = isEs
-    ? `${name} en Atlanta, GA | Altitude Service Solutions`
-    : `${name} in Atlanta, GA | Altitude Service Solutions`;
+    ? `${name} en Atlanta, GA`
+    : `${name} in Atlanta, GA`;
   const description = isEs ? svc.descriptionEs : svc.description;
   const baseUrl = "https://altitudess.net";
   const canonical = `${baseUrl}/${lang}/services/${svc.slug}`;
