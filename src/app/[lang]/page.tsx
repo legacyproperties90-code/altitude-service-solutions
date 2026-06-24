@@ -9,6 +9,7 @@ import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import VideoSection from "@/components/VideoSection";
 import GoogleReviews from "@/components/GoogleReviews";
 import BlogSection from "@/components/BlogSection";
+import { cities } from "@/lib/cities";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
