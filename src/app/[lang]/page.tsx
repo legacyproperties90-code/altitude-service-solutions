@@ -330,6 +330,40 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           </div>
         </div>
       </section>
+
+      {/* Service Areas — 16 city links for Local SEO */}
+      <section className="py-16 bg-gray-50 border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-10">
+            <p className="text-blue-600 font-semibold text-xs tracking-widest uppercase mb-2">
+              {isEs ? "Áreas de Servicio" : "Service Areas"}
+            </p>
+            <h2 className="text-3xl font-black text-gray-900">
+              {isEs ? "Servimos el Área Metropolitana de Atlanta" : "Serving the Greater Atlanta Area"}
+            </h2>
+            <p className="text-gray-500 mt-3 max-w-xl mx-auto text-sm">
+              {isEs
+                ? "Lavado a presión profesional en Gwinnett, Fulton, Forsyth y Hall County."
+                : "Professional pressure washing across Gwinnett, Fulton, Forsyth, and Hall County."}
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-3 mb-6">
+            {cities.map((city) => (
+              <a
+                key={city.slug}
+                href={`/${lang}/locations/${city.slug}`}
+                className="px-4 py-2 rounded-full bg-white border border-gray-200 text-gray-700 text-sm font-medium hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700 transition-all shadow-sm">
+                {city.name}, GA
+              </a>
+            ))}
+          </div>
+          <p className="text-center text-gray-400 text-xs">
+            {isEs
+              ? "¿No ves tu ciudad? Contáctanos — cubrimos todo el norte de Georgia."
+              : "Don't see your city? Contact us — we cover all of North Georgia."}
+          </p>
+        </div>
+      </section>
     </>
   );
 }
