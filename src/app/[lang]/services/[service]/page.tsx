@@ -47,6 +47,12 @@ export async function generateMetadata({
       url: canonical,
       images: [{ url: `${baseUrl}${svc.photo}`, width: 1200, height: 630, alt: title }],
     },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [`${baseUrl}${svc.photo}`],
+    },
   };
 }
 
