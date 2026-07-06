@@ -1,5 +1,7 @@
 import { Star, ExternalLink } from "lucide-react";
 
+const GOOGLE_BUSINESS_URL = "https://www.google.com/maps?cid=16973235940937361371";
+
 export default function GoogleReviews({ lang }: { lang: string }) {
   const isEs = lang === "es";
 
@@ -20,6 +22,9 @@ export default function GoogleReviews({ lang }: { lang: string }) {
           <div className="flex items-center justify-center gap-2 mb-3">
             {[1,2,3,4,5].map((i) => <Star key={i} size={28} className="fill-yellow-400 text-yellow-400" />)}
             <span className="text-3xl font-black text-gray-900 ml-2">5.0</span>
+            <span className="text-gray-500 font-semibold text-lg ml-1">
+              ({isEs ? "14 reseñas" : "14 reviews"})
+            </span>
           </div>
 
           <p className="text-blue-600 font-semibold text-sm tracking-widest uppercase mt-6 mb-2">
@@ -47,7 +52,7 @@ export default function GoogleReviews({ lang }: { lang: string }) {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="https://www.google.com/maps/search/?api=1&query=Altitude+Service+Solutions+LLC+Lawrenceville+GA"
+              href={GOOGLE_BUSINESS_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white border-2 border-gray-200 text-gray-700 font-semibold hover:border-blue-400 hover:text-blue-700 transition-all shadow-sm">
@@ -55,7 +60,7 @@ export default function GoogleReviews({ lang }: { lang: string }) {
               <ExternalLink size={16} />
             </a>
             <a
-              href="https://search.google.com/local/writereview?placeid=ChIJ11svnphy20"
+              href={GOOGLE_BUSINESS_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-all shadow-sm">
