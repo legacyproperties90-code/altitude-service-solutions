@@ -23,7 +23,7 @@ export async function generateMetadata({
   const { lang: rawLang } = await params;
   const lang = (rawLang === "es" ? "es" : "en") as Lang;
   const d = await getDictionary(lang);
-  const baseUrl = "https://altitudess.net";
+  const baseUrl = "https://altitudeservicesolutions.com";
 
   return {
     metadataBase: new URL(baseUrl),

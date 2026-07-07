@@ -21,7 +21,7 @@ export async function generateMetadata({
   const isEs = lang === "es";
   const title = isEs ? post.titleEs : post.title;
   const description = isEs ? post.descriptionEs : post.description;
-  const baseUrl = "https://altitudess.net";
+  const baseUrl = "https://altitudeservicesolutions.com";
   const canonical = `${baseUrl}/${lang}/blog/${slug}`;
 
   return {
@@ -66,20 +66,20 @@ export default async function BlogPostPage({
     "@type": "BlogPosting",
     headline: title,
     description,
-    image: `https://altitudess.net${post.img}`,
+    image: `https://altitudeservicesolutions.com${post.img}`,
     datePublished: post.publishDate,
     dateModified: post.publishDate,
     author: {
       "@type": "Organization",
       name: "Altitude Service Solutions",
-      url: "https://altitudess.net",
+      url: "https://altitudeservicesolutions.com",
     },
     publisher: {
       "@type": "Organization",
       name: "Altitude Service Solutions",
-      logo: { "@type": "ImageObject", url: "https://altitudess.net/logo.png" },
+      logo: { "@type": "ImageObject", url: "https://altitudeservicesolutions.com/logo.png" },
     },
-    mainEntityOfPage: { "@type": "WebPage", "@id": `https://altitudess.net/${lang}/blog/${slug}` },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `https://altitudeservicesolutions.com/${lang}/blog/${slug}` },
   };
 
   // Parse markdown-ish content into sections

@@ -6,7 +6,7 @@ import { posts } from "@/lib/blog";
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
   const isEs = lang === "es";
-  const baseUrl = "https://altitudess.net";
+  const baseUrl = "https://altitudeservicesolutions.com";
   return {
     title: isEs ? "Blog — Consejos de Limpieza Exterior" : "Blog — Exterior Cleaning Tips & Guides",
     description: isEs

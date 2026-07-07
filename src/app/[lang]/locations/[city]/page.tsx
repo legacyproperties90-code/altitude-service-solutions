@@ -26,7 +26,7 @@ export async function generateMetadata({
     ? `Servicios profesionales de lavado a presión y soft washing en ${city.name}, Georgia. Totalmente asegurados, licenciados y con 100% de satisfacción garantizada. ¡Cotización gratis!`
     : `Professional pressure washing & soft washing services in ${city.name}, Georgia. Fully insured, licensed, and 100% satisfaction guaranteed. Free quotes!`;
 
-  const baseUrl = "https://altitudess.net";
+  const baseUrl = "https://altitudeservicesolutions.com";
   const canonical = `${baseUrl}/${lang}/locations/${citySlug}`;
 
   return {
@@ -89,9 +89,9 @@ export default async function CityPage({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://altitudess.net",
+    "@id": "https://altitudeservicesolutions.com",
     name: "Altitude Service Solutions",
-    url: "https://altitudess.net",
+    url: "https://altitudeservicesolutions.com",
     telephone: "+16787395229",
     areaServed: { "@type": "City", name: city.name, addressRegion: "GA" },
     description: isEs ? city.descriptionEs : city.description,

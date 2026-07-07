@@ -13,8 +13,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       ? "Conoce a Altitude Service Solutions — empresa familiar de limpieza exterior en Atlanta, GA. Comprometidos con la excelencia, totalmente asegurados y con más de 15 años de experiencia."
       : "Meet Altitude Service Solutions — a family-owned exterior cleaning company in Atlanta, GA. Committed to excellence, fully insured, with 15+ years of experience.",
     alternates: {
-      canonical: `https://altitudess.net/${lang}/about`,
-      languages: { en: "https://altitudess.net/en/about", es: "https://altitudess.net/es/about" },
+      canonical: `https://altitudeservicesolutions.com/${lang}/about`,
+      languages: { en: "https://altitudeservicesolutions.com/en/about", es: "https://altitudeservicesolutions.com/es/about" },
     },
   };
 }

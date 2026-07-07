@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title: d.meta.home.title,
     description: d.meta.home.description,
     alternates: {
-      canonical: `https://altitudess.net/${lang}`,
-      languages: { en: "https://altitudess.net/en", es: "https://altitudess.net/es" },
+      canonical: `https://altitudeservicesolutions.com/${lang}`,
+      languages: { en: "https://altitudeservicesolutions.com/en", es: "https://altitudeservicesolutions.com/es" },
     },
   };
 }
@@ -48,13 +48,13 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://altitudess.net",
+    "@id": "https://altitudeservicesolutions.com",
     name: "Altitude Service Solutions",
     description: d.meta.home.description,
-    url: "https://altitudess.net",
+    url: "https://altitudeservicesolutions.com",
     telephone: "+16787395229",
     email: "info@altitudess.net",
-    image: "https://altitudess.net/logo.png",
+    image: "https://altitudeservicesolutions.com/logo.png",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Lawrenceville",

@@ -28,7 +28,7 @@ export async function generateMetadata({
     ? `${name} en Atlanta, GA`
     : `${name} in Atlanta, GA`;
   const description = isEs ? svc.descriptionEs : svc.description;
-  const baseUrl = "https://altitudess.net";
+  const baseUrl = "https://altitudeservicesolutions.com";
   const canonical = `${baseUrl}/${lang}/services/${svc.slug}`;
 
   return {
@@ -82,9 +82,9 @@ export default async function ServicePage({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "Service"],
-    "@id": "https://altitudess.net",
+    "@id": "https://altitudeservicesolutions.com",
     name: "Altitude Service Solutions",
-    url: "https://altitudess.net",
+    url: "https://altitudeservicesolutions.com",
     telephone: "+16787395229",
     serviceType: name,
     description,

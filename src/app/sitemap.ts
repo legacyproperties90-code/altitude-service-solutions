@@ -3,7 +3,7 @@ import { posts } from "@/lib/blog";
 import { cities } from "@/lib/cities";
 import { services } from "@/lib/services";
 
-const baseUrl = "https://altitudess.net";
+const baseUrl = "https://altitudeservicesolutions.com";
 const LAST_MODIFIED = new Date("2026-06-07");
 const langs = ["en", "es"];
 

@@ -11,8 +11,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title: d.meta.residential.title,
     description: d.meta.residential.description,
     alternates: {
-      canonical: `https://altitudess.net/${lang}/residential`,
-      languages: { en: "https://altitudess.net/en/residential", es: "https://altitudess.net/es/residential" },
+      canonical: `https://altitudeservicesolutions.com/${lang}/residential`,
+      languages: { en: "https://altitudeservicesolutions.com/en/residential", es: "https://altitudeservicesolutions.com/es/residential" },
     },
   };
 }

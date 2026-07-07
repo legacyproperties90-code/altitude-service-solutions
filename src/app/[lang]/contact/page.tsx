@@ -8,7 +8,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang } = await params;
   const isEs = lang === "es";
-  const baseUrl = "https://altitudess.net";
+  const baseUrl = "https://altitudeservicesolutions.com";
 
   const title = isEs
     ? "Cotización Gratis — Contacto"

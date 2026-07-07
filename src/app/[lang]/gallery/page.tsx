@@ -11,8 +11,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title: d.meta.gallery.title,
     description: d.meta.gallery.description,
     alternates: {
-      canonical: `https://altitudess.net/${lang}/gallery`,
-      languages: { en: "https://altitudess.net/en/gallery", es: "https://altitudess.net/es/gallery" },
+      canonical: `https://altitudeservicesolutions.com/${lang}/gallery`,
+      languages: { en: "https://altitudeservicesolutions.com/en/gallery", es: "https://altitudeservicesolutions.com/es/gallery" },
     },
   };
 }
