@@ -65,7 +65,7 @@ export async function generateMetadata({
       description: d.meta.home.description,
       images: [
         {
-          url: `${baseUrl}/altura.png`,
+          url: `${baseUrl}/altura.jpg`,
           width: 1200,
           height: 630,
           alt: "Altitude Service Solutions — Professional Pressure Washing Atlanta GA",
@@ -76,7 +76,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: d.meta.home.title,
       description: d.meta.home.description,
-      images: [`${baseUrl}/altura.png`],
+      images: [`${baseUrl}/altura.jpg`],
     },
     alternates: {
       canonical: `${baseUrl}/${lang}`,

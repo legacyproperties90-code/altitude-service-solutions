@@ -39,7 +39,7 @@ export default function BlogSection({ lang }: { lang: string }) {
               <Link key={i} href={`/${lang}/blog/${slug}`}
                 className="card-glow group bg-white rounded-2xl overflow-hidden shadow-sm flex flex-col border border-gray-100">
                 <div className="relative h-48 overflow-hidden">
-                  <Image src={post.img} alt={title} fill unoptimized
+                  <Image src={post.img} alt={title} fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     style={{ objectPosition: post.imgPos }}
                     sizes="(max-width: 768px) 100vw, 33vw" />

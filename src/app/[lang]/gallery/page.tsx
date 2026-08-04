@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 }
 
 const photos = [
-  { src: "/altura.png",  alt: "High-rise cleaning — Atlanta GA",               tag: { en: "High-Rise Cleaning",  es: "Limpieza en Altura" },     pos: "center 30%" },
+  { src: "/altura.jpg",  alt: "High-rise cleaning — Atlanta GA",               tag: { en: "High-Rise Cleaning",  es: "Limpieza en Altura" },     pos: "center 30%" },
   { src: "/foto4.jpg",   alt: "House washing results — Atlanta GA",             tag: { en: "House Washing",       es: "Lavado de Casa" },          pos: "50% 100%" },
   { src: "/foto1.jpg",   alt: "Driveway pressure washing — Atlanta GA",         tag: { en: "Pressure Washing",    es: "Lavado a Presión" },        pos: "50% 100%" },
   { src: "/foto3.jpg",   alt: "House soft washing — Lawrenceville GA",          tag: { en: "Soft Washing",        es: "Soft Washing" },            pos: "50% 100%" },

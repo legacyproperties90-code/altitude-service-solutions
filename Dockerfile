@@ -30,6 +30,11 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
+# next/image optimization needs sharp at runtime; standalone tracing does not
+# always include it, so copy it explicitly.
+COPY --from=deps --chown=nextjs:nodejs /app/node_modules/sharp ./node_modules/sharp
+COPY --from=deps --chown=nextjs:nodejs /app/node_modules/@img ./node_modules/@img
+
 USER nextjs
 EXPOSE 3000
 ENV PORT=3000

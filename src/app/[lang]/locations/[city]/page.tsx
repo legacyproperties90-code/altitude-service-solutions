@@ -43,13 +43,13 @@ export async function generateMetadata({
       title,
       description,
       url: canonical,
-      images: [{ url: `${baseUrl}/altura.png`, width: 1200, height: 630, alt: title }],
+      images: [{ url: `${baseUrl}/altura.jpg`, width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [`${baseUrl}/altura.png`],
+      images: [`${baseUrl}/altura.jpg`],
     },
   };
 }
@@ -122,7 +122,7 @@ export default async function CityPage({
 
       {/* Hero */}
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
-        <Image src="/altura.png" alt={`Pressure washing ${city.name} GA`} fill unoptimized priority
+        <Image src="/altura.jpg" alt={`Pressure washing ${city.name} GA`} fill priority
           className="object-cover" style={{ objectPosition: "center 25%" }} />
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/92 via-blue-900/75 to-blue-900/40" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-28 pb-16 w-full">
@@ -213,7 +213,7 @@ export default async function CityPage({
             </div>
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <Image src="/nueva3.jpg" alt={`Pressure washing service ${city.name} Georgia`}
-                width={600} height={400} unoptimized className="object-cover w-full h-80" />
+                width={600} height={400} className="object-cover w-full h-80" />
               <div className="absolute bottom-4 left-4 right-4">
                 <div className="bg-white/90 backdrop-blur-sm rounded-xl px-4 py-3 flex items-center gap-3">
                   <div className="flex gap-0.5">

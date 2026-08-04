@@ -87,7 +87,7 @@ export default async function CommercialPage({ params }: { params: Promise<{ lan
                     src={photo.src}
                     alt={s.title}
                     fill
-                    unoptimized
+                   
                     className="object-cover"
                     style={{ objectPosition: photo.pos }}
                     sizes="(max-width: 1024px) 100vw, 50vw"

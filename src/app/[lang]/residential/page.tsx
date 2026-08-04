@@ -82,7 +82,7 @@ export default async function ResidentialPage({ params }: { params: Promise<{ la
                 <div className={`${!isEven ? "lg:order-1" : ""} rounded-2xl overflow-hidden ${aspectClass} relative shadow-xl shadow-black/10`}>
                   {photo ? (
                     <>
-                      <Image src={photo.src} alt={s.title} fill unoptimized
+                      <Image src={photo.src} alt={s.title} fill
                         className="object-cover" style={{ objectPosition: photo.pos }}
                         sizes="(max-width: 1024px) 100vw, 50vw" />
                       <div className="absolute bottom-3 left-3">

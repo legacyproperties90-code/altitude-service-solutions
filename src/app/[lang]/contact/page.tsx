@@ -31,7 +31,7 @@ export async function generateMetadata({
       title,
       description,
       url: `${baseUrl}/${lang}/contact`,
-      images: [{ url: `${baseUrl}/altura.png`, width: 1200, height: 630, alt: title }],
+      images: [{ url: `${baseUrl}/altura.jpg`, width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: "summary_large_image",

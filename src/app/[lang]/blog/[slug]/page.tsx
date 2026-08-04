@@ -91,7 +91,7 @@ export default async function BlogPostPage({
 
       {/* Hero */}
       <div className="relative h-[50vh] min-h-[340px] w-full overflow-hidden">
-        <Image src={post.img} alt={title} fill unoptimized priority
+        <Image src={post.img} alt={title} fill priority
           className="object-cover" style={{ objectPosition: post.imgPos }} />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
         <div className="absolute inset-0 flex flex-col justify-end pb-10 px-4">

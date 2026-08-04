@@ -128,7 +128,7 @@ export default async function ServicePage({
           src={svc.photo}
           alt={`${name} - Altitude Service Solutions`}
           fill
-          unoptimized
+         
           priority
           className="object-cover"
           style={{ objectPosition: svc.photoPosition }}
@@ -226,7 +226,7 @@ export default async function ServicePage({
                 src={svc.photo}
                 alt={`${name} service by Altitude Service Solutions`}
                 fill
-                unoptimized
+               
                 className="object-cover"
                 style={{ objectPosition: svc.photoPosition }}
                 sizes="(max-width: 1024px) 100vw, 50vw"

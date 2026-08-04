@@ -60,7 +60,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
     <>
       {/* Hero */}
       <section className="pt-32 pb-16 bg-gradient-to-b from-blue-800 to-blue-700 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/altura.png')] bg-cover bg-center opacity-10" />
+        <div className="absolute inset-0 bg-[url('/altura.jpg')] bg-cover bg-center opacity-10" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-blue-200 font-semibold text-sm tracking-widest uppercase mb-3">
             {isEs ? "Nuestra Historia" : "Our Story"}
@@ -125,8 +125,8 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
             </div>
             <div className="relative">
               <div className="rounded-2xl overflow-hidden aspect-[4/3] relative shadow-2xl shadow-blue-900/15">
-                <Image src="/altura.png" alt="Altitude Service Solutions team at work" fill
-                  unoptimized className="object-cover" style={{ objectPosition: "center 25%" }} />
+                <Image src="/altura.jpg" alt="Altitude Service Solutions team at work" fill
+                  className="object-cover" style={{ objectPosition: "center 25%" }} />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5">
                   <div className="bg-white/90 backdrop-blur-sm rounded-xl px-4 py-3 inline-flex items-center gap-3">

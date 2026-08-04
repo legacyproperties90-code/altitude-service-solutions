@@ -148,7 +148,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         stats={d.stats}
         slides={[
           {
-            src: "/altura.png",
+            src: "/altura.jpg",
             alt: "High-rise building cleaning — Altitude Service Solutions Atlanta GA",
             objectPosition: "center 25%",
           },
