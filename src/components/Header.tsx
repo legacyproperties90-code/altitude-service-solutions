@@ -125,7 +125,11 @@ export default function Header({ lang, d }: { lang: Lang; d: Dictionary }) {
             </Link>
           </div>
 
-          <button onClick={() => setOpen(!open)} className="lg:hidden text-gray-700 p-2">
+          <button
+            onClick={() => setOpen(!open)}
+            aria-label={open ? (lang === "es" ? "Cerrar menú" : "Close menu") : (lang === "es" ? "Abrir menú" : "Open menu")}
+            aria-expanded={open}
+            className="lg:hidden text-gray-700 p-2">
             {open ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>

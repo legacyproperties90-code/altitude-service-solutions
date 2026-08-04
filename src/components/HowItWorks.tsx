@@ -120,8 +120,8 @@ export default function HowItWorks({ lang }: { lang: string }) {
                 {/* Card */}
                 <div className={`relative h-full rounded-2xl border ${step.border} bg-white/4 backdrop-blur-sm p-8 hover:bg-white/7 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${step.glow} overflow-hidden`}>
 
-                  {/* Giant background number */}
-                  <div className="absolute -top-4 -right-2 text-[110px] font-black text-white/3 leading-none select-none pointer-events-none">
+                  {/* Giant background number — decorative only */}
+                  <div aria-hidden="true" className="absolute -top-4 -right-2 text-[110px] font-black text-white/3 leading-none select-none pointer-events-none">
                     {step.num}
                   </div>
 

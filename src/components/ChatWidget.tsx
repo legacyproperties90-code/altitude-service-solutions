@@ -224,6 +224,7 @@ export default function ChatWidget({ lang }: { lang: Lang }) {
           style={{ animation: "slideUp 0.4s ease-out" }}>
           <div className="relative bg-white rounded-2xl rounded-br-sm shadow-xl shadow-black/15 border border-gray-100 px-4 py-3">
             <button onClick={() => setBubble(false)}
+              aria-label={lang === "en" ? "Dismiss message" : "Cerrar mensaje"}
               className="absolute -top-2 -right-2 w-5 h-5 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-colors">
               <X size={11} className="text-gray-600" />
             </button>
