@@ -105,9 +105,20 @@ export default async function CityPage({
     openingHours: ["Mo-Fr 08:00-18:00", "Sa 08:00-16:00"],
   };
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: isEs ? "Inicio" : "Home", item: `https://altitudeservicesolutions.com/${lang}` },
+      { "@type": "ListItem", position: 2, name: isEs ? "Áreas de Servicio" : "Service Areas", item: `https://altitudeservicesolutions.com/${lang}/locations` },
+      { "@type": "ListItem", position: 3, name: city.name, item: `https://altitudeservicesolutions.com/${lang}/locations/${city.slug}` },
+    ],
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
       {/* Hero */}
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">

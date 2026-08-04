@@ -30,6 +30,12 @@ export default function Analytics() {
         return;
       }
 
+      // Email clicks
+      if (href.startsWith("mailto:")) {
+        track.emailClick(text || href);
+        return;
+      }
+
       // WhatsApp clicks
       if (href.includes("wa.me")) {
         track.whatsapp("whatsapp_fab");

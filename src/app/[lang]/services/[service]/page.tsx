@@ -107,9 +107,20 @@ export default async function ServicePage({
     },
   };
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: isEs ? "Inicio" : "Home", item: `https://altitudeservicesolutions.com/${lang}` },
+      { "@type": "ListItem", position: 2, name: isEs ? "Servicios" : "Services", item: `https://altitudeservicesolutions.com/${lang}/services` },
+      { "@type": "ListItem", position: 3, name, item: `https://altitudeservicesolutions.com/${lang}/services/${svc.slug}` },
+    ],
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
       {/* Hero */}
       <section className="relative min-h-[65vh] flex items-center overflow-hidden">

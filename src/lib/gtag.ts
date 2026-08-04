@@ -30,6 +30,7 @@ export function event(
 // Conversion events — mark these as conversions in GA4 dashboard
 export const track = {
   phoneCall:      (label = "unknown") => event("phone_call_click",  { event_category: "conversion", event_label: label }),
+  emailClick:     (label = "unknown") => event("email_click",       { event_category: "conversion", event_label: label }),
   whatsapp:       (label = "unknown") => event("whatsapp_click",    { event_category: "conversion", event_label: label }),
   quoteSubmit:    ()                  => event("generate_lead",     { event_category: "conversion", event_label: "quote_form" }),
   ctaClick:       (label: string)     => event("cta_click",         { event_category: "engagement", event_label: label }),

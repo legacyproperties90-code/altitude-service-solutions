@@ -97,6 +97,24 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
     },
   };
 
+  const orgLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://altitudeservicesolutions.com/#organization",
+    name: "Altitude Service Solutions",
+    url: "https://altitudeservicesolutions.com",
+    logo: "https://altitudeservicesolutions.com/logo.png",
+    telephone: "+16787395229",
+    email: "info@altitudess.net",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Lawrenceville",
+      addressRegion: "GA",
+      postalCode: "30046",
+      addressCountry: "US",
+    },
+  };
+
   const faqLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -116,6 +134,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
       {/* HERO — Photo Slider */}
