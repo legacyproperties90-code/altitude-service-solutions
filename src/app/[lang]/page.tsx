@@ -2,9 +2,8 @@
 import Link from "next/link";
 import { Phone, Shield, Star, CheckCircle, ArrowRight, Droplets, Home, Building2, Leaf, Wind, Eye } from "lucide-react";
 import { getDictionary, type Lang } from "@/lib/getDictionary";
-import HeroSlider from "@/components/HeroSlider";
+import CinematicIntro from "@/components/cinematic/CinematicIntro";
 import TrustBadges from "@/components/TrustBadges";
-import HowItWorks from "@/components/HowItWorks";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import VideoSection from "@/components/VideoSection";
 import GoogleReviews from "@/components/GoogleReviews";
@@ -137,54 +136,12 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
-      {/* HERO — Photo Slider */}
-      <HeroSlider
-        lang={lang}
-        headline={d.hero.title}
-        highlight={d.hero.titleHighlight}
-        subtitle={d.hero.subtitle}
-        cta={d.hero.cta}
-        phone={d.nav.phone}
-        stats={d.stats}
-        slides={[
-          {
-            src: "/altura.jpg",
-            alt: "High-rise building cleaning — Altitude Service Solutions Atlanta GA",
-            objectPosition: "center 25%",
-          },
-          {
-            src: "/nueva3.jpg",
-            alt: "House soft washing results — Altitude Service Solutions",
-            objectPosition: "75% 50%",
-          },
-          {
-            src: "/nueva1.jpg",
-            alt: "Gutter cleaning results — Altitude Service Solutions",
-            objectPosition: "75% 40%",
-          },
-          {
-            src: "/nueva2.jpg",
-            alt: "Roof and gutter cleaning — Altitude Service Solutions",
-            objectPosition: "75% 40%",
-          },
-          {
-            src: "/foto1.jpg",
-            alt: "Driveway pressure washing — Atlanta GA",
-            objectPosition: "50% 100%",
-          },
-          {
-            src: "/foto2.jpg",
-            alt: "Commercial parking deck cleaning — Atlanta GA",
-            objectPosition: "center 40%",
-          },
-        ]}
-      />
+      {/* CINEMATIC INTRO — scroll-driven story, replaces hero/how-it-works/why-us */}
+      <CinematicIntro lang={lang} d={d} />
+      <div id="cinematic-sentinel" />
 
       {/* TRUST BADGES */}
       <TrustBadges lang={lang} />
-
-      {/* HOW IT WORKS */}
-      <HowItWorks lang={lang} />
 
       {/* WHY US */}
       <section className="py-20 bg-gray-50">

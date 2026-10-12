@@ -22,6 +22,39 @@
     { "value": "100%", "label": "Satisfacción Garantizada" },
     { "value": "⭐ 5.0", "label": "Google Rating" }
   ],
+  "cinematic": {
+    "scrollHint": "Desliza",
+    "scenes": [
+      {
+        "label": "01 — Lavado a Presión",
+        "title": "Años de suciedad.",
+        "titleHighlight": "Fuera en minutos.",
+        "subtitle": "Entradas, aceras y concreto como nuevos.",
+        "desc": "Agua a alta presión que elimina manchas de aceite y suciedad incrustada — sin dañar la superficie."
+      },
+      {
+        "label": "02 — Lavado Suave y Techos",
+        "title": "Limpiamos su techo.",
+        "titleHighlight": "Sin dañarlo.",
+        "subtitle": "Eliminamos moho, algas y esas rayas negras desde la raíz.",
+        "desc": "Baja presión, soluciones biodegradables — seguro para tejas, pintura y acabados."
+      },
+      {
+        "label": "03 — Canaletas, Ventanas y Más",
+        "title": "Cada detalle,",
+        "titleHighlight": "atendido.",
+        "subtitle": "Canaletas, ventanas, cercas y decks — su propiedad completa.",
+        "desc": "Desatascamos bajantes y garantizamos el flujo correcto del agua, previniendo daños costosos."
+      },
+      {
+        "label": "El Resultado",
+        "title": "Así se ve",
+        "titleHighlight": "la diferencia Altitude.",
+        "subtitle": "500+ propiedades transformadas. 15+ años de experiencia. 5.0★ en Google.",
+        "desc": ""
+      }
+    ]
+  },
   "whyUs": {
     "badge": "¿Por Qué Elegirnos?",
     "title": "La Confianza de Cientos de",

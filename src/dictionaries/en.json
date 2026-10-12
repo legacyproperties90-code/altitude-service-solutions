@@ -22,6 +22,39 @@
     { "value": "100%", "label": "Satisfaction Guarantee" },
     { "value": "⭐ 5.0", "label": "Google Rating" }
   ],
+  "cinematic": {
+    "scrollHint": "Scroll",
+    "scenes": [
+      {
+        "label": "01 — Pressure Washing",
+        "title": "Years of dirt.",
+        "titleHighlight": "Gone in minutes.",
+        "subtitle": "Driveways, walkways and concrete like new.",
+        "desc": "High-pressure water that blasts away oil stains and buildup — without damaging the surface."
+      },
+      {
+        "label": "02 — Soft Washing & Roofs",
+        "title": "We clean your roof.",
+        "titleHighlight": "Without damaging it.",
+        "subtitle": "We remove mold, algae and those black streaks at the root.",
+        "desc": "Low pressure, biodegradable solutions — safe for shingles, paint and finishes."
+      },
+      {
+        "label": "03 — Gutters, Windows & More",
+        "title": "Every detail,",
+        "titleHighlight": "handled.",
+        "subtitle": "Gutters, windows, fences and decks — your whole property.",
+        "desc": "We clear downspouts and restore proper water flow, preventing costly damage."
+      },
+      {
+        "label": "The Result",
+        "title": "This is",
+        "titleHighlight": "the Altitude difference.",
+        "subtitle": "500+ properties transformed. 15+ years of experience. 5.0★ on Google.",
+        "desc": ""
+      }
+    ]
+  },
   "whyUs": {
     "badge": "Why Choose Us",
     "title": "Trusted by Hundreds of",

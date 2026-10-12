@@ -1,5 +1,5 @@
 ﻿"use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -11,6 +11,28 @@ export default function Header({ lang, d }: { lang: Lang; d: Dictionary }) {
   const [resOpen, setResOpen] = useState(false);
   const [comOpen, setComOpen] = useState(false);
   const pathname = usePathname();
+
+  const isHome = pathname === `/${lang}`;
+  const [revealed, setRevealed] = useState(!isHome);
+
+  // On the home page, the cinematic intro renders its own minimal overlay nav.
+  // This header stays hidden until #cinematic-sentinel (placed right after it) comes into view.
+  useEffect(() => {
+    if (!isHome) {
+      setRevealed(true);
+      return;
+    }
+    const sentinel = document.getElementById("cinematic-sentinel");
+    if (!sentinel) {
+      setRevealed(true);
+      return;
+    }
+    const io = new IntersectionObserver(([entry]) => setRevealed(entry.isIntersecting), {
+      rootMargin: "-80px 0px 0px 0px",
+    });
+    io.observe(sentinel);
+    return () => io.disconnect();
+  }, [isHome]);
 
   const otherLang: Lang = lang === "en" ? "es" : "en";
   const switchPath = pathname.replace(`/${lang}`, `/${otherLang}`);
@@ -35,7 +57,11 @@ export default function Header({ lang, d }: { lang: Lang; d: Dictionary }) {
   ];
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+    <header
+      className={`fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-500 ${
+        revealed ? "opacity-100" : "opacity-0 pointer-events-none -translate-y-2"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-20">
 
